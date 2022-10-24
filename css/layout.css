@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+header {
+    height: 25vh;
+}
+
+header > nav{
+    margin-top: 16vh;
+}
+
+header > nav > ul > li > a{
+    color: white;
+}
+
+header > nav > ul > li > a:hover{
+    color: rgb(0, 0, 0);
+}
+
+footer {
+    background-color: #343a40;
+    padding: 10px;
+}
+
+footer > p {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
