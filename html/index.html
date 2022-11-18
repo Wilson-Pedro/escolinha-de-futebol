@@ -16,6 +16,14 @@
       .bg-gradient {
         background: linear-gradient(55deg, rgb(250, 165, 6),black );
       }
+
+      .card-title{
+        text-align: center;
+      }
+
+      .card-text{
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -23,20 +31,23 @@
         <nav>
             <ul class="nav">
               <li class="nav-item ">
-                <a class="nav-link" href="#">HOME</a>
+                <a class="nav-link" id="marcado" href="index.html">HOME</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">RANKING</a>
+                <a class="nav-link" href="#">JOGADORES</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">CALENDARIO</a>
+                <a class="nav-link" href="ranking.html">RANKING</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">HISTORICO DE PARTIDAS</a>
+                <a class="nav-link" href="#">PARTIDAS</a>
               </li>
             </ul>
           </nav>
     </header>
+
+    <!--CARROSSEL-->
+    
     <section>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -65,11 +76,14 @@
         </a>
       </div>
     </section>
+
+    <!--CARDS-->
+
     <section>
         <div class="container mb-5">
           <div class="row">
             <div class="col--sm-12 text-dark text-center my-3">
-              <h1>mais</h1>
+              <h1 class="mais">Mais</h1>
 
             </div>
           </div>
@@ -78,9 +92,9 @@
               <div class="card border-success">
                 <img class="card-img-top" src="https://source.unsplash.com/300x200/?torcida" alt="Imagem de capa do card">
                 <div class="card-body">
-                  <h5 class="card-title">crack da partida</h5>
-                  <p class="card-text">Local destinado a informação sobre o crack da partida.</p>
-                  <a href="#" class="btn btn-outline-success">Visitar</a>
+                  <h5 class="card-title">CALENDARIO DE PARTIDAS</h5>
+                  <p class="card-text">Confira os futuros jogos do seu time!</p>
+                  <a href="calendario.html" class="btn btn-outline-success">Visitar</a>
                 </div>
               </div>
             </div>
@@ -89,7 +103,7 @@
                 <img class="card-img-top" src="https://source.unsplash.com/300x200/?torcida"alt="Imagem de capa do card">
                 <div class="card-body">
                   <h5 class="card-title">CONFIRA O QUE ROLOU</h5>
-                  <p class="card-text">local destinado para ir diretamente para galeria de videos e fotos da ultima partida</p>
+                  <p class="card-text">Local destinado para ir diretamente para galeria de videos e fotos da ultima partida</p>
                   <a href="#" class="btn btn-outline-success">Visitar</a>
                 </div>
               </div>
@@ -99,8 +113,8 @@
                 <img class="card-img-top" src="https://source.unsplash.com/300x200/?ball" alt="Imagem de capa do card">
                 <div class="card-body">
                   <h5 class="card-title">ULTIMAS NOTICIAS</h5>
-                  <p class="card-text">local destinado a informacoes extras sobre partidas e acontecimentos</p>
-                  <a href="#" class="btn btn-outline-success">Visitar</a>
+                  <p class="card-text">Local destinado a informacoes extras sobre partidas e acontecimentos</p>
+                  <a href="noticiais.html" class="btn btn-outline-success">Visitar</a>
                 </div>
               </div>
             </div>
