@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.nome-jogador{
+    cursor: pointer;
+}
+
+.nome-jogador:hover{
+    color: black;
+    font-weight: bold;
+}
