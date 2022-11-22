@@ -40,16 +40,16 @@
     <nav class="dp-menu">
       <ul class="nav">
         <li class="nav-item ">
-          <a class="nav-link" id="marcado" href="index.html">HOME</a>
+          <a class="nav-link" id="marcado" href="index.php">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">JOGADORES</a>
           <ul class="sub-menu" id="sobrepor">
             <li>
-              <a href="subs/sub13.html">sub13</a>
+              <a href="subs/sub13.php">sub13</a>
             </li>
             <li>
-              <a href="ranking.html">RANKING</a>
+              <a href="ranking.php">RANKING</a>
             </li>
           </ul>
         </li>
@@ -62,7 +62,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="noticiais.html">NOTÍCIAS</a>
+          <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
         </li>
       </ul>
     </nav>
@@ -124,7 +124,7 @@
             <div class="card-body">
               <h5 class="card-title">CALENDARIO DE PARTIDAS</h5>
               <p class="card-text">Confira os futuros jogos do seu time!</p>
-              <a href="calendario.html" class="btn btn-outline-success">Visitar</a>
+              <a href="calendario.php" class="btn btn-outline-success">Visitar</a>
             </div>
           </div>
         </div>
@@ -149,7 +149,7 @@
             <div class="card-body">
               <h5 class="card-title">ULTIMAS NOTICIAS</h5>
               <p class="card-text">Local destinado a informacoes extras sobre partidas e acontecimentos</p>
-              <a href="noticiais.html" class="btn btn-outline-success">Visitar</a>
+              <a href="noticiais.php" class="btn btn-outline-success">Visitar</a>
             </div>
           </div>
         </div>

@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="lyon.jpg">
-    <link rel="shortcut icon" href="../../img/favicon/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../css/perfil-jogadores.css">
-    <link rel="stylesheet" href="../../css/sub13.css">
+    <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/perfil-jogadores.css">
     <title>Perfil dos Jogadores</title>
 </head>
 <body>
@@ -17,16 +16,16 @@
       <nav class="dp-menu">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="index.html">HOME</a>
+            <a class="nav-link" href="index.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" id="marcado">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="perfl-Jogadores.html">PERFIL DOS JOGADORES</a>
+                <a href="perfl-Jogadores.php">PERFIL DOS JOGADORES</a>
               </li>
               <li>
-                <a href="ranking.html">RANKING</a>
+                <a href="ranking.php">RANKING</a>
               </li>
             </ul>
           </li>
@@ -44,45 +43,6 @@
         </ul>
       </nav>
     </header>
-
-    <h1 class="joga">JOGADORES</h1>
-    <div>
-        <!--Lista de Jogadores-->
-        <p><label for="modal-1">João Pé de Feijão</label></p>
-        <p><label for="modal-2">Chapeuzinha vermelho</label></p>
-
-    </div>
-    <!--Informação do perfil-->
-    <input class="modal-state" id="modal-1" type="checkbox" />
-    <div class="modal">
-        <label class="modal__bg" for="modal-1"></label>
-        <div class="modal__inner">
-            <label class="modal__close" for="modal-1"></label>
-            <h1>João Pé de Feijão</h1>
-            <p><img src="../../img/imgSubs/1perfil.jpg" />
-            <p> Posição: Atacante</p>
-            <p> Jogos: 17</p>
-            <p> Gols: 14</p>
-            </p>
-        </div>
-    </div>
-
-
-    <!--Informação do perfil-->
-    <input class="modal-state" id="modal-2" type="checkbox" />
-    <div class="modal">
-        <label class="modal__bg" for="modal-2"></label>
-        <div class="modal__inner">
-            <label class="modal__close" for="modal-2"></label>
-            <h2>Chapeuzinha vermelho</h2>
-            <p><img src="../../img/imgSubs/2perfil.jpg" />
-            <p> Posição: Volante</p>
-            <p> Jogos: 11</p>
-            <p> Gols: 3</p>
-            </p>
-        </div>
-    </div>
-
     <!--
     <div class="bg-color">
       <div class="container">

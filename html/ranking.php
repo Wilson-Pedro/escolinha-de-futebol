@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="lyon.jpg">
     <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="ranking.css">
+    <link rel="stylesheet" href="../css/ranking.css">
     <title>Ranking</title>
 </head>
 <body>
@@ -16,13 +16,13 @@
         <nav class="dp-menu">
             <ul class="nav">
               <li class="nav-item ">
-                <a class="nav-link" href="index.html">HOME</a>
+                <a class="nav-link" href="index.php">HOME</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="marcado" href="#">JOGADORES</a>
                 <ul class="sub-menu">
-                  <li><a href="perfl-Jogadores.html">PERFIL DOS JOGADORES</a></li>
-                  <li><a href="ranking.html">RANKING</a></li>
+                  <li><a href="perfl-Jogadores.php">PERFIL DOS JOGADORES</a></li>
+                  <li><a href="ranking.php">RANKING</a></li>
                   
                 </ul>
               </li>
@@ -33,7 +33,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="noticiais.html">NOTÍCIAS</a>
+                <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
               </li>            
             </ul>
           </nav>

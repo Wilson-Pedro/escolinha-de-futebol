@@ -54,6 +54,6 @@
             <a href="login.html"><input type="button" value="Entrar em uma conta já cadastrada" class="btn-cadastrar"></a>
         </div>
     </div>
-    <script src="cadastro.js"></script>
+    <script src="../js/cadastro.js"></script>
 </body>
 </html>
