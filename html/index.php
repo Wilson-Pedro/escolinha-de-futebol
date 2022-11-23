@@ -46,7 +46,11 @@
           <a class="nav-link" href="#">JOGADORES</a>
           <ul class="sub-menu" id="sobrepor">
             <li>
-              <a href="subs/sub13.php">sub13</a>
+              <a href="#">sub13</a>
+              <a href="#">sub14</a>
+              <a href="#">sub15</a>
+              <a href="#">sub16</a>
+              <a href="#">sub17</a>
             </li>
             <li>
               <a href="ranking.php">RANKING</a>
@@ -57,12 +61,20 @@
           <a class="nav-link" href="#">PARTIDAS</a>
           <ul class="sub-menu">
             <li>
-              <a href="#">CALENDARIO DE JOGOS</a>
+              <a href="calendario.php">CALENDARIO DE JOGOS</a>
             </li>
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="noticiais.php">MAIS</a>
+          <ul class="sub-menu" id="sobrepor">
+            <li>
+              <a href="login.php">Área privada</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
