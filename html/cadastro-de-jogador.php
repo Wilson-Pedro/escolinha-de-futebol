@@ -170,7 +170,7 @@ if (isset($_POST['salvar'])) {
             <div class="row">
                 <div class="form-floating col-md-8">
                     <input type="text" class="form-control" id="jogadorIdade" name="jogadorIdade" placeholder="Ex.: Sub-14" maxlength="6">
-                    <label for="floatingInput text-center">Categoria</label>
+                    <label for="floatingInput text-center">Idade</label>
                 </div>
                 <button type="button" class="btn btn-warning col btn-lg" id="limpaIdade" onclick="limpaCampos1()">Limpar</button>
             </div><br>

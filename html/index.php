@@ -46,11 +46,11 @@
           <a class="nav-link" href="#">JOGADORES</a>
           <ul class="sub-menu" id="sobrepor">
             <li>
-              <a href="#">sub13</a>
-              <a href="#">sub14</a>
-              <a href="#">sub15</a>
-              <a href="#">sub16</a>
-              <a href="#">sub17</a>
+              <a href="subs/sub09.php">sub09</a>
+              <a href="subs/sub11.php">sub11</a>
+              <a href="subs/sub13.php">sub13</a>
+              <a href="subs/sub15.php">sub15</a>
+              <a href="subs/sub17.php">sub17</a>
             </li>
             <li>
               <a href="ranking.php">RANKING</a>

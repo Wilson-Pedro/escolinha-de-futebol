@@ -24,10 +24,10 @@
           <a class="nav-link" id="marcado" href="#">JOGADORES</a>
           <ul class="sub-menu">
             <li>
+              <a href="#">sub09</a>
+              <a href="#">sub11</a>
               <a href="#">sub13</a>
-              <a href="#">sub14</a>
               <a href="#">sub15</a>
-              <a href="#">sub16</a>
               <a href="#">sub17</a>
             </li>
             <li><a href="ranking.php">RANKING</a></li>

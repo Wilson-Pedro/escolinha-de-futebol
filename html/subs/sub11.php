@@ -18,7 +18,7 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../../css/ranking.css">
-  <title>Sub13</title>
+  <title>Sub11</title>
   <style>
         body {
             font-family: 'Arial';
@@ -98,7 +98,7 @@ $dados = $sql->fetchAll();
         </thead>";
 
         foreach($dados as $chaves => $valor){
-            if ($valor['idade'] > 11 && $valor['idade'] <= 13){
+            if ($valor['idade'] > 9 && $valor['idade'] <= 11){
                 echo "<tr>
                         <td>".$valor['nome']."</td>
                         <td>".$valor['idade']."</td>

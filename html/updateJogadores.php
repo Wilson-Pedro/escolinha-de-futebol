@@ -90,7 +90,7 @@ require('db/conexao.php');
 
 <?php
         // SELECIONAR DADOS DA TABELA
-        $sql = $pdo->prepare("SELECT * FROM tbljogadores ORDER BY id LIMIT 1,5");
+        $sql = $pdo->prepare("SELECT * FROM tbljogadores ORDER BY id LIMIT 1,10000");
         $sql->execute();
         $dados = $sql->fetchAll();
 
