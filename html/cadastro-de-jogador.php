@@ -1,3 +1,17 @@
+<?php
+require('db/conexao.php');
+
+if (isset($_POST['salvar'])) {
+    $nome = $_POST['jogadorNome'];
+    $idade = $_POST['jogadorIdade'];
+    $posicao = $_POST['jogadorPosicao'];
+    $gols = $_POST['jogadorGols'];
+
+    $sql = $pdo->prepare("INSERT INTO tbljogadores VALUES (null,?,?,?,?)");
+    $sql->execute(array($nome, $idade, $posicao, $gols));
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -143,12 +157,16 @@
         <h1 class="display-5">Cadastro de jogador</h1><br>
         <form method="post" action="">
             <div class="row">
+
+                <!-- NOME -->
                 <div class="form-floating col-md-8">
                     <input type="text" class="form-control" id="jogadorNome" name="jogadorNome" placeholder="Ex.: José F. Marques">
                     <label for="floatingInput text-center">Nome completo</label>
                 </div>
                 <button type="button" class="btn btn-warning col btn-lg" id="limpaNome" onclick="limpaCampos0()">Limpar</button>
             </div><br>
+
+            <!-- CATEGORIA -->
             <div class="row">
                 <div class="form-floating col-md-8">
                     <input type="text" class="form-control" id="jogadorIdade" name="jogadorIdade" placeholder="Ex.: Sub-14" maxlength="6">
@@ -158,13 +176,15 @@
             </div><br>
             <dialog id="cad-jogadorConfirmMsg" class="MsgSucesso">
                 <p class="cad-jogadorMsgSucesso">Cadastro feito com Sucesso!</p>
-                <a href="index.php"><input type="button" value="Ok" class="btn-MsgSucesso"></a>
+                <input type="button" id="cancel" value="Ok" class="btn-MsgSucesso">
             </dialog>
             <dialog id="cad-jogadorConfirmMsgErro" class="MsgErro">
                 <p class="cad-jogadorMsgErro">Erro ao realizar o cadastro!</p>
                 <a href="cadastro.php"><input type="button" value="Ok" class="btn-MsgErro"></a>
             </dialog>
             <div class="row">
+
+                <!-- POSIÇÃO -->
                 <div class="form-floating col-md-8">
                     <input type="text" class="form-control" id="jogadorPosicao" name="jogadorPosicao" placeholder="Ex.: Atacante">
                     <label for="floatingInput text-center">Posição</label>
@@ -172,9 +192,11 @@
                 <button type="button" class="btn btn-warning col btn-lg" id="limpaPosicao" onclick="limpaCampos2()">Limpar</button>
             </div><br>
             <div class="row">
+
+                <!-- GOLS -->
                 <div class="form-floating col-md-8">
                     <input type="text" class="form-control" id="jogadorGols" name="jogadorGols" placeholder="Ex.: 27">
-                    <label for="floatingInput text-center">Média de gols</label>
+                    <label for="floatingInput text-center">Gols</label>
                 </div>
                 <button type="button" class="btn btn-warning col btn-lg" id="limpaGols" onclick="limpaCampos3()">Limpar</button>
             </div><br>
@@ -187,62 +209,13 @@
                 </div>
                 <button type="button" class="btn btn-warning col btn-lg" id="limpaGols" onclick="limpaCampos4()">Limpar</button>
             </div><br>
-            <input type="submit" value="Cadastrar jogador" name="btn-cadastrar" id="btn-cadastrar" class="btn btn-success btn-lg" onclick="validaCampos(event)">
+
+            <!-- CADASTRAR JOGADOR -->
+            <input type="submit" name="salvar" id="btn-cadastrar" value="Cadastrar jogador" class="btn btn-success btn-lg" onclick="validaCampos(event)">
             <input type="reset" value="Limpar campos" name="btn-cadastrar" id="btn-cadastrar" class="btn btn-danger btn-lg">
         </form>
     </footer>
-    <script type="text/javascript">
-        var cad_jogadorConfirmMsg = document.getElementById('cad-jogadorConfirmMsg');
-        var jogador = [
-            document.getElementById('jogadorNome'),
-            document.getElementById('jogadorIdade'),
-            document.getElementById('jogadorPosicao'),
-            document.getElementById('jogadorGols'),
-            document.getElementById('jogadorFoto')
-        ];
-
-        function validaCampos(event) {
-            if (jogador[0].value == '' || jogador[1].value == '' || jogador[2].value == '' || jogador[3].value == '') {
-                alert('Preencha todos os campos para cadastrar um jogador');
-            } else if (typeof jogador[0].value === "number") {
-                alert('Insira uma nome e sobrenomes válidos');
-
-            } else if (!typeof jogador[1].value === "string" && !typeof jogador[1].value === "number") {
-                alert('Insira uma idade válida');
-
-            } else if (typeof jogador[2].value === "number") {
-                alert('Insira uma posição válida');
-
-            } else if (!typeof jogador[3].value === "number") {
-                alert('Insira uma média de gols válido');
-
-            } else {
-                cad_jogadorConfirmMsg.showModal();
-            }
-            event.preventDefault();
-            return;
-        }
-
-        function limpaCampos0() {
-            jogador[0].value = '';
-        }
-
-        function limpaCampos1() {
-            jogador[1].value = '';
-        }
-
-        function limpaCampos2() {
-            jogador[2].value = '';
-        }
-
-        function limpaCampos3() {
-            jogador[3].value = '';
-        }
-
-        function limpaCampos4() {
-            jogador[4].value = '';
-        }
-    </script>
+    <script src="../js/cadastro-jogador.js"></script>
 </body>
 
 </html>

@@ -73,6 +73,7 @@
           <ul class="sub-menu" id="sobrepor">
             <li>
               <a href="login.php">Área privada</a>
+              <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
             </li>
           </ul>
         </li>
