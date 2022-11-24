@@ -176,7 +176,7 @@ if (isset($_POST['salvar'])) {
             </div><br>
             <dialog id="cad-jogadorConfirmMsg" class="MsgSucesso">
                 <p class="cad-jogadorMsgSucesso">Cadastro feito com Sucesso!</p>
-                <input type="button" id="cancel" value="Ok" class="btn-MsgSucesso">
+                <a href="cadastro-de-jogador.php"><input type="submit" name="salvar" value="Ok" class="btn-MsgSucesso"></a>
             </dialog>
             <dialog id="cad-jogadorConfirmMsgErro" class="MsgErro">
                 <p class="cad-jogadorMsgErro">Erro ao realizar o cadastro!</p>
@@ -211,7 +211,7 @@ if (isset($_POST['salvar'])) {
             </div><br>
 
             <!-- CADASTRAR JOGADOR -->
-            <input type="submit" name="salvar" id="btn-cadastrar" value="Cadastrar jogador" class="btn btn-success btn-lg" onclick="validaCampos(event)">
+            <input type="submit" id="btn-cadastrar" value="Cadastrar jogador" class="btn btn-success btn-lg" onclick="validaCampos(event)">
             <input type="reset" value="Limpar campos" name="btn-cadastrar" id="btn-cadastrar" class="btn btn-danger btn-lg">
         </form>
     </footer>

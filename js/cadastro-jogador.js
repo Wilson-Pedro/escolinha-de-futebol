@@ -1,5 +1,4 @@
 var cad_jogadorConfirmMsg = document.getElementById('cad-jogadorConfirmMsg');
-var cancel = document.getElementById('cancel');
 var jogador = [
     document.getElementById('jogadorNome'),
     document.getElementById('jogadorIdade'),
@@ -24,9 +23,6 @@ function validaCampos(event) {
 
     } else {
         cad_jogadorConfirmMsg.showModal();
-        cancel.addEventListener('click', function () {
-            cad_jogadorConfirmMsg.close();
-        });
     }
     event.preventDefault();
     return;
