@@ -14,6 +14,10 @@
   <title>Calendario</title>
 </head>
 <style>
+  header>nav>ul>li>a {
+    font-size: 86%;
+  }
+
   .dp-menu ul li a {
     font-weight: bold;
   }

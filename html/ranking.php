@@ -16,13 +16,16 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/timeAND escudo.css">
-  <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/ranking.css">
   <title>Ranking</title>
   <style>
     body {
       font-family: 'Arial';
+    }
+
+    header>nav>ul>li>a {
+      font-size: 86%;
     }
 
     .dp-menu ul li a {
@@ -43,6 +46,10 @@ $dados = $sql->fetchAll();
 
     .oculto {
       display: none;
+    }
+
+    main {
+      width: 98vw;
     }
   </style>
 </head>
@@ -101,7 +108,6 @@ $dados = $sql->fetchAll();
       </nav>
     </header>
   </div>
-
   <main>
     <br><br><br>
     <?php

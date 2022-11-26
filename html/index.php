@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/timeAND escudo.css">
+  <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
+
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
 
@@ -30,6 +32,7 @@
     img.d-block {
       z-index: 0;
     }
+    
   </style>
 </head>
 

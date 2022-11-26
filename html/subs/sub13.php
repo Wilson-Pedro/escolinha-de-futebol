@@ -21,6 +21,10 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="../../css/ranking.css">
   <title>Sub13</title>
   <style>
+    header>nav>ul>li>a {
+      font-size: 86%;
+    }
+    
     .dp-menu ul li a {
       font-weight: bold;
     }
