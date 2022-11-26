@@ -7,8 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/timeAND escudo.css">
   <link rel="stylesheet" href="lyon.jpg">
@@ -16,8 +15,9 @@
 
   <title>Escolinha de futebol</title>
   <style>
-
-    
+    .dp-menu ul li a {
+      font-weight: bold;
+    }
 
     .card-title {
       text-align: center;
@@ -32,6 +32,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- CABEÇALHO -->
   <div class="cabecalho">
@@ -101,14 +102,14 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <!--IMAGEM 1--> 
+          <!--IMAGEM 1-->
           <img class="d-block w-100" src="../img/imagens/imagem6.jpg" alt="calendario">
         </div>
         <div class="carousel-item">
-           <!--IMAGEM 2-->  
+          <!--IMAGEM 2-->
           <img class="d-block w-100" src="../img/imagens/imagem4.jpg" alt="galeria de fotos">
         </div>
-         <!--IMAGEM 3-->
+        <!--IMAGEM 3-->
         <div class="carousel-item">
           <img class="d-block w-100" src="../img/imagens/imagem3.jpg" alt="historico de partidas">
         </div>
@@ -124,77 +125,69 @@
     </div>
   </section>
 
-      <!--CARDS-->
+  <!--CARDS-->
 
-      <section>
-        <div class="container mb-5">
-          <div class="row mt-4">
-            <div class="col--sm-12 text-dark text-center my-3">
-              <h1 class="mais">Mais</h1>
+  <section>
+    <div class="container mb-5">
+      <div class="row mt-4">
+        <div class="col--sm-12 text-dark text-center my-3">
+          <h1 class="mais">Mais</h1>
 
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="card border-success mt-4">
-                <img class="card-img-top" src="https://source.unsplash.com/300x200/?torcida"
-                  alt="Imagem de capa do card">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card border-success mt-4">
+            <img class="card-img-top" src="https://source.unsplash.com/300x200/?torcida" alt="Imagem de capa do card">
 
-                <!-- CARD 1 -->
-                <div class="card-body">
-                  <h5 class="card-title">CALENDARIO DE PARTIDAS</h5>
-                  <p class="card-text">Confira os futuros jogos do seu time!</p>
-                  <a href="calendario.php" class="btn btn-outline-success">Visitar</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="card border-success mt-4">
-                <img class="card-img-top" src="https://source.unsplash.com/300x200/?torcida"
-                  alt="Imagem de capa do card">
-
-                <!-- CARD 2 -->
-                <div class="card-body">
-                  <h5 class="card-title">CONFIRA O QUE ROLOU</h5>
-                  <p class="card-text">Local destinado para ir diretamente para galeria de videos e fotos da ultima
-                    partida
-                  </p>
-                  <a href="#" class="btn btn-outline-success">Visitar</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="col-sm-4">
-              <div class="card border-success mt-4">
-                <img class="card-img-top" src="https://source.unsplash.com/300x200/?ball" alt="Imagem de capa do card">
-                <div class="card-body">
-                  <h5 class="card-title">ULTIMAS NOTICIAS</h5>
-                  <p class="card-text">Local destinado a informacoes extras sobre partidas e acontecimentos</p>
-                  <a href="noticiais.php" class="btn btn-outline-success">Visitar</a>
-                </div>
-              </div>
+            <!-- CARD 1 -->
+            <div class="card-body">
+              <h5 class="card-title">CALENDARIO DE PARTIDAS</h5>
+              <p class="card-text">Confira os futuros jogos do seu time!</p>
+              <a href="calendario.php" class="btn btn-outline-success">Visitar</a>
             </div>
           </div>
         </div>
-      </section>
-      <footer>
-        <p class="mb-0">Desenvolvimento estacio</p>
-      </footer>
+        <div class="col-sm-4">
+          <div class="card border-success mt-4">
+            <img class="card-img-top" src="https://source.unsplash.com/300x200/?torcida" alt="Imagem de capa do card">
+
+            <!-- CARD 2 -->
+            <div class="card-body">
+              <h5 class="card-title">CONFIRA O QUE ROLOU</h5>
+              <p class="card-text">Local destinado para ir diretamente para galeria de videos e fotos da ultima
+                partida
+              </p>
+              <a href="#" class="btn btn-outline-success">Visitar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="col-sm-4">
+          <div class="card border-success mt-4">
+            <img class="card-img-top" src="https://source.unsplash.com/300x200/?ball" alt="Imagem de capa do card">
+            <div class="card-body">
+              <h5 class="card-title">ULTIMAS NOTICIAS</h5>
+              <p class="card-text">Local destinado a informacoes extras sobre partidas e acontecimentos</p>
+              <a href="noticiais.php" class="btn btn-outline-success">Visitar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p class="mb-0">Desenvolvimento estacio</p>
+  </footer>
 
 
 
 
 
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>

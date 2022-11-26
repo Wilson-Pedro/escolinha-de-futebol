@@ -1,3 +1,11 @@
+<?php
+require('db/conexao.php');
+
+$sql = $pdo->prepare("SELECT * FROM tbljogadores ORDER BY id LIMIT 1,1000");
+$sql->execute();
+$dados = $sql->fetchAll();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,7 +19,28 @@
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/ranking.css">
-  <title>---</title>
+  <title>Copia</title>
+  <style>
+    body {
+      font-family: 'Arial';
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: center;
+      border: solid 1px black;
+    }
+
+    .oculto {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,11 +62,11 @@
             <a class="nav-link" id="marcado" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="subs/sub09.php">sub09</a>
-                <a href="subs/sub11.php">sub11</a>
-                <a href="subs/sub13.php">sub13</a>
-                <a href="subs/sub15.php">sub15</a>
-                <a href="subs/sub17.php">sub17</a>
+                <a href="sub09.php">sub09</a>
+                <a href="sub11.php">sub11</a>
+                <a href="sub13.php">sub13</a>
+                <a href="sub15.php">sub15</a>
+                <a href="sub17.php">sub17</a>
               </li>
               <li>
                 <a href="ranking.php">RANKING</a>
@@ -59,7 +88,7 @@
             <a class="nav-link" href="noticiais.php">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="login.php">Área privada</a>
+                <a href="#">Área privada</a>
                 <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
               </li>
             </ul>
@@ -69,6 +98,62 @@
     </header>
   </div>
 
+  <main>
+    <br><br><br>
+    <?php
+    if (count($dados) > 0) {
+      echo "<table class=table table-striped>
+        <thead class=table-dark>
+        <tr>
+            <th>Posição</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Posição</th>
+            <th>Gols</th>
+        </tr>
+        </thead>";
+      $maior = 0;
+      foreach ($dados as $chaves => $valor) {
+        if ($valor['gols'] > $maior) {
+          $maior = $valor['gols'];
+        }
+      }
+
+      $aux = 0;
+      $contMaior = 0;
+      $cont = 0;
+      $ranking = 1;
+      while ($cont < 11) {
+        foreach ($dados as $chaves => $valor) {
+          if ($valor['gols'] == $maior) {
+            if ($ranking == 11) {
+              break;
+            }
+            echo "<tr>
+                        <td>" . $ranking . "</td>
+                        <td>" . $valor['nome'] . "</td>
+                        <td>" . $valor['idade'] . "</td>
+                        <td>" . $valor['posicao'] . "</td>
+                        <td>" . $valor['gols'] . "</td>
+                    </tr>";
+            $ranking += 1;
+          }
+        }
+        $maior -= 1;
+        $cont += 1;
+        if($cont == 10){
+          break;
+        }
+      }
+
+
+      echo "</table>";
+    } else {
+      echo "<p>Nenhum Jogador cadastrado</p>";
+    }
+
+    ?>
+  </main>
   <footer>
     <p class="mb-0">Desenvolvimento estacio</p>
   </footer>

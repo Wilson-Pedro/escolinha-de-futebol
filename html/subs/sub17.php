@@ -21,25 +21,30 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="../../css/ranking.css">
   <title>Sub17</title>
   <style>
-        body {
-            font-family: 'Arial';
-        }
+    .dp-menu ul li a {
+      font-weight: bold;
+    }
 
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+    body {
+      font-family: 'Arial';
+    }
 
-        th, td {
-            padding: 10px;
-            text-align: center;
-            border: solid 1px black;
-        }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-        .oculto {
-            display: none;
-        }
-    </style>
+    th,
+    td {
+      padding: 10px;
+      text-align: center;
+      border: solid 1px black;
+    }
+
+    .oculto {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -58,14 +63,14 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="../index.php">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="marcado"  href="#">JOGADORES</a>
+            <a class="nav-link" id="marcado" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
                 <a href="sub09.php">sub09</a>
                 <a href="sub11.php">sub11</a>
                 <a href="sub13.php">sub13</a>
                 <a href="sub15.php">sub15</a>
-                <a href="sub17.php">sub17</a>
+                <a href="sub17.php" id="marcado">sub17</a>
               </li>
               <li>
                 <a href="../ranking.php">RANKING</a>
@@ -99,9 +104,9 @@ $dados = $sql->fetchAll();
 
   <main>
     <br><br><br>
-  <?php
-    if (count($dados) > 0){
-        echo "<table class=table table-striped>
+    <?php
+    if (count($dados) > 0) {
+      echo "<table class=table table-striped>
         <thead class=table-dark>
         <tr>
             <th>Nome</th>
@@ -111,21 +116,21 @@ $dados = $sql->fetchAll();
         </tr>
         </thead>";
 
-        foreach($dados as $chaves => $valor){
-            if ($valor['idade'] >= 16 && $valor['idade'] <= 17){
-                echo "<tr>
-                        <td>".$valor['nome']."</td>
-                        <td>".$valor['idade']."</td>
-                        <td>".$valor['posicao']."</td>
-                        <td>".$valor['gols']."</td>
+      foreach ($dados as $chaves => $valor) {
+        if ($valor['idade'] >= 16 && $valor['idade'] <= 17) {
+          echo "<tr>
+                        <td>" . $valor['nome'] . "</td>
+                        <td>" . $valor['idade'] . "</td>
+                        <td>" . $valor['posicao'] . "</td>
+                        <td>" . $valor['gols'] . "</td>
                     </tr>";
-            }
         }
-        
+      }
 
-        echo "</table>";
+
+      echo "</table>";
     } else {
-        echo "<p>Nenhum Jogador cadastrado</p>";
+      echo "<p>Nenhum Jogador cadastrado</p>";
     }
 
     ?>

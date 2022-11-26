@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="../css/timeAND escudo.css">
   <title>Calendario</title>
 </head>
+<style>
+  .dp-menu ul li a {
+    font-weight: bold;
+  }
+</style>
 
 <body>
   <!-- CABEÇALHO -->

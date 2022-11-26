@@ -1,3 +1,11 @@
+<?php
+require('db/conexao.php');
+
+$sql = $pdo->prepare("SELECT * FROM tbljogadores ORDER BY id LIMIT 1,1000");
+$sql->execute();
+$dados = $sql->fetchAll();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,6 +20,31 @@
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/ranking.css">
   <title>Ranking</title>
+  <style>
+    body {
+      font-family: 'Arial';
+    }
+
+    .dp-menu ul li a {
+      font-weight: bold;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: center;
+      border: solid 1px black;
+    }
+
+    .oculto {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -59,7 +92,7 @@
             <a class="nav-link" href="noticiais.php">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="login.php">Área privada</a>
+                <a href="#">Área privada</a>
                 <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
               </li>
             </ul>
@@ -70,81 +103,60 @@
   </div>
 
   <main>
-    <h2>Ranking dos Jogadores</h2>
-    <div>
-      <table class="table table-striped">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Jogador</th>
-            <th scope="col">Gols</th>
-            <th scope="col">Posição</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td class="nome-jogador">Mark</td>
-            <td>12</td>
-            <td>atacante</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td class="nome-jogador">Jacob</td>
-            <td>10</td>
-            <td>atacante</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td class="nome-jogador">Juninho</td>
-            <td>9</td>
-            <td>meia</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td class="nome-jogador">Mark</td>
-            <td>7</td>
-            <td>lateral</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td class="nome-jogador">Jacob</td>
-            <td>6</td>
-            <td>atacante</td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td class="nome-jogador">Mark</td>
-            <td>5</td>
-            <td>meia</td>
-          </tr>
-          <tr>
-            <th scope="row">7</th>
-            <td class="nome-jogador">Mark</td>
-            <td>3</td>
-            <td>atacante</td>
-          </tr>
-          <tr>
-            <th scope="row">8</th>
-            <td class="nome-jogador">Jacob</td>
-            <td>2</td>
-            <td>meia</td>
-          </tr>
-          <tr>
-            <th scope="row">9</th>
-            <td class="nome-jogador">Mark</td>
-            <td>1</td>
-            <td>lateral</td>
-          </tr>
-          <tr>
-            <th scope="row">10</th>
-            <td class="nome-jogador">Mark</td>
-            <td>1</td>
-            <td>atacante</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <br><br><br>
+    <?php
+    if (count($dados) > 0) {
+      echo "<table class=table table-striped>
+        <thead class=table-dark>
+        <tr>
+            <th>Posição</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Posição</th>
+            <th>Gols</th>
+        </tr>
+        </thead>";
+      $maior = 0;
+      foreach ($dados as $chaves => $valor) {
+        if ($valor['gols'] > $maior) {
+          $maior = $valor['gols'];
+        }
+      }
+
+      $aux = 0;
+      $contMaior = 0;
+      $cont = 0;
+      $ranking = 1;
+      while ($cont < 11) {
+        foreach ($dados as $chaves => $valor) {
+          if ($valor['gols'] == $maior) {
+            if ($ranking == 11) {
+              break;
+            }
+            echo "<tr>
+                        <td>" . $ranking . "</td>
+                        <td>" . $valor['nome'] . "</td>
+                        <td>" . $valor['idade'] . "</td>
+                        <td>" . $valor['posicao'] . "</td>
+                        <td>" . $valor['gols'] . "</td>
+                    </tr>";
+            $ranking += 1;
+          }
+        }
+        $maior -= 1;
+        $cont += 1;
+        if ($cont == 10) {
+          break;
+        }
+      }
+
+
+      echo "</table>";
+    } else {
+      echo "<p>Nenhum Jogador cadastrado</p>";
+    }
+
+    ?>
   </main>
   <footer>
     <p class="mb-0">Desenvolvimento estacio</p>
