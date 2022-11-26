@@ -26,7 +26,6 @@ if (isset($_POST['salvar'])) {
     <link rel="stylesheet" href="../css/timeAND escudo.css">
     <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
 
-    <link rel="stylesheet" href="lyon.jpg">
     <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
     <title>Cadastro de jogador</title>
     <style>
@@ -149,7 +148,8 @@ if (isset($_POST['salvar'])) {
                         <ul class="sub-menu" id="sobrepor">
                             <li>
                                 <a href="login.php">Área privada</a>
-                                <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
+                                <a href="cadastro-de-jogador.php" id="marcado">Cadastrar Jogador</a>
+                                <a href="cadastro-de-partidas.php">Cadastrar partida</a>
                             </li>
                         </ul>
                     </li>
@@ -157,6 +157,7 @@ if (isset($_POST['salvar'])) {
             </nav>
         </header>
     </div>
+
     <section class="form-jogador">
         <h1 class="display-5">Cadastrar de jogador</h1>
         <hr>

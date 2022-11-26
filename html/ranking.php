@@ -101,6 +101,7 @@ $dados = $sql->fetchAll();
               <li>
                 <a href="#">Área privada</a>
                 <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
+                <a href="cadastro-de-partidas.php">Cadastrar partida</a>
               </li>
             </ul>
           </li>

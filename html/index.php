@@ -17,6 +17,10 @@
 
   <title>Escolinha de futebol</title>
   <style>
+    div#icons{
+      display: inline-block;
+    }
+
     .dp-menu ul li a {
       font-weight: bold;
     }
@@ -83,6 +87,7 @@
               <li>
                 <a href="login.php">Área privada</a>
                 <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
+                <a href="cadastro-de-partidas.php">Cadastrar partida</a>
               </li>
             </ul>
           </li>
@@ -141,7 +146,7 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="card border-success mt-4">
-            <img class="card-img-top" src="https://source.unsplash.com/300x200/?torcida" alt="Imagem de capa do card">
+            <img class="card-img-top" src="../img/imagens/imagem8.png">
 
             <!-- CARD 1 -->
             <div class="card-body">
@@ -153,15 +158,14 @@
         </div>
         <div class="col-sm-4">
           <div class="card border-success mt-4">
-            <img class="card-img-top" src="https://source.unsplash.com/300x200/?torcida" alt="Imagem de capa do card">
+            <img class="card-img-top" src="../img/imagens/imagem9.png">
 
             <!-- CARD 2 -->
             <div class="card-body">
-              <h5 class="card-title">CONFIRA O QUE ROLOU</h5>
-              <p class="card-text">Local destinado para ir diretamente para galeria de videos e fotos da ultima
-                partida
+              <h5 class="card-title">CONFIRA O NOSSAS REDES SOCIAIS</h5>
+              <p class="card-text">Fique por dentro nos bastidores do nosso time acompanhando nossas redes sociais.
               </p>
-              <a href="#" class="btn btn-outline-success">Visitar</a>
+              <a href="redes-sociais.php" class="btn btn-outline-success">Visitar</a>
             </div>
           </div>
         </div>
@@ -169,7 +173,7 @@
         <!-- CARD 3 -->
         <div class="col-sm-4">
           <div class="card border-success mt-4">
-            <img class="card-img-top" src="https://source.unsplash.com/300x200/?ball" alt="Imagem de capa do card">
+            <img class="card-img-top" src="../img/imagens/imagem7.jpg">
             <div class="card-body">
               <h5 class="card-title">ULTIMAS NOTICIAS</h5>
               <p class="card-text">Local destinado a informacoes extras sobre partidas e acontecimentos</p>

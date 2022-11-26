@@ -122,7 +122,7 @@
 </head>
 
 <body>
-    <!-- CABEÇALHO -->
+  <!-- CABEÇALHO -->
   <div class="cabecalho">
     <div class="nomeTime">
       <h1><a href="index.php">LYON SLZ</a></h1>
@@ -175,7 +175,7 @@
       </nav>
     </header>
   </div>
-  
+
   <div class="container">
     <div class="row mt-4">
       <div class="col-lg-8">
@@ -211,7 +211,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href="calendario.php">Calendario</a>
                 </li>
-                <!--<li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown
                   </a>
@@ -259,7 +259,7 @@
             <!-- CARROSSEL 1 -->
 
             <div class="carousel-item active">
-              <img src="../img/imagens/imagem1.jpg" class="d-block w-100" alt="...">
+              <img src="../img/imagens/imagem7.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Informações sobre os jogos</h5>
                 <!--<p>Some representative placeholder content for the first slide.</p>-->
