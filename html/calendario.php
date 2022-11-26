@@ -10,54 +10,65 @@
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/calendario.css">
+  <link rel="stylesheet" href="../css/timeAND escudo.css">
   <title>Calendario</title>
 </head>
 
 <body>
-  <header class="navbar navbar-light bg-gradient">
-    <nav class="dp-menu">
-      <ul class="nav">
-        <li class="nav-item ">
-          <a class="nav-link" href="index.php">HOME</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">JOGADORES</a>
-          <ul class="sub-menu" id="sobrepor">
-            <li>
-              <a href="#">sub09</a>
-              <a href="#">sub11</a>
-              <a href="#">sub13</a>
-              <a href="#">sub15</a>
-              <a href="#">sub17</a>
-            </li>
-            <li>
-              <a href="ranking.php">RANKING</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" id="marcado">PARTIDAS</a>
-          <ul class="sub-menu">
-            <li>
-              <a href="calendario.php">CALENDARIO DE JOGOS</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="noticiais.php">MAIS</a>
-          <ul class="sub-menu" id="sobrepor">
-            <li>
-              <a href="login.php">Área privada</a>
-              <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <!-- CABEÇALHO -->
+  <div class="cabecalho">
+    <div class="nomeTime">
+      <h1><a href="index.php">LYON SLZ</a></h1>
+    </div>
+    <div class="escudoTime">
+      <a href="index.php"><img src="../img/favicon/favicon.png" alt=""></a>
+    </div>
+    <header class="navbar mb-2">
+      <nav class="dp-menu">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.php">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">JOGADORES</a>
+            <ul class="sub-menu" id="sobrepor">
+              <li>
+                <a href="subs/sub09.php">sub09</a>
+                <a href="subs/sub11.php">sub11</a>
+                <a href="subs/sub13.php">sub13</a>
+                <a href="subs/sub15.php">sub15</a>
+                <a href="subs/sub17.php">sub17</a>
+              </li>
+              <li>
+                <a href="ranking.php">RANKING</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="marcado" href="#">PARTIDAS</a>
+            <ul class="sub-menu">
+              <li>
+                <a href="calendario.php">CALENDARIO DE JOGOS</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="noticiais.php">MAIS</a>
+            <ul class="sub-menu" id="sobrepor">
+              <li>
+                <a href="login.php">Área privada</a>
+                <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
   <main>
     <h1 id="calendarioDeJogos">CALENDARIO DE JOGOS</h1>
     <table>

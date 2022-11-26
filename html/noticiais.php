@@ -6,19 +6,110 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/timeAND escudo.css">
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/noticiais.css">
   <title>Notícias</title>
   <style>
+    :root {
+      --cor-fundo: linear-gradient(55deg, rgb(250, 165, 6), black);
+      --cor-submenu: rgb(172, 114, 8);
+      --cor-hover: rgb(226, 190, 30);
+      --cor-primaria: rgb(231, 241, 236);
+    }
+
     body {
       background-color: white;
     }
 
-    a.navbar-brand,
+    header {
+      height: 25vh;
+    }
+
+    .dp-menu ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dp-menu ul {
+      background-color: var(--cor-fundo);
+    }
+
+    .dp-menu ul ul.sub-menu {
+      background-color: var(--cor-submenu);
+      z-index: 1;
+    }
+
+    .dp-menu ul li {
+      display: inline;
+      position: relative;
+    }
+
+    .dp-menu ul li a {
+      color: var(--cor-primaria);
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px;
+      transition-duration: 0.3s;
+    }
+
+    .dp-menu ul li a:hover {
+      background-color: var(--cor-hover);
+    }
+
+    /*sub menu*/
+    .dp-menu ul ul {
+      display: none;
+      left: 0;
+      position: absolute;
+    }
+
+    .dp-menu ul li:hover ul {
+      display: block;
+    }
+
+    .dp-menu ul ul {
+      width: 150px
+    }
+
+    .dp-menu ul ul li a {
+      display: block;
+    }
+
+    /*header>nav {
+      width: 100vw;
+
+    }*/
+
+    #marcado {
+      color: black;
+    }
+
+    a.nav-link {
+      color: white;
+      font-weight: bold;
+      font-size: 85%;
+    }
+
+    a.nav-link:hover {
+      color: rgb(0, 0, 0);
+    }
+
+    footer {
+      background-color: #343a40;
+      padding: 10px;
+    }
+
+    footer>p {
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    /*a.navbar-brand,
     a.nav-link {
       color: white;
     }
@@ -26,12 +117,65 @@
     a.navbar-brand:hover,
     a.nav-link:hover {
       color: rgb(211, 208, 208);
-    }
-
+    }*/
   </style>
 </head>
 
 <body>
+    <!-- CABEÇALHO -->
+  <div class="cabecalho">
+    <div class="nomeTime">
+      <h1><a href="index.php">LYON SLZ</a></h1>
+    </div>
+    <div class="escudoTime">
+      <a href="index.php"><img src="../img/favicon/favicon.png" alt=""></a>
+    </div>
+    <header class="navbar mb-2">
+      <nav class="dp-menu">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.php">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">JOGADORES</a>
+            <ul class="sub-menu" id="sobrepor">
+              <li>
+                <a href="subs/sub09.php">sub09</a>
+                <a href="subs/sub11.php">sub11</a>
+                <a href="subs/sub13.php">sub13</a>
+                <a href="subs/sub15.php">sub15</a>
+                <a href="subs/sub17.php">sub17</a>
+              </li>
+              <li>
+                <a href="ranking.php">RANKING</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">PARTIDAS</a>
+            <ul class="sub-menu">
+              <li>
+                <a href="calendario.php">CALENDARIO DE JOGOS</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="noticiais.php" id="marcado">NOTÍCIAS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="noticiais.php">MAIS</a>
+            <ul class="sub-menu" id="sobrepor">
+              <li>
+                <a href="login.php">Área privada</a>
+                <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  
   <div class="container">
     <div class="row mt-4">
       <div class="col-lg-8">
@@ -48,8 +192,9 @@
     <!-- BARRA DE NAVEGAÇÃO -->
 
     <div>
+      <hr>
       <div>
-        <nav class="navbar navbar-expand-lg bg-dark">
+        <!--<nav class="navbar navbar-expand-lg bg-dark">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,11 +224,11 @@
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                   </ul>
                 </li>-->
-                <!--<li class="nav-item">
+        <!--<li class="nav-item">
                     <a class="nav-link disabled">Disabled</a>
                   </li>-->
 
-              </ul>
+        <!--</ul>
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">
@@ -92,7 +237,7 @@
               </form>
             </div>
           </div>
-        </nav>
+        </nav>-->
       </div>
     </div>
     <div class="row mt-4">

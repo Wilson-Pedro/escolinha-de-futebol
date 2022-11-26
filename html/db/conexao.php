@@ -3,7 +3,7 @@
 $servidor="localhost";
 $usuario="root";
 $senha="wamk23";
-$banco="cadastroescolinha";
+$banco="escolinhadefutebol";
 
 
 // CONEXÃO

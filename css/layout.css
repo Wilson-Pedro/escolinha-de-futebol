@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 :root {
-    --cor-fundo: linear-gradient(55deg, rgb(250, 165, 6),black );
+    --cor-fundo: linear-gradient(55deg, rgb(250, 165, 6), black);
     --cor-submenu: rgb(172, 114, 8);
     --cor-hover: rgb(226, 190, 30);
     --cor-primaria: rgb(231, 241, 236);
 }
 
-body{
+body {
     background-color: rgb(228, 228, 228);
 }
 
@@ -39,7 +39,7 @@ header {
     text-decoration: none;
     display: inline-block;
     padding: 10px;
-    transition: background .3s;
+    transition-duration: 0.3s;
 }
 
 .dp-menu ul li a:hover {
@@ -66,26 +66,22 @@ header {
 }
 
 .bg-gradient {
-    background: linear-gradient(55deg, rgb(250, 165, 6),black );
-}
-
-header > nav{
-    width: 100vw;
-    margin-top: 16vh;
+    background: linear-gradient(55deg, rgb(250, 165, 6), black);
 }
 
 #marcado {
     color: black;
 }
+
 /*Cabeçalho*/
 
-header > nav > ul > li > a{
+header>nav>ul>li>a {
     color: white;
     font-weight: bold;
-    font-size: 85%;
+    font-size: 88%;
 }
 
-header > nav > ul > li > a:hover{
+header>nav>ul>li>a:hover {
     color: rgb(0, 0, 0);
 }
 
@@ -97,7 +93,7 @@ main {
     box-shadow: 0px 3px 3px 0px black;
 }
 
-main > h2 {
+main>h2 {
     text-align: center;
     font-weight: bold;
     padding-top: 5vh;
@@ -109,7 +105,7 @@ footer {
     padding: 10px;
 }
 
-footer > p {
+footer>p {
     text-align: center;
     color: white;
     font-weight: bold;
