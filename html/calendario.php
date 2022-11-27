@@ -1,3 +1,13 @@
+<?php
+require('db/conexao.php');
+
+$sql = $pdo->prepare("SELECT * FROM tblpartidas ORDER BY id LIMIT 0, 1000");
+$sql->execute();
+$dados = $sql->fetchAll();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -81,7 +91,41 @@
 
   <main>
     <h1 id="calendarioDeJogos">CALENDARIO DE JOGOS</h1>
-    <table>
+    <?php
+    if (count($dados) > 0) {
+      echo "<table class=table table-striped>
+      <thead class=table-dark>
+      <tr>
+          <th>LOCAL</th>
+          <th>JOGOS</th>
+          <th>DATA</th>
+          <th>HORARIO</th>
+      </tr>
+      </thead>";
+
+      foreach ($dados as $chaves => $valor) {
+        echo "<tr>
+              <td>" . $valor['local'] . "</td>
+              <td>" . $valor['timea'] . " X " . $valor['timeb'] . "</td>
+              <td>" . $valor['data'] . "</td>
+              <td>" . $valor['horario'] . "</td>
+        </tr>";
+      }
+
+      echo "</table>";
+    } else {
+      echo "<p>Nenhum jogador cadastrado</p>";
+    }
+
+    ?>
+  </main>
+  <footer>
+    <p class="mb-0">Desenvolvimento estacio</p>
+  </footer>
+</body>
+
+</html>
+<!--table>
       <thead>
         <tr>
           <th>LOCAL</th>
@@ -126,11 +170,4 @@
         <td>10/11</td>
         <td>21:00</td>
       </tr>
-    </table>
-  </main>
-  <footer>
-    <p class="mb-0">Desenvolvimento estacio</p>
-  </footer>
-</body>
-
-</html>
+    </table>-->

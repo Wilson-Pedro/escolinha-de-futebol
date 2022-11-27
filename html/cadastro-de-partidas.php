@@ -1,3 +1,19 @@
+<?php
+require('db/conexao.php');
+
+if(isset($_POST['salvar'])){
+    $local = $_POST['partidaLocal'];
+    $timeA = $_POST['partidaTimeA'];
+    $timeB = $_POST['partidaTimeB'];
+    $data = $_POST['data'];
+    $horario = $_POST['horario'];
+
+    $sql = $pdo->prepare("INSERT INTO tblpartidas VALUES (null,?,?,?,?,?)");
+    $sql->execute(array($local, $timeA, $timeB, $data, $horario));
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -211,9 +227,20 @@
             <!-- DATA -->
             <div class="row">
                 <div class="col-md-8">
-                    <label for="text-center" class="form-label">Data e Horário</label>
+                    <label for="text-center" class="form-label">Data</label>
                     <div class="input-group input-group-lg">
-                        <input type="datetime-local" class="form-control" name="partidaHorarioData" id="partidaHorarioData" placeholder="14/10/2023 às 11:30">
+                        <input type="date" class="form-control" name="data" id="partidaHorarioData" placeholder="14/10/2023 às 11:30">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-warning col btn-lg" id="limpaData" onclick="limpaCampos3()">Limpar</button>
+            </div><br>
+
+            <!-- HORÁRIO -->
+            <div class="row">
+                <div class="col-md-8">
+                    <label for="text-center" class="form-label">Horário</label>
+                    <div class="input-group input-group-lg">
+                        <input type="time" class="form-control" name="horario" id="partidaHorarioData" placeholder="14/10/2023 às 11:30">
                     </div>
                 </div>
                 <button type="button" class="btn btn-warning col btn-lg" id="limpaData" onclick="limpaCampos3()">Limpar</button>
