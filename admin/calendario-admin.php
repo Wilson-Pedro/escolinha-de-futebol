@@ -46,45 +46,46 @@ $dados = $sql->fetchAll();
       <nav class="dp-menu">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="index.php">HOME</a>
+            <a class="nav-link" href="index-admin.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="subs/sub09.php">sub09</a>
-                <a href="subs/sub11.php">sub11</a>
-                <a href="subs/sub13.php">sub13</a>
-                <a href="subs/sub15.php">sub15</a>
-                <a href="subs/sub17.php">sub17</a>
+                <a href="subsAdmin/sub09-admin.php">sub09</a>
+                <a href="subsAdmin/sub11-admin.php">sub11</a>
+                <a href="subsAdmin/sub13-admin.php">sub13</a>
+                <a href="subsAdmin/sub15-admin.php">sub15</a>
+                <a href="subsAdmin/sub17-admin.php">sub17</a>
               </li>
               <li>
-                <a href="ranking.php">RANKING</a>
+                <a href="ranking-admin.php">RANKING</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="marcado" href="#">PARTIDAS</a>
+            <a class="nav-link" href="#" id="marcado">PARTIDAS</a>
             <ul class="sub-menu">
               <li>
-                <a href="calendario.php">CALENDÁRIO DE JOGOS</a>
+                <a href="calendario-admin.php" id="marcado">CALENDÁRIO DE JOGOS</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
+            <a class="nav-link" href="noticiais-admin.php">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais.php">MAIS</a>
+            <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="login.php">Área privada</a>
+              <li>
                 <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
                 <a href="cadastro-de-partidas.php">Cadastrar partida</a>
                 <a href="../html/index.php">Sair</a>
               </li>
-            </ul>
           </li>
+        </ul>
+        </li>
         </ul>
       </nav>
     </header>
@@ -108,10 +109,10 @@ $dados = $sql->fetchAll();
         echo "<tr>
               <td>" . $valor['local'] . "</td>
               <td>" . $valor['timea'] . " X " . $valor['timeb'] . "</td>
-              <td>" . date("d/m/y", strtotime($valor['data'])). "</td>
-              <td>" . date("H:i", strtotime($valor['horario'])). "</td>
+              <td>" . date("d/m/y", strtotime($valor['data'])) . "</td>
+              <td>" . date("H:i", strtotime($valor['horario'])) . "</td>
         </tr>";
-        $valor['data']= null;
+        $valor['data'] = null;
       }
 
       echo "</table>";

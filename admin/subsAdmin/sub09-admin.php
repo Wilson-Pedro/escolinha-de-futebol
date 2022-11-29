@@ -64,20 +64,20 @@ $dados = $sql->fetchAll();
       <nav class="dp-menu">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="../index.php">HOME</a>
+            <a class="nav-link" href="../index-admin.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="marcado" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="sub09.php" id="marcado">sub09</a>
-                <a href="sub11.php">sub11</a>
-                <a href="sub13.php">sub13</a>
-                <a href="sub15.php">sub15</a>
-                <a href="sub17.php">sub17</a>
+                <a href="sub09-admin.php" id="marcado">sub09</a>
+                <a href="sub11-admin.php">sub11</a>
+                <a href="sub13-admin.php">sub13</a>
+                <a href="sub15-admin.php">sub15</a>
+                <a href="sub17-admin.php">sub17</a>
               </li>
               <li>
-                <a href="../../html/ranking.php">RANKING</a>
+                <a href="../ranking-admin.php">RANKING</a>
               </li>
             </ul>
           </li>
@@ -93,7 +93,7 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="../noticiais-admin.php">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais.php">MAIS</a>
+            <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
                 <a href="login.php">Área privada</a>

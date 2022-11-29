@@ -53,20 +53,20 @@
       <nav class="dp-menu">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" id="marcado" href="index.php">HOME</a>
+            <a class="nav-link" id="marcado" href="index-admin.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="subsAdmin/sub09.php">sub09</a>
-                <a href="subsAdmin/sub11.php">sub11</a>
-                <a href="subsAdmin/sub13.php">sub13</a>
-                <a href="subsAdmin/sub15.php">sub15</a>
-                <a href="subsAdmin/sub17.php">sub17</a>
+                <a href="subsAdmin/sub09-admin.php">sub09</a>
+                <a href="subsAdmin/sub11-admin.php">sub11</a>
+                <a href="subsAdmin/sub13-admin.php">sub13</a>
+                <a href="subsAdmin/sub15-admin.php">sub15</a>
+                <a href="subsAdmin/sub17-admin.php">sub17</a>
               </li>
               <li>
-                <a href="../html/ranking.php">RANKING</a>
+                <a href="ranking-admin.php">RANKING</a>
               </li>
             </ul>
           </li>
@@ -85,7 +85,6 @@
             <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="login.php">Área privada</a>
                 <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
                 <a href="cadastro-de-partidas.php">Cadastrar partida</a>
                 <a href="../html/index.php">Sair</a>
@@ -166,7 +165,7 @@
               <h5 class="card-title">CONFIRA O NOSSAS REDES SOCIAIS</h5>
               <p class="card-text">Fique por dentro nos bastidores do nosso time acompanhando nossas redes sociais.
               </p>
-              <a href="redes-sociais.php" class="btn btn-outline-success">Visitar</a>
+              <a href="redes-sociais-admin.php" class="btn btn-outline-success">Visitar</a>
             </div>
           </div>
         </div>

@@ -64,20 +64,20 @@ $dados = $sql->fetchAll();
       <nav class="dp-menu">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="../index.php">HOME</a>
+            <a class="nav-link" href="../index-admin.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="marcado" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="sub09.php">sub09</a>
-                <a href="sub11.php">sub11</a>
-                <a href="sub13.php" id="marcado">sub13</a>
-                <a href="sub15.php">sub15</a>
-                <a href="sub17.php">sub17</a>
+                <a href="sub09-admin.php">sub09</a>
+                <a href="sub11-admin.php">sub11</a>
+                <a href="sub13-admin.php" id="marcado">sub13</a>
+                <a href="sub15-admin.php">sub15</a>
+                <a href="sub17-admin.php">sub17</a>
               </li>
               <li>
-                <a href="../ranking.php">RANKING</a>
+                <a href="../ranking-admin.php">RANKING</a>
               </li>
             </ul>
           </li>
@@ -85,20 +85,20 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="#">PARTIDAS</a>
             <ul class="sub-menu">
               <li>
-                <a href="../calendario.php">CALENDÁRIO DE JOGOS</a>
+                <a href="../calendario-admin.php">CALENDÁRIO DE JOGOS</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../noticiais.php">NOTÍCIAS</a>
+            <a class="nav-link" href="../noticiais-admin.php">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais.php">MAIS</a>
+            <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
                 <a href="login.php">Área privada</a>
                 <a href="../cadastro-de-jogador.php">Cadastrar Jogador</a>
-                <a href="cadastro-de-partidas.php">Cadastrar partida</a>
+                <a href="../cadastro-de-partidas.php">Cadastrar partida</a>
                 <a href="../../html/index.php">Sair</a>
               </li>
             </ul>

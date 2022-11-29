@@ -56,7 +56,7 @@ require('db/conexao.php');
                     $nome = $_POST['nameLog'];
                     $senha = $_POST['senhaLog'];
                     if($nome == $valor['nome'] && $senha == $valor['senha']){
-                        header("location: ../admin/index.php");
+                        header("location: ../admin/index-admin.php");
                         
                     }
                 }
