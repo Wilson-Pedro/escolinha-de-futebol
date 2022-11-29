@@ -24,7 +24,14 @@ $dados = $sql->fetchAll();
     header>nav>ul>li>a {
       font-size: 86%;
     }
-    
+
+    h1.categoria {
+      text-align: center;
+      padding-top: 6vh;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+
     .dp-menu ul li a {
       font-weight: bold;
     }
@@ -109,7 +116,90 @@ $dados = $sql->fetchAll();
   </div>
 
   <main>
+    <h1 class="categoria">Categoria Sub-09</h1>
     <br><br><br>
+    <!-- ATUALIZAR -->
+
+    <form class="oculto" id="form_atualiza" method="post">
+      <input type="text" id="id_editado" name="id_editado" placeholder="ID" required> <br><br>
+
+      <input type="text" id="nome_editado" name="nome_editado" placeholder="Editar nome" required> <br><br>
+
+      <input type="number" id="idade_editado" name="idade_editado" placeholder="Editar idade" required><br><br>
+
+      <input type="text" id="posicao_editado" name="posicao_editado" placeholder="Editar posicao" required><br><br>
+
+      <input type="number" id="gols_editado" name="gols_editado" placeholder="Editar gols" required><br><br>
+
+      <button type="submit" name="atualizar">Atualizar</button>
+
+      <button type="button" id="cancelar" name="cancelar">Cancelar</button>
+      <hr>
+    </form>
+
+    <!-- DELETAR -->
+
+    <form class="oculto" id="form_deleta" method="post">
+      <input type="hidden " id="id_deleta" name="id_deleta" placeholder="ID" required> <br><br>
+
+      <input type="hidden" id="nome_deleta" name="nome_deleta" placeholder="Editar nome" required> <br><br>
+
+      <input type="hidden" id="idade_deleta" name="idade_deleta" placeholder="Editar idade" required><br><br>
+
+      <input type="hidden" id="posicao_deleta" name="posicao_deleta" placeholder="Editar posicao" required><br><br>
+
+      <input type="hidden" id="gols_deleta" name="gols_deleta" placeholder="Editar gols" required>
+      <b>Tem certeza que quer deletar Jogador <span id="cliente"></span></b>
+
+      <button type="submit" name="deletar">Confirmar</button>
+
+      <button type="button" id="cancelar_delete" name="cancelar_delete">Cancelar</button>
+      <hr>
+    </form>
+    <br><br>
+    <?php
+    //PROCESSO DE ATUALIZAÇÃO
+    if (isset($_POST['atualizar']) && isset($_POST['id_editado']) && isset($_POST['nome_editado']) && isset($_POST['idade_editado']) && isset($_POST['posicao_editado']) && isset($_POST['gols_editado'])) {
+
+      $id = $_POST['id_editado'];
+      $nome = $_POST['nome_editado'];
+      $idade = $_POST['idade_editado'];
+      $posicao = $_POST['posicao_editado'];
+      $gols = $_POST['gols_editado'];
+
+
+      $sql = $pdo->prepare("UPDATE tbljogadores SET nome = :nome ,idade = :idade, posicao = :posicao, gols = :gols WHERE id= :id");
+      $sql->bindValue(':nome', $nome);
+      $sql->bindValue(':idade', $idade);
+      $sql->bindValue(':posicao', $posicao);
+      $sql->bindValue(':gols', $gols);
+      $sql->bindValue(':id', $id);
+      $sql->execute();
+      /*
+        $sql = $pdo->prepare("UPDATE tbljogadores SET nome=?,idade=?, posicao=?, gols=? WHERE id=?");
+        $sql->execute(array($nome, $idade, $posicao, $gols, $id));
+
+        echo "Atualizado " . $sql->rowCount() . "registros!";*/
+    }
+    ?>
+
+    <?php
+    //DELETAR DADOS
+    if (isset($_POST['deletar']) && isset($_POST['id_deleta']) && isset($_POST['nome_deleta']) && isset($_POST['idade_deleta']) && isset($_POST['posicao_deleta']) && isset($_POST['gols_deleta'])) {
+
+      $id = $_POST['id_deleta'];
+      $nome = $_POST['nome_deleta'];
+      $idade = $_POST['idade_deleta'];
+      $posicao = $_POST['posicao_deleta'];
+      $gols = $_POST['gols_deleta'];
+
+      //COMANDO PARA DELETAR
+      $sql = $pdo->prepare("DELETE FROM tbljogadores WHERE id=? AND nome=? AND idade=? AND posicao=? AND gols=?");
+      $sql->execute(array($id, $nome, $idade, $posicao, $gols));
+
+      echo "Deletado com sucesso!";
+    }
+    ?>
     <?php
     if (count($dados) > 0) {
       echo "<table class=table table-striped>
@@ -119,6 +209,7 @@ $dados = $sql->fetchAll();
             <th>Idade</th>
             <th>Posição</th>
             <th>Gols</th>
+            <th>Atuaizar | Deletar</th>
         </tr>
         </thead>";
 
@@ -129,6 +220,7 @@ $dados = $sql->fetchAll();
                         <td>" . $valor['idade'] . "</td>
                         <td>" . $valor['posicao'] . "</td>
                         <td>" . $valor['gols'] . "</td>
+                        <td><a href='#' class='btn-atualizar' data-id='" . $valor['id'] . "' data-nome='" . $valor['nome'] . "' data-idade='" . $valor['idade'] . "'data-posicao='" . $valor['posicao'] . "'data-gols='" . $valor['gols'] . "'>Atualizar</a> | <a href='#' class='btn-deletar' data-id='" . $valor['id'] . "' data-nome='" . $valor['nome'] . "' data-idade='" . $valor['idade'] . "'data-posicao='" . $valor['posicao'] . "'data-gols='" . $valor['gols'] . "'>Deletar</a></td>
                     </tr>";
         }
       }
@@ -144,6 +236,61 @@ $dados = $sql->fetchAll();
   <footer>
     <p class="mb-0">Desenvolvimento estacio</p>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    //      ATUALIZAR
+
+    $(".btn-atualizar").click(function() {
+      var id = $(this).attr('data-id');
+      var nome = $(this).attr('data-nome');
+      var idade = $(this).attr('data-idade');
+      var posicao = $(this).attr('data-posicao');
+      var gols = $(this).attr('data-gols');
+
+      $('#form_salva').addClass('oculto');
+      $('#form_deleta').addClass('oculto');
+      $('#form_atualiza').removeClass('oculto');
+
+
+      $("#id_editado").val(id);
+      $("#nome_editado").val(nome);
+      $("#idade_editado").val(idade);
+      $("#posicao_editado").val(posicao);
+      $("#gols_editado").val(gols);
+
+    });
+
+    //      DELETAR
+
+    $(".btn-deletar").click(function() {
+      var id = $(this).attr('data-id');
+      var nome = $(this).attr('data-nome');
+      var idade = $(this).attr('data-idade');
+      var posicao = $(this).attr('data-posicao');
+      var gols = $(this).attr('data-gols');
+
+      $("#id_deleta").val(id);
+      $("#nome_deleta").val(nome);
+      $("#idade_deleta").val(idade);
+      $("#posicao_deleta").val(posicao);
+      $("#gols_deleta").val(gols);
+
+      $('#form_atualiza').addClass('oculto');
+      $('#form_deleta').removeClass('oculto');
+
+
+    });
+
+    $('#cancelar').click(function() {
+      $('#form_atualiza').addClass('oculto');
+      $('#form_deleta').addClass('oculto');
+    });
+
+    $('#cancelar_delete').click(function() {
+      $('#form_atualiza').addClass('oculto');
+      $('#form_deleta').addClass('oculto');
+    });
+  </script>
 </body>
 
 </html>
