@@ -1,5 +1,5 @@
 <?php
-require('db/conexao.php');
+require('../html/db/conexao.php');
 
 $sql = $pdo->prepare("SELECT * FROM tblpartidas ORDER BY id LIMIT 0, 1000");
 $sql->execute();
@@ -78,9 +78,10 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="noticiais.php">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-              <li>
-                <a href="login.php">Logar</a>
-              </li>
+                <a href="login.php">Área privada</a>
+                <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
+                <a href="cadastro-de-partidas.php">Cadastrar partida</a>
+                <a href="../html/index.php">Sair</a>
               </li>
             </ul>
           </li>

@@ -1,10 +1,5 @@
 <?php
 require('db/conexao.php');
-
-$sql = $pdo->prepare("SELECT * FROM tbljogadores ORDER BY id LIMIT 1,1000");
-$sql->execute();
-$dados = $sql->fetchAll();
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -98,62 +93,25 @@ $dados = $sql->fetchAll();
     </header>
   </div>
 
-  <main>
-    <br><br><br>
-    <?php
-    if (count($dados) > 0) {
-      echo "<table class=table table-striped>
-        <thead class=table-dark>
-        <tr>
-            <th>Posição</th>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Posição</th>
-            <th>Gols</th>
-        </tr>
-        </thead>";
-      $maior = 0;
-      foreach ($dados as $chaves => $valor) {
-        if ($valor['gols'] > $maior) {
-          $maior = $valor['gols'];
-        }
-      }
+  <?php
 
-      $aux = 0;
-      $contMaior = 0;
-      $cont = 0;
-      $ranking = 1;
-      while ($cont < 11) {
-        foreach ($dados as $chaves => $valor) {
-          if ($valor['gols'] == $maior) {
-            if ($ranking == 11) {
-              break;
-            }
+    $sql = $pdo->prepare("SELECT * FROM tbllogin ORDER BY id LIMIT 0, 100");
+    $sql->execute();
+    $dados = $sql->fetchAll();
+
+    if(count($dados) > 0){
+        
+        foreach($dados as $chaves => $valor){
             echo "<tr>
-                        <td>" . $ranking . "</td>
-                        <td>" . $valor['nome'] . "</td>
-                        <td>" . $valor['idade'] . "</td>
-                        <td>" . $valor['posicao'] . "</td>
-                        <td>" . $valor['gols'] . "</td>
-                    </tr>";
-            $ranking += 1;
-          }
+            <td>".$valor['id']."</td>
+            <td>".$valor['nome']."</td>
+            <td>".$valor['senha']."</td>
+            </tr>";
         }
-        $maior -= 1;
-        $cont += 1;
-        if($cont == 10){
-          break;
-        }
-      }
 
-
-      echo "</table>";
-    } else {
-      echo "<p>Nenhum Jogador cadastrado</p>";
     }
 
     ?>
-  </main>
   <footer>
     <p class="mb-0">Desenvolvimento estacio</p>
   </footer>

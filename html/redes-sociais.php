@@ -17,13 +17,13 @@
 
     <title>Escolinha de futebol</title>
     <style>
-
-        span.logo > a{
+        span.logo>a {
             color: rgb(33, 37, 41);
             text-decoration: none;
         }
 
-        span.logo, i {
+        span.logo,
+        i {
             font-size: 63.8%;
             cursor: pointer;
             color: rgb(33, 37, 41);
@@ -101,12 +101,12 @@
                         <a class="nav-link" href="noticiais.php">MAIS</a>
                         <ul class="sub-menu" id="sobrepor">
                             <li>
-                                <a href="login.php">Área privada</a>
-                                <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
-                                <a href="cadastro-de-partidas.php">Cadastrar partida</a>
+                            <li>
+                                <a href="login.php">Logar</a>
                             </li>
-                        </ul>
                     </li>
+                </ul>
+                </li>
                 </ul>
             </nav>
         </header>

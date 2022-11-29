@@ -96,9 +96,7 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="noticiais.php">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="#">Área privada</a>
-                <a href="../cadastro-de-jogador.php">Cadastrar Jogador</a>
-                <a href="cadastro-de-partidas.php">Cadastrar partida</a>
+                <a href="../login.php">Logar</a>
               </li>
             </ul>
           </li>
