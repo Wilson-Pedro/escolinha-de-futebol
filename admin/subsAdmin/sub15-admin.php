@@ -19,6 +19,7 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../../css/ranking.css">
+  <link rel="stylesheet" href="../../css/update-e-delete.css">
   <title>Sub15</title>
   <style>
     header>nav>ul>li>a {
@@ -114,20 +115,27 @@ $dados = $sql->fetchAll();
     <!-- ATUALIZAR -->
 
     <form class="oculto" id="form_atualiza" method="post">
-      <input type="text" id="id_editado" name="id_editado" placeholder="ID" required> <br><br>
+      <div id="div-update" class="oculto">
+        <h5 class="inputTitulo">ID:</h5>
+        <input type="text" id="id_editado" name="id_editado" placeholder="ID" required> <br><br>
 
-      <input type="text" id="nome_editado" name="nome_editado" placeholder="Editar nome" required> <br><br>
+        <h5 class="inputTitulo">Nome:</h5>
+        <input type="text" id="nome_editado" name="nome_editado" placeholder="Editar nome" required> <br><br>
 
-      <input type="number" id="idade_editado" name="idade_editado" placeholder="Editar idade" required><br><br>
+        <h5 class="inputTitulo">Idade:</h5>
+        <input type="number" id="idade_editado" name="idade_editado" placeholder="Editar idade" required><br><br>
 
-      <input type="text" id="posicao_editado" name="posicao_editado" placeholder="Editar posicao" required><br><br>
+        <h5 class="inputTitulo">Posição:</h5>
+        <input type="text" id="posicao_editado" name="posicao_editado" placeholder="Editar posicao" required><br><br>
 
-      <input type="number" id="gols_editado" name="gols_editado" placeholder="Editar gols" required><br><br>
+        <h5 class="inputTitulo">Gols:</h5>
+        <input type="number" id="gols_editado" name="gols_editado" placeholder="Editar gols" required><br><br>
 
-      <button type="submit" name="atualizar">Atualizar</button>
+        <button type="submit" name="atualizar" id="btn-atualizar">Atualizar</button>
 
-      <button type="button" id="cancelar" name="cancelar">Cancelar</button>
-      <hr>
+        <button type="button" id="cancelar" name="cancelar">Cancelar</button>
+        <hr>
+      </div>
     </form>
 
     <!-- DELETAR -->
@@ -243,6 +251,7 @@ $dados = $sql->fetchAll();
       $('#form_salva').addClass('oculto');
       $('#form_deleta').addClass('oculto');
       $('#form_atualiza').removeClass('oculto');
+      $('#div-update').removeClass('oculto');
 
 
       $("#id_editado").val(id);
@@ -277,6 +286,7 @@ $dados = $sql->fetchAll();
     $('#cancelar').click(function() {
       $('#form_atualiza').addClass('oculto');
       $('#form_deleta').addClass('oculto');
+      $('#div-update').addClass('oculto');
     });
 
     $('#cancelar_delete').click(function() {
