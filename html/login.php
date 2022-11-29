@@ -16,11 +16,11 @@
         <div id="aviso">
         </div>
         <form method="post" action="">
-        <p class="logar">Email</p>
+        <p class="logar">Nome:</p>
         <div>
-            <input type="email" name="emailLog" id="emailLog" class="email">
+            <input type="text" name="nameLog" id="emailLog" class="email">
         </div><br>
-        <p class="logar">Senha</p>
+        <p class="logar">Senha:</p>
         <div>
             <span class="senha"><input type="password" name="senhaLog" id="senhaLog" class="senha"></span><span class="olho" id="olho"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                 <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>

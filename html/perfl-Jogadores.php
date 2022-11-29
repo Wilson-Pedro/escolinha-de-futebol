@@ -33,7 +33,7 @@
             <a class="nav-link" href="#">PARTIDAS</a>
             <ul class="sub-menu">
               <li>
-                <a href="#">CALENDARIO DE JOGOS</a>
+                <a href="#">CALENDÁRIO DE JOGOS</a>
               </li>
             </ul>
           </li>

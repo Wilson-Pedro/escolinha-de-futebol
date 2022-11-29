@@ -1,18 +1,3 @@
-<?php
-require('db/conexao.php');
-
-if (isset($_POST['salvar'])) {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $confirmarEmail = $_POST['confirmarEmail'];
-    $senha = $_POST['senha'];
-    $confirmarSenha = $_POST['confirmarSenha'];
-
-    $sql = $pdo->prepare("INSERT INTO usuarios VALUES (null,?,?,?,?,?)");
-    $sql->execute(array($nome, $email, $confirmarEmail, $senha, $confirmarSenha));
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>

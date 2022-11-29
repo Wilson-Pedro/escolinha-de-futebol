@@ -67,7 +67,7 @@ $dados = $sql->fetchAll();
             <a class="nav-link" id="marcado" href="#">PARTIDAS</a>
             <ul class="sub-menu">
               <li>
-                <a href="calendario.php">CALENDARIO DE JOGOS</a>
+                <a href="calendario.php">CALENDÁRIO DE JOGOS</a>
               </li>
             </ul>
           </li>
@@ -90,7 +90,7 @@ $dados = $sql->fetchAll();
   </div>
 
   <main>
-    <h1 id="calendarioDeJogos">CALENDARIO DE JOGOS</h1>
+    <h1 id="calendarioDeJogos">CALENDÁRIO DE JOGOS</h1>
     <?php
     if (count($dados) > 0) {
       echo "<table class=table table-striped>
