@@ -107,9 +107,10 @@ $dados = $sql->fetchAll();
         echo "<tr>
               <td>" . $valor['local'] . "</td>
               <td>" . $valor['timea'] . " X " . $valor['timeb'] . "</td>
-              <td>" . $valor['data'] . "</td>
-              <td>" . $valor['horario'] . "</td>
+              <td>" . date("d/m/y", strtotime($valor['data'])). "</td>
+              <td>" . date("H:i", strtotime($valor['horario'])). "</td>
         </tr>";
+        $valor['data']= null;
       }
 
       echo "</table>";
