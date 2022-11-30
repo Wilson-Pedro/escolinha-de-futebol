@@ -33,7 +33,7 @@ if (isset($_POST['salvar'])) {
             background: white;
         }
 
-        h1.display-5{
+        h1.display-5 {
             font-weight: normal;
         }
 
@@ -115,20 +115,20 @@ if (isset($_POST['salvar'])) {
             <nav class="dp-menu">
                 <ul class="nav">
                     <li class="nav-item ">
-                        <a class="nav-link" href="index.php">HOME</a>
+                        <a class="nav-link" href="index-admin.php">HOME</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">JOGADORES</a>
                         <ul class="sub-menu" id="sobrepor">
                             <li>
-                                <a href="subs/sub09.php">sub09</a>
-                                <a href="subs/sub11.php">sub11</a>
-                                <a href="subs/sub13.php">sub13</a>
-                                <a href="subs/sub15.php">sub15</a>
-                                <a href="subs/sub17.php">sub17</a>
+                                <a href="subsAdmin/sub09-admin.php">sub09</a>
+                                <a href="subsAdmin/sub11-admin.php">sub11</a>
+                                <a href="subsAdmin/sub13-admin.php">sub13</a>
+                                <a href="subsAdmin/sub15-admin.php">sub15</a>
+                                <a href="subsAdmin/sub17-admin.php">sub17</a>
                             </li>
                             <li>
-                                <a href="ranking.php">RANKING</a>
+                                <a href="ranking-admin.php">RANKING</a>
                             </li>
                         </ul>
                     </li>
@@ -136,18 +136,17 @@ if (isset($_POST['salvar'])) {
                         <a class="nav-link" href="#">PARTIDAS</a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="calendario.php">CALENDARIO DE JOGOS</a>
+                                <a href="calendario-admin.php">CALENDARIO DE JOGOS</a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
+                        <a class="nav-link" href="noticiais-admin.php">NOTÍCIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="noticiais.php" id="marcado">MAIS</a>
+                        <a class="nav-link" href="#" id="marcado">MAIS</a>
                         <ul class="sub-menu" id="sobrepor">
                             <li>
-                                <a href="login.php">Área privada</a>
                                 <a href="cadastro-de-jogador.php" id="marcado">Cadastrar Jogador</a>
                                 <a href="cadastro-de-partidas.php">Cadastrar partida</a>
                                 <a href="../html/index.php">Sair</a>

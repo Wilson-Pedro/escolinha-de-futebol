@@ -1,5 +1,5 @@
 <?php
-require('../html/db/conexao.php');
+include('../html/db/conexao.php');
 
 $sql = $pdo->prepare("SELECT * FROM tblpartidas ORDER BY id LIMIT 0, 1000");
 $sql->execute();
@@ -24,12 +24,42 @@ $dados = $sql->fetchAll();
   <title>Calendario</title>
 </head>
 <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #calendarioDeJogos {
+    text-align: center;
+    padding-top: 5vh;
+    font-weight: bold;
+  }
+
+  table {
+    width: 80vw;
+    height: 56vh;
+    border-collapse: collapse;
+    background-color: rgb(243, 231, 231);
+    color: black;
+    margin: auto;
+    margin-top: 6vh;
+  }
+
+  td,
+  th {
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
   header>nav>ul>li>a {
     font-size: 86%;
   }
 
   .dp-menu ul li a {
     font-weight: bold;
+  }
+
+  .oculto {
+    display: none;
   }
 </style>
 
@@ -93,6 +123,103 @@ $dados = $sql->fetchAll();
 
   <main>
     <h1 id="calendarioDeJogos">CALENDÁRIO DE JOGOS</h1>
+    <!-- ATUALIZAR -->
+
+    <form class="oculto" id="form_atualiza" method="post">
+      <div id="div-update" class="oculto">
+        <h5 class="inputTitulo">ID:</h5>
+        <input type="text" id="id_editado" name="id_editado" placeholder="ID" required> <br><br>
+
+        <h5 class="inputTitulo">Local:</h5>
+        <input type="text" id="localidade_editado" name="localidade_editado" placeholder="Editar local" required> <br><br>
+
+        <h5 class="inputTitulo">Time A:</h5>
+        <input type="text" id="timea_editado" name="timea_editado" placeholder="Editar time A" required><br><br>
+
+        <h5 class="inputTitulo">Time B:</h5>
+        <input type="text" id="timeb_editado" name="timeb_editado" placeholder="Editar time B" required><br><br>
+
+        <h5 class="inputTitulo">Data:</h5>
+        <input type="date" id="data_partida_editado" name="data_partida_editado" placeholder="Editar Data" required><br><br>
+
+        <h5 class="inputTitulo">Horário:</h5>
+        <input type="time" id="horario_editado" name="horario_editado" placeholder="Editar horário" required><br><br>
+
+        <button type="submit" name="atualizar" id="btn-atualizar">Atualizar</button>
+
+        <button type="button" id="cancelar" name="cancelar">Cancelar</button>
+        <hr>
+      </div>
+    </form>
+
+    <!-- DELETAR -->
+
+    <form class="oculto" id="form_deleta" method="post">
+      <input type="hidden " id="id_deleta" name="id_deleta" placeholder="ID" required> <br><br>
+
+      <input type="hidden" id="localidade_deleta" name="localidade_deleta" placeholder="Editar local" required> <br><br>
+
+      <input type="hidden" id="timea_deleta" name="timea_deleta" placeholder="Editar Time A" required><br><br>
+
+      <input type="hidden" id="timeb_deleta" name="timeb_deleta" placeholder="Editar Time B" required><br><br>
+
+      <input type="hidden" id="data_partida_deleta" name="data_partida_deleta" placeholder="Editar Data" required> <br><br>
+
+      <input type="hidden" id="horario_deleta" name="horario_deleta" placeholder="Editar Horário" required>
+      <b>Tem certeza que quer deletar partida? <span id="cliente"></span></b>
+
+      <button type="submit" name="deletar">Confirmar</button>
+
+      <button type="button" id="cancelar_delete" name="cancelar_delete">Cancelar</button>
+      <hr>
+    </form>
+    <br><br>
+    <?php
+    //PROCESSO DE ATUALIZAÇÃO
+    if (isset($_POST['atualizar']) && isset($_POST['id_editado']) && isset($_POST['localidade_editado']) && isset($_POST['timea_editado']) && isset($_POST['timeb_editado']) && isset($_POST['data_partida_editado']) && isset($_POST['horario_editado'])) {
+
+      $id = $_POST['id_editado'];
+      $localidade = $_POST['localidade_editado'];
+      $timea = $_POST['timea_editado'];
+      $timeb = $_POST['timeb_editado'];
+      $data_partida = $_POST['data_partida_editado'];
+      $horario = $_POST['horario_editado'];
+
+
+      $sql = $pdo->prepare("UPDATE tblpartidas SET localidade = :localidade ,timea = :timea, timeb = :timeb, data_partida = :data_partida, horario = :horario WHERE id= :id");
+      $sql->bindValue(':localidade', $localidade);
+      $sql->bindValue(':timea', $timea);
+      $sql->bindValue(':timeb', $timeb);
+      $sql->bindValue(':data_partida', $data_partida);
+      $sql->bindValue(':horario', $horario);
+      $sql->bindValue(':id', $id);
+      $sql->execute();
+      /*
+        $sql = $pdo->prepare("UPDATE tbljogadores SET nome=?,idade=?, posicao=?, gols=? WHERE id=?");
+        $sql->execute(array($nome, $idade, $posicao, $gols, $id));
+
+        echo "Atualizado " . $sql->rowCount() . "registros!";*/
+    }
+    ?>
+
+    <?php
+    //DELETAR DADOS
+    if (isset($_POST['deletar']) && isset($_POST['id_deleta']) && isset($_POST['localidade_deleta']) && isset($_POST['timea_deleta']) && isset($_POST['timeb_deleta']) && isset($_POST['data_partida_deleta']) && isset($_POST['horario_deleta'])) {
+
+      $id = $_POST['id_deleta'];
+      $localidade = $_POST['localidade_deleta'];
+      $timea = $_POST['timea_deleta'];
+      $timeb = $_POST['timeb_deleta'];
+      $data_partida = $_POST['data_partida_deleta'];
+      $horario = $_POST['horario_deleta'];
+
+      //COMANDO PARA DELETAR
+      $sql = $pdo->prepare("DELETE FROM tblpartidas WHERE id=? AND localidade=? AND timea=? AND timeb=? AND data_partida=? AND horario=?");
+      $sql->execute(array($id, $localidade, $timea, $timeb, $data_partida, $horario));
+
+      echo "Deletado com sucesso!";
+    }
+    ?>
     <?php
     if (count($dados) > 0) {
       echo "<table class=table table-striped>
@@ -102,17 +229,20 @@ $dados = $sql->fetchAll();
           <th>JOGOS</th>
           <th>DATA</th>
           <th>HORARIO</th>
+          <th>Atuaizar | Deletar</th>
       </tr>
       </thead>";
 
       foreach ($dados as $chaves => $valor) {
         echo "<tr>
-              <td>" . $valor['local'] . "</td>
+              <td>" . $valor['localidade'] . "</td>
               <td>" . $valor['timea'] . " X " . $valor['timeb'] . "</td>
-              <td>" . date("d/m/y", strtotime($valor['data'])) . "</td>
+              <td>" . date("d/m/y", strtotime($valor['data_partida'])) . "</td>
               <td>" . date("H:i", strtotime($valor['horario'])) . "</td>
+              <td><a href='#' class='btn-atualizar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timea='" . $valor['timea'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'data-horario='" . $valor['horario'] . "'>Atualizar</a> | <a href='#' class='btn-deletar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timea='" . $valor['timea'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'data-horario='" . $valor['horario'] . "'>Deletar</a></td>
+
         </tr>";
-        $valor['data'] = null;
+        
       }
 
       echo "</table>";
@@ -126,6 +256,69 @@ $dados = $sql->fetchAll();
     <p class="mb-0">Desenvolvimento estacio</p>
   </footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  //      ATUALIZAR
+
+  $(".btn-atualizar").click(function() {
+    var id = $(this).attr('data-id');
+    var localidade = $(this).attr('data-localidade');
+    var timea = $(this).attr('data-timea');
+    var timeb = $(this).attr('data-timeb');
+    var data_partida = $(this).attr('data-data_partida');
+    var horario = $(this).attr('data-horario');
+
+    $('#form_salva').addClass('oculto');
+    $('#form_deleta').addClass('oculto');
+    $('#form_atualiza').removeClass('oculto');
+    $('#div-update').removeClass('oculto');
+
+
+    $("#id_editado").val(id);
+    $("#localidade_editado").val(localidade);
+    $("#timea_editado").val(timea);
+    $("#timeb_editado").val(timeb);
+    $("#data_partida_editado").val(data_partida);
+    $("horario_editado").val(horario)
+
+  });
+
+  //      DELETAR
+
+  $(".btn-deletar").click(function() {
+      var id = $(this).attr('data-id');
+      var localidade = $(this).attr('data-localidade');
+      var timea = $(this).attr('data-timea');
+      var timeb = $(this).attr('data-timeb');
+      var data_partida = $(this).attr('data-data_partida');
+      var horario = $(this).attr('data-horario');
+
+      $("#id_deleta").val(id);
+      $("#localidade_deleta").val(localidade);
+      $("#timea_deleta").val(timea);
+      $("#timeb_deleta").val(timeb);
+      $("#data_partida_deleta").val(data_partida);
+      $("horario_deleta").val(horario)
+
+      $('#form_atualiza').addClass('oculto');
+      $('#form_deleta').removeClass('oculto');
+
+
+    });
+
+  //      OCULTAR
+
+  $('#cancelar').click(function() {
+    $('#form_atualiza').addClass('oculto');
+    $('#form_deleta').addClass('oculto');
+    $('#div-update').addClass('oculto');
+  });
+
+  $('#cancelar_delete').click(function() {
+    $('#form_atualiza').addClass('oculto');
+    $('#form_deleta').addClass('oculto');
+  });
+</script>
 
 </html>
 <!--table>

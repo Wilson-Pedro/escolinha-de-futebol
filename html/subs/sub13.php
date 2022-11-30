@@ -55,10 +55,10 @@ $dados = $sql->fetchAll();
   <!-- CABEÇALHO -->
   <div class="cabecalho">
     <div class="nomeTime">
-      <h1><a href="index.php">LYON SLZ</a></h1>
+      <h1><a href="../index.php">LYON SLZ</a></h1>
     </div>
     <div class="escudoTime">
-      <a href="index.php"><img src="../../img/favicon/favicon.png" alt=""></a>
+      <a href="../index.php"><img src="../../img/favicon/favicon.png" alt=""></a>
     </div>
     <header class="navbar mb-2">
       <nav class="dp-menu">

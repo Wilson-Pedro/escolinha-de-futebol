@@ -105,9 +105,9 @@ $dados = $sql->fetchAll();
 
       foreach ($dados as $chaves => $valor) {
         echo "<tr>
-              <td>" . $valor['local'] . "</td>
+              <td>" . $valor['localidade'] . "</td>
               <td>" . $valor['timea'] . " X " . $valor['timeb'] . "</td>
-              <td>" . date("d/m/y", strtotime($valor['data'])). "</td>
+              <td>" . date("d/m/y", strtotime($valor['data_partida'])). "</td>
               <td>" . date("H:i", strtotime($valor['horario'])). "</td>
         </tr>";
         $valor['data']= null;
