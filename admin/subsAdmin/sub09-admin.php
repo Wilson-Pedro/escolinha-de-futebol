@@ -111,7 +111,6 @@ $dados = $sql->fetchAll();
 
   <main>
     <h1 class="categoria">Categoria Sub-09</h1>
-    <br><br><br>
     <!-- ATUALIZAR -->
 
     <form class="oculto" id="form_atualiza" method="post">

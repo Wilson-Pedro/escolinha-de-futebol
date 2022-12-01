@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <!-- Meta tags Obrigatórias -->
   <meta charset="utf-8">
@@ -17,7 +17,7 @@
 
   <title>Escolinha de futebol</title>
   <style>
-    div#icons{
+    div#icons {
       display: inline-block;
     }
 
@@ -36,7 +36,6 @@
     img.d-block {
       z-index: 0;
     }
-    
   </style>
 </head>
 

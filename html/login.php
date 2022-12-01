@@ -1,10 +1,9 @@
 <?php
-require('db/conexao.php');
 
+require('db/conexao.php');
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -15,13 +14,12 @@ require('db/conexao.php');
     <link rel="stylesheet" href="../css/login.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 </head>
-
 <body>
     <div class="login">
         <h1>Login</h1>
         <div id="aviso">
         </div>
-        <form method="post" action="">
+        <form method="post" action="../admin/login-congif.php">
             <p class="logar">Nome:</p>
             <div>
                 <input type="text" name="nameLog" id="emailLog" class="email">
@@ -36,6 +34,7 @@ require('db/conexao.php');
             <div class="aviso">
                 <span class="dados"><input type="checkbox" name="lembrarLog" id="lembrarLog" class="lembrar"></span><span class="dados">Lembrar-se dos meus dados</span>
             </div><br>
+            
             <div>
                 <button type="submit" name="entrar" class="btn-entrar" onclick="validaCampos()">Entrar</button>
                 <input type="button" value="Limpar" class="btn-entrar" onclick="limpaCampos()">
@@ -43,27 +42,6 @@ require('db/conexao.php');
             <a href="../admin/index.php"></a>
         </form>
 
-        <?php
-
-        $sql = $pdo->prepare("SELECT * FROM tbllogin ORDER BY id LIMIT 0, 100");
-        $sql->execute();
-        $dados = $sql->fetchAll();
-
-        if (count($dados) > 0) {
-
-            foreach ($dados as $chaves => $valor) {
-                if (isset($_POST['entrar']) && isset($_POST['nameLog']) && isset($_POST['senhaLog'])) {
-                    $nome = $_POST['nameLog'];
-                    $senha = $_POST['senhaLog'];
-                    if($nome == $valor['nome'] && $senha == $valor['senha']){
-                        header("location: ../admin/index-admin.php");
-                        
-                    }
-                }
-            }
-        }
-
-        ?>
 
         <div>
             <a href="cadastro.php"><input type="button" value="Cadastrar uma conta" class="btn-cadastrar"></a>
@@ -71,5 +49,4 @@ require('db/conexao.php');
     </div>
     <script src="../js/login.js"></script>
 </body>
-
 </html>

@@ -24,6 +24,13 @@ $dados = $sql->fetchAll();
   <title>Calendario</title>
 </head>
 <style>
+  #calendarioDeJogos {
+    text-align: center;
+    padding-top: 5vh;
+    font-weight: bold;
+    padding-bottom: 3vh;
+  }
+
   header>nav>ul>li>a {
     font-size: 86%;
   }

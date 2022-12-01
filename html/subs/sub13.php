@@ -19,6 +19,7 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../../css/ranking.css">
+  <link rel="stylesheet" href="../../css/update-e-delete.css">
   <title>Sub13</title>
   <style>
     header>nav>ul>li>a {
@@ -105,7 +106,8 @@ $dados = $sql->fetchAll();
     </header>
   </div>
   <main>
-    <br><br><br>
+    <h1 class="categoria">Categoria Sub-13</h1>
+    <br>
     <?php
     if (count($dados) > 0) {
       echo "<table class=table table-striped>
