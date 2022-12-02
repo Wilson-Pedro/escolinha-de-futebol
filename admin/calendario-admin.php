@@ -165,7 +165,6 @@ $dados = $sql->fetchAll();
 
       <input type="hidden" id="data_partida_deleta" name="data_partida_deleta" placeholder="Editar Data" required> <br><br>
 
-      <input type="hidden" id="horario_deleta" name="horario_deleta" placeholder="Editar Horário" required>
       <b>Tem certeza que quer deletar partida? <span id="cliente"></span></b>
 
       <button type="submit" name="deletar">Confirmar</button>
@@ -204,20 +203,17 @@ $dados = $sql->fetchAll();
 
     <?php
     //DELETAR DADOS
-    if (isset($_POST['deletar']) && isset($_POST['id_deleta']) && isset($_POST['localidade_deleta']) && isset($_POST['timea_deleta']) && isset($_POST['timeb_deleta']) && isset($_POST['data_partida_deleta']) && isset($_POST['horario_deleta'])) {
+    if (isset($_POST['deletar']) && isset($_POST['id_deleta']) && isset($_POST['localidade_deleta']) && isset($_POST['timea_deleta']) && isset($_POST['timeb_deleta']) && isset($_POST['data_partida_deleta'])) {
 
       $id = $_POST['id_deleta'];
       $localidade = $_POST['localidade_deleta'];
       $timea = $_POST['timea_deleta'];
       $timeb = $_POST['timeb_deleta'];
       $data_partida = $_POST['data_partida_deleta'];
-      $horario = $_POST['horario_deleta'];
 
       //COMANDO PARA DELETAR
-      $sql = $pdo->prepare("DELETE FROM tblpartidas WHERE id=? AND localidade=? AND timea=? AND timeb=? AND data_partida=? AND horario=?");
-      $sql->execute(array($id, $localidade, $timea, $timeb, $data_partida, $horario));
-
-      echo "Deletado com sucesso!";
+      $sql = $pdo->prepare("DELETE FROM tblpartidas WHERE id=? AND localidade=? AND timea=? AND timeb=? AND data_partida=?");
+      $sql->execute(array($id, $localidade, $timea, $timeb, $data_partida));
     }
     ?>
     <?php
@@ -239,10 +235,9 @@ $dados = $sql->fetchAll();
               <td>" . $valor['timea'] . " X " . $valor['timeb'] . "</td>
               <td>" . date("d/m/y", strtotime($valor['data_partida'])) . "</td>
               <td>" . date("H:i", strtotime($valor['horario'])) . "</td>
-              <td><a href='#' class='btn-atualizar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timea='" . $valor['timea'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'data-horario='" . $valor['horario'] . "'>Atualizar</a> | <a href='#' class='btn-deletar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timea='" . $valor['timea'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'data-horario='" . $valor['horario'] . "'>Deletar</a></td>
+              <td><a href='#' class='btn-atualizar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timea='" . $valor['timea'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'data-horario='" . $valor['horario'] . "'>Atualizar</a> | <a href='#' class='btn-deletar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timea='" . $valor['timea'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'>Deletar</a></td>
 
         </tr>";
-        
       }
 
       echo "</table>";
@@ -286,25 +281,24 @@ $dados = $sql->fetchAll();
   //      DELETAR
 
   $(".btn-deletar").click(function() {
-      var id = $(this).attr('data-id');
-      var localidade = $(this).attr('data-localidade');
-      var timea = $(this).attr('data-timea');
-      var timeb = $(this).attr('data-timeb');
-      var data_partida = $(this).attr('data-data_partida');
-      var horario = $(this).attr('data-horario');
+    var id = $(this).attr('data-id');
+    var localidade = $(this).attr('data-localidade');
+    var timea = $(this).attr('data-timea');
+    var timeb = $(this).attr('data-timeb');
+    var data_partida = $(this).attr('data-data_partida');
+    var horario = $(this).attr('data-horario');
 
-      $("#id_deleta").val(id);
-      $("#localidade_deleta").val(localidade);
-      $("#timea_deleta").val(timea);
-      $("#timeb_deleta").val(timeb);
-      $("#data_partida_deleta").val(data_partida);
-      $("horario_deleta").val(horario)
+    $("#id_deleta").val(id);
+    $("#localidade_deleta").val(localidade);
+    $("#timea_deleta").val(timea);
+    $("#timeb_deleta").val(timeb);
+    $("#data_partida_deleta").val(data_partida);
 
-      $('#form_atualiza').addClass('oculto');
-      $('#form_deleta').removeClass('oculto');
+    $('#form_atualiza').addClass('oculto');
+    $('#form_deleta').removeClass('oculto');
 
 
-    });
+  });
 
   //      OCULTAR
 
