@@ -19,7 +19,7 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../../css/ranking.css">
-  <link rel="stylesheet" href="../../css/update-e-delete.css">
+  <link rel="stylesheet" href="../../css/update-delete.css">
   <title>Sub17</title>
   <style>
     header>nav>ul>li>a {
@@ -140,21 +140,25 @@ $dados = $sql->fetchAll();
     <!-- DELETAR -->
 
     <form class="oculto" id="form_deleta" method="post">
-      <input type="hidden " id="id_deleta" name="id_deleta" placeholder="ID" required> <br><br>
+      <div id="div-delete" class="oculto">
+        <input type="hidden " id="id_deleta" name="id_deleta" placeholder="ID" required> <br><br>
 
-      <input type="hidden" id="nome_deleta" name="nome_deleta" placeholder="Editar nome" required> <br><br>
+        <input type="hidden" id="nome_deleta" name="nome_deleta" placeholder="Editar nome" required> <br><br>
 
-      <input type="hidden" id="idade_deleta" name="idade_deleta" placeholder="Editar idade" required><br><br>
+        <input type="hidden" id="idade_deleta" name="idade_deleta" placeholder="Editar idade" required><br><br>
 
-      <input type="hidden" id="posicao_deleta" name="posicao_deleta" placeholder="Editar posicao" required><br><br>
+        <input type="hidden" id="posicao_deleta" name="posicao_deleta" placeholder="Editar posicao" required><br><br>
 
-      <input type="hidden" id="gols_deleta" name="gols_deleta" placeholder="Editar gols" required>
-      <b>Tem certeza que quer deletar Jogador <span id="cliente"></span></b>
+        <input type="hidden" id="gols_deleta" name="gols_deleta" placeholder="Editar gols" required>
 
-      <button type="submit" name="deletar">Confirmar</button>
+        <b>Tem certeza que quer deletar Jogador <span id="cliente"></span></b>
 
-      <button type="button" id="cancelar_delete" name="cancelar_delete">Cancelar</button>
-      <hr>
+        <button type="submit" id="btn-deletar" name="deletar">Confirmar</button>
+
+        <button type="button" id="cancelar_delete" name="cancelar_delete">Cancelar</button>
+
+        <hr>
+      </div>
     </form>
     <br><br>
     <?php
@@ -278,6 +282,7 @@ $dados = $sql->fetchAll();
 
       $('#form_atualiza').addClass('oculto');
       $('#form_deleta').removeClass('oculto');
+      $('#div-delete').removeClass('oculto');
 
 
     });
@@ -286,11 +291,13 @@ $dados = $sql->fetchAll();
       $('#form_atualiza').addClass('oculto');
       $('#form_deleta').addClass('oculto');
       $('#div-update').addClass('oculto');
+      $('#div-delete').addClass('oculto');
     });
 
     $('#cancelar_delete').click(function() {
       $('#form_atualiza').addClass('oculto');
       $('#form_deleta').addClass('oculto');
+      $('#div-delete').addClass('oculto');
     });
   </script>
 </body>

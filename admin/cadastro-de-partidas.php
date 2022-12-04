@@ -3,13 +3,12 @@ require('../html/db/conexao.php');
 
 if(isset($_POST['salvar'])){
     $local = $_POST['partidaLocal'];
-    $timeA = $_POST['partidaTimeA'];
     $timeB = $_POST['partidaTimeB'];
     $data = $_POST['data'];
     $horario = $_POST['horario'];
 
-    $sql = $pdo->prepare("INSERT INTO tblpartidas VALUES (null,?,?,?,?,?)");
-    $sql->execute(array($local, $timeA, $timeB, $data, $horario));
+    $sql = $pdo->prepare("INSERT INTO tblpartidas VALUES (null,?,?,?,?)");
+    $sql->execute(array($local, $timeB, $data, $horario));
 
 }
 ?>
@@ -196,14 +195,6 @@ if(isset($_POST['salvar'])){
                 <button type="button" class="btn btn-warning col btn-lg" id="limpaLocal" onclick="limpaCampos0()">Limpar</button>
             </div><br>
 
-            <!-- TIME A -->
-            <div class="row">
-                <div class="form-floating col-md-8">
-                    <input type="text" class="form-control" id="partidaTimeA" name="partidaTimeA" placeholder="Ex.: Lion SLZ Club">
-                    <label for="floatingInput text-center">Time A</label>
-                </div>
-                <button type="button" class="btn btn-warning col btn-lg" id="limpaTimeA" onclick="limpaCampos1()">Limpar</button>
-            </div><br>
 
             <!-- JANELAS DE CONFIRMAÇÃO -->
             <dialog id="cad-partidaConfirmMsg" class="MsgSucesso">
@@ -219,7 +210,7 @@ if(isset($_POST['salvar'])){
             <div class="row">
                 <div class="form-floating col-md-8">
                     <input type="text" class="form-control" id="partidaTimeB" name="partidaTimeB" placeholder="Ex.: Manchester United do Maranhão">
-                    <label for="floatingInput text-center">Time B</label>
+                    <label for="floatingInput text-center">Time Adversário</label>
                 </div>
                 <button type="button" class="btn btn-warning col btn-lg" id="limpaTimeB" onclick="limpaCampos2()">Limpar</button>
             </div><br>
@@ -255,50 +246,3 @@ if(isset($_POST['salvar'])){
 </body>
 
 </html>
-<!--<header>
-    <nav class="navbar navbar-expand-lg bg-light bg-nav">
-        <div class="container-fluid">
-            <div class="escudoTime">
-                <a href="index.php"><img src="../img/favicon/favicon.png" alt=""></a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <h6 class="display-6">LYON SLZ</h6>
-                    </li>
-                    <<li class="nav-item">
-        <a class="nav-link" href="cadastro-de-jogador.php" ><h6 class="display-6">Cadastro de jogador</h6></a>
-        </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle font" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Cadastros
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="nav-link" href="cadastro-de-jogador.php">
-                                    <h6>Cadastro de jogador</h6>
-                                </a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="nav-link disabled" href="cadastro-de-partidas.php">
-                                    <h6>Cadastro de partidas</h6>
-                                </a></li>
-                            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> 
-            </div>
-        </div>
-    </nav>
-</header>-->

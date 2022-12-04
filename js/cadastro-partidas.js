@@ -2,13 +2,12 @@ var cad_partidaConfirmMsg = document.getElementById('cad-partidaConfirmMsg');
 var cad_partidaConfirmMsgErro = document.getElementById('cad-partidaConfirmMsgErro');
 var partida = [
     document.getElementById('partidaLocal'),
-    document.getElementById('partidaTimeA'),
     document.getElementById('partidaTimeB'),
     document.getElementById('partidaHorarioData')
 ];
 // VALIDAÇÃO DOS CAMPOS DO CAD. DE PARTIDA
 function validaCampos(event) {
-    if (partida[0].value == '' || partida[1].value == '' || partida[2].value == '' || partida[3].value == '') {
+    if (partida[0].value == '' || partida[1].value == '' || partida[2].value == '') {
         alert('Preencha todos os campos para cadastrar uma partida');
     }
     //  else if (typeof partida[0].value === "number") {
@@ -35,9 +34,6 @@ cancel.addEventListener('click', function () {
 // LIMPA CADA CAMPO
 function limpaCampos0() {
     partida[0].value = '';
-}
-function limpaCampos1() {
-    partida[1].value = '';
 }
 function limpaCampos2() {
     partida[2].value = '';

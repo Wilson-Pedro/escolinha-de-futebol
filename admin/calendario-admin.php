@@ -21,6 +21,7 @@ $dados = $sql->fetchAll();
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/calendario.css">
   <link rel="stylesheet" href="../css/timeAND escudo.css">
+  <link rel="stylesheet" href="../css/update-delete.css">
   <title>Calendario</title>
 </head>
 <style>
@@ -60,6 +61,36 @@ $dados = $sql->fetchAll();
 
   .oculto {
     display: none;
+  }
+
+  form#form_deleta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form#form_deleta>div {
+    border: 1px solid black;
+    padding: 5%;
+  }
+
+  form#form_deleta>div>button {
+    cursor: pointer;
+    margin: auto;
+    padding: 14px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  #cancelar_delete, #btn-deletar {
+    background-color: red;
+    margin-left: 3vw;
+  }
+
+  #cancelar:hover {
+    background-color: rgb(158, 3, 3);
   }
 </style>
 
@@ -127,22 +158,19 @@ $dados = $sql->fetchAll();
 
     <form class="oculto" id="form_atualiza" method="post">
       <div id="div-update" class="oculto">
-        <h5 class="inputTitulo">ID:</h5>
+        <h5>ID:</h5>
         <input type="text" id="id_editado" name="id_editado" placeholder="ID" required> <br><br>
 
-        <h5 class="inputTitulo">Local:</h5>
+        <h5>Local:</h5>
         <input type="text" id="localidade_editado" name="localidade_editado" placeholder="Editar local" required> <br><br>
 
-        <h5 class="inputTitulo">Time A:</h5>
-        <input type="text" id="timea_editado" name="timea_editado" placeholder="Editar time A" required><br><br>
-
-        <h5 class="inputTitulo">Time B:</h5>
+        <h5>Time B:</h5>
         <input type="text" id="timeb_editado" name="timeb_editado" placeholder="Editar time B" required><br><br>
 
-        <h5 class="inputTitulo">Data:</h5>
+        <h5>Data:</h5>
         <input type="date" id="data_partida_editado" name="data_partida_editado" placeholder="Editar Data" required><br><br>
 
-        <h5 class="inputTitulo">Horário:</h5>
+        <h5>Horário:</h5>
         <input type="time" id="horario_editado" name="horario_editado" placeholder="Editar horário" required><br><br>
 
         <button type="submit" name="atualizar" id="btn-atualizar">Atualizar</button>
@@ -155,39 +183,32 @@ $dados = $sql->fetchAll();
     <!-- DELETAR -->
 
     <form class="oculto" id="form_deleta" method="post">
-      <input type="hidden " id="id_deleta" name="id_deleta" placeholder="ID" required> <br><br>
-
-      <input type="hidden" id="localidade_deleta" name="localidade_deleta" placeholder="Editar local" required> <br><br>
-
-      <input type="hidden" id="timea_deleta" name="timea_deleta" placeholder="Editar Time A" required><br><br>
-
-      <input type="hidden" id="timeb_deleta" name="timeb_deleta" placeholder="Editar Time B" required><br><br>
-
-      <input type="hidden" id="data_partida_deleta" name="data_partida_deleta" placeholder="Editar Data" required> <br><br>
-
-      <b>Tem certeza que quer deletar partida? <span id="cliente"></span></b>
-
-      <button type="submit" name="deletar">Confirmar</button>
-
-      <button type="button" id="cancelar_delete" name="cancelar_delete">Cancelar</button>
-      <hr>
+      <div id="div-delete" class="oculto">
+        <input type="hidden " id="id_deleta" name="id_deleta" placeholder="ID" required> <br><br>
+        <input type="hidden" id="localidade_deleta" name="localidade_deleta" placeholder="Editar local" required> <br><br>
+        <input type="hidden" id="timeb_deleta" name="timeb_deleta" placeholder="Editar Time B" required><br><br>
+        <input type="hidden" id="data_partida_deleta" name="data_partida_deleta" placeholder="Editar Data" required> <br><br>
+        <h5 id="timeb_deleta" name="timeb_deleta"> <?php $timeb; ?></h5>
+        <h4>Tem certeza que quer deletar partida? <span id="cliente"></span></h4><br>
+        <button type="submit" id="btn-deletar" name="deletar">Confirmar</button>
+        <button type="button" id="cancelar_delete" name="cancelar_delete">Cancelar</button>
+        <hr>
+      </div>
     </form>
     <br><br>
     <?php
     //PROCESSO DE ATUALIZAÇÃO
-    if (isset($_POST['atualizar']) && isset($_POST['id_editado']) && isset($_POST['localidade_editado']) && isset($_POST['timea_editado']) && isset($_POST['timeb_editado']) && isset($_POST['data_partida_editado']) && isset($_POST['horario_editado'])) {
+    if (isset($_POST['atualizar']) && isset($_POST['id_editado']) && isset($_POST['localidade_editado']) && isset($_POST['timeb_editado']) && isset($_POST['data_partida_editado']) && isset($_POST['horario_editado'])) {
 
       $id = $_POST['id_editado'];
       $localidade = $_POST['localidade_editado'];
-      $timea = $_POST['timea_editado'];
       $timeb = $_POST['timeb_editado'];
       $data_partida = $_POST['data_partida_editado'];
       $horario = $_POST['horario_editado'];
 
 
-      $sql = $pdo->prepare("UPDATE tblpartidas SET localidade = :localidade ,timea = :timea, timeb = :timeb, data_partida = :data_partida, horario = :horario WHERE id= :id");
+      $sql = $pdo->prepare("UPDATE tblpartidas SET localidade = :localidade, timeb = :timeb, data_partida = :data_partida, horario = :horario WHERE id= :id");
       $sql->bindValue(':localidade', $localidade);
-      $sql->bindValue(':timea', $timea);
       $sql->bindValue(':timeb', $timeb);
       $sql->bindValue(':data_partida', $data_partida);
       $sql->bindValue(':horario', $horario);
@@ -203,17 +224,16 @@ $dados = $sql->fetchAll();
 
     <?php
     //DELETAR DADOS
-    if (isset($_POST['deletar']) && isset($_POST['id_deleta']) && isset($_POST['localidade_deleta']) && isset($_POST['timea_deleta']) && isset($_POST['timeb_deleta']) && isset($_POST['data_partida_deleta'])) {
+    if (isset($_POST['deletar']) && isset($_POST['id_deleta']) && isset($_POST['localidade_deleta']) && isset($_POST['timeb_deleta']) && isset($_POST['data_partida_deleta'])) {
 
       $id = $_POST['id_deleta'];
       $localidade = $_POST['localidade_deleta'];
-      $timea = $_POST['timea_deleta'];
       $timeb = $_POST['timeb_deleta'];
       $data_partida = $_POST['data_partida_deleta'];
 
       //COMANDO PARA DELETAR
-      $sql = $pdo->prepare("DELETE FROM tblpartidas WHERE id=? AND localidade=? AND timea=? AND timeb=? AND data_partida=?");
-      $sql->execute(array($id, $localidade, $timea, $timeb, $data_partida));
+      $sql = $pdo->prepare("DELETE FROM tblpartidas WHERE id=? AND localidade=? AND timeb=? AND data_partida=?");
+      $sql->execute(array($id, $localidade, $timeb, $data_partida));
     }
     ?>
     <?php
@@ -232,10 +252,10 @@ $dados = $sql->fetchAll();
       foreach ($dados as $chaves => $valor) {
         echo "<tr>
               <td>" . $valor['localidade'] . "</td>
-              <td>" . $valor['timea'] . " X " . $valor['timeb'] . "</td>
+              <td>" . "Lyon X " . $valor['timeb'] . "</td>
               <td>" . date("d/m/y", strtotime($valor['data_partida'])) . "</td>
               <td>" . date("H:i", strtotime($valor['horario'])) . "</td>
-              <td><a href='#' class='btn-atualizar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timea='" . $valor['timea'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'data-horario='" . $valor['horario'] . "'>Atualizar</a> | <a href='#' class='btn-deletar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timea='" . $valor['timea'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'>Deletar</a></td>
+              <td><a href='#' class='btn-atualizar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'data-horario='" . $valor['horario'] . "'>Atualizar</a> | <a href='#' class='btn-deletar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'>Deletar</a></td>
 
         </tr>";
       }
@@ -283,19 +303,18 @@ $dados = $sql->fetchAll();
   $(".btn-deletar").click(function() {
     var id = $(this).attr('data-id');
     var localidade = $(this).attr('data-localidade');
-    var timea = $(this).attr('data-timea');
     var timeb = $(this).attr('data-timeb');
     var data_partida = $(this).attr('data-data_partida');
     var horario = $(this).attr('data-horario');
 
     $("#id_deleta").val(id);
     $("#localidade_deleta").val(localidade);
-    $("#timea_deleta").val(timea);
     $("#timeb_deleta").val(timeb);
     $("#data_partida_deleta").val(data_partida);
 
     $('#form_atualiza').addClass('oculto');
     $('#form_deleta').removeClass('oculto');
+    $('#div-delete').removeClass('oculto');
 
 
   });
@@ -306,58 +325,14 @@ $dados = $sql->fetchAll();
     $('#form_atualiza').addClass('oculto');
     $('#form_deleta').addClass('oculto');
     $('#div-update').addClass('oculto');
+    $('#div-delete').addClass('oculto');
   });
 
   $('#cancelar_delete').click(function() {
     $('#form_atualiza').addClass('oculto');
     $('#form_deleta').addClass('oculto');
+    $('#div-delete').addClass('oculto');
   });
 </script>
 
 </html>
-<!--table>
-      <thead>
-        <tr>
-          <th>LOCAL</th>
-          <th>JOGOS</th>
-          <th>DATA</th>
-          <th>HORARIO</th>
-        </tr>
-      </thead>
-      <tr>
-        <td>Local</td>
-        <td>Time A x Time B</td>
-        <td>22/10</td>
-        <td>15:00</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time C x Time D</td>
-        <td>25/10</td>
-        <td>16:45</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time E x Time F</td>
-        <td>30/10</td>
-        <td>20:00</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time G x Time H</td>
-        <td>02/11</td>
-        <td>14:30</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time N x Time M</td>
-        <td>06/11</td>
-        <td>17:15</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time Z x Time X</td>
-        <td>10/11</td>
-        <td>21:00</td>
-      </tr>
-    </table>-->

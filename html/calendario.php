@@ -24,6 +24,26 @@ $dados = $sql->fetchAll();
   <title>Calendario</title>
 </head>
 <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  table {
+    width: 80vw;
+    height: 56vh;
+    border-collapse: collapse;
+    background-color: rgb(243, 231, 231);
+    color: black;
+    margin: auto;
+    margin-top: 6vh;
+  }
+
+  td,
+  th {
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
   #calendarioDeJogos {
     text-align: center;
     padding-top: 5vh;
@@ -113,7 +133,7 @@ $dados = $sql->fetchAll();
       foreach ($dados as $chaves => $valor) {
         echo "<tr>
               <td>" . $valor['localidade'] . "</td>
-              <td>" . $valor['timea'] . " X " . $valor['timeb'] . "</td>
+              <td>" . "Lyon X " . $valor['timeb'] . "</td>
               <td>" . date("d/m/y", strtotime($valor['data_partida'])). "</td>
               <td>" . date("H:i", strtotime($valor['horario'])). "</td>
         </tr>";
