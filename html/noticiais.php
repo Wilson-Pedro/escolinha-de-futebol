@@ -1,3 +1,13 @@
+<?php
+
+include('db/conexao.php');
+
+$sql = $pdo->prepare("SELECT * FROM tblpartidas ORDER BY id LIMIT 0, 10000");
+$sql->execute();
+$dados = $sql->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,113 +22,9 @@
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/noticiais.css">
+  <link rel="stylesheet" href="../css/news.css">
   <title>Notícias</title>
-  <style>
-    :root {
-      --cor-fundo: linear-gradient(55deg, rgb(250, 165, 6), black);
-      --cor-submenu: rgb(172, 114, 8);
-      --cor-hover: rgb(226, 190, 30);
-      --cor-primaria: rgb(231, 241, 236);
-    }
 
-    body {
-      background-color: white;
-    }
-
-    header {
-      height: 25vh;
-    }
-
-    .dp-menu ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .dp-menu ul {
-      background-color: var(--cor-fundo);
-    }
-
-    .dp-menu ul ul.sub-menu {
-      background-color: var(--cor-submenu);
-      z-index: 1;
-    }
-
-    .dp-menu ul li {
-      display: inline;
-      position: relative;
-    }
-
-    .dp-menu ul li a {
-      color: var(--cor-primaria);
-      text-decoration: none;
-      display: inline-block;
-      padding: 10px;
-      transition-duration: 0.3s;
-    }
-
-    .dp-menu ul li a:hover {
-      background-color: var(--cor-hover);
-    }
-
-    /*sub menu*/
-    .dp-menu ul ul {
-      display: none;
-      left: 0;
-      position: absolute;
-    }
-
-    .dp-menu ul li:hover ul {
-      display: block;
-    }
-
-    .dp-menu ul ul {
-      width: 150px
-    }
-
-    .dp-menu ul ul li a {
-      display: block;
-    }
-
-    /*header>nav {
-      width: 100vw;
-
-    }*/
-
-    #marcado {
-      color: black;
-    }
-
-    a.nav-link {
-      color: white;
-      font-weight: bold;
-      font-size: 85%;
-    }
-
-    a.nav-link:hover {
-      color: rgb(0, 0, 0);
-    }
-
-    footer {
-      background-color: #343a40;
-      padding: 10px;
-    }
-
-    footer>p {
-      text-align: center;
-      color: white;
-      font-weight: bold;
-    }
-
-    /*a.navbar-brand,
-    a.nav-link {
-      color: white;
-    }
-
-    a.navbar-brand:hover,
-    a.nav-link:hover {
-      color: rgb(211, 208, 208);
-    }*/
-  </style>
 </head>
 
 <body>
@@ -169,9 +75,9 @@
               <li>
                 <a href="login.php">Logar</a>
               </li>
-              </li>
-            </ul>
           </li>
+        </ul>
+        </li>
         </ul>
       </nav>
     </header>
@@ -190,58 +96,7 @@
       </div>
     </div>
 
-    <!-- BARRA DE NAVEGAÇÃO -->
-
-    <div>
-      <hr>
-      <div>
-        <!--<nav class="navbar navbar-expand-lg bg-dark">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="index.php">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="ranking.php">Ranking</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="calendario.php">Calendario</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li>-->
-        <!--<li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                  </li>-->
-
-        <!--</ul>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">
-                  <i class="fa fa-search"></i>
-                </button>
-              </form>
-            </div>
-          </div>
-        </nav>-->
-      </div>
-    </div>
-    <div class="row mt-4">
+    <div class="row mt-4 mb-4">
       <div class="col-lg-8">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
 
@@ -260,7 +115,7 @@
             <!-- CARROSSEL 1 -->
 
             <div class="carousel-item active">
-              <img src="../img/imagens/imagem7.jpg" class="d-block w-100" alt="...">
+              <img src="../img/imgTime/imgTime03.png" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Informações sobre os jogos</h5>
                 <!--<p>Some representative placeholder content for the first slide.</p>-->
@@ -270,7 +125,7 @@
             <!-- CARROSSEL 2 -->
 
             <div class="carousel-item">
-              <img src="../img/imagens/imagem2.jpg" class="d-block w-100" alt="...">
+              <img src="../img/imgTime/imgTime05.png" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Jogaddores</h5>
 
@@ -280,7 +135,7 @@
             <!-- CARROSSEL 3 -->
 
             <div class="carousel-item">
-              <img src="../img/imagens/imagem3.jpg" class="d-block w-100" alt="...">
+              <img src="../img/imgTime/imgTime06.png" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Veja os Gols</h5>
 
@@ -317,7 +172,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Accordion Item #2
+                Sobre o Técnico.
               </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -329,7 +184,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Accordion Item #3
+                Últimas noticias.
               </button>
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -342,49 +197,93 @@
       </div>
     </div>
 
-    <!-- CARDS -->
+    <div class="barra"></div>
+
+    <!-- PLACAR -->
 
     <div class="row mt-4">
-      <div class="col-lg-4">
-
-        <!-- CARD 1 -->
-
-        <div class="card mt-4" style="width: 100%;">
-          <img src="../img/imagens/imagem4.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Informações sobre os jogos</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Acessar</a>
-          </div>
-        </div>
+      <div class="col-lg-4" class="div-img">
+        <img src="../img/imagens/imagem12.png" class="mt-3" alt="...">
       </div>
 
-      <!-- CARD 2 -->
+      <!-- NADA -->
 
       <div class="col-lg-4">
-        <div class="card mt-4" style="width: 100%;">
-          <img src="../img/imagens/imagem5.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Jogadores</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Acessar</a>
-          </div>
-        </div>
+
       </div>
 
-      <!-- CARD 3 -->
-
       <div class="col-lg-4">
-        <div class="card mt-4" style="width: 100%;">
-          <img src="../img/imagens/imagem1.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Gols</h5>
-            <p class="card-text">Veja os gols da última partida.</p>
-            <a href="#" class="btn btn-primary">Acessar</a>
-          </div>
+        <div class="placar">
+          <h1>Placar do jogo</h1>
+          <p class="fs-2 mt-3"> Lyon 2 x 0 Tiger </p>
         </div>
       </div>
     </div>
+
+    <!-- JOGO DE HOJE -->
+    <div class="barra"></div>
+
+    <div class="row mt-4">
+      <div class="col-lg-4">
+        <div class="placar">
+          <h1>Craques da partida</h1>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+
+      </div>
+
+      <div class="col-lg-4">
+        <div class="placar">
+          <img src="../img/imagens/imagem10.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- CALENÁRIO -->
+    <div class="barra"></div>
+
+    <div class="row mt-4">
+      <div class="col-lg-4" id="calendar">
+        <img src="../img/imagens/imagem19.png" id="img-calendar" alt="...">
+        <a href="calendario-admin.php" class="btn btn-warning">Confira os futuros jogos.</a>
+      </div>
+
+      <div class="col-lg-4">
+
+      </div>
+
+      <div class="col-lg-4">
+        <div class="mt-4" id="jogosToday">
+            <?php
+            $cont = 0;
+            echo "<h1>Jogos: </h1>";
+            echo "<hr>";
+            $dataAtual = date("Y-m-d");
+            if (count($dados) > 0) {
+              foreach ($dados as $chaves => $valor) {
+                if ($valor['data_partida'] == $dataAtual) {
+                  $cont += 1;
+                  if ($cont == 1){
+                    echo "<h1>Hoje tem Jogo!</h1>";
+                  }
+                  echo "<h3> Lyon x ". $valor['timeb'] . "</h3>";
+                  echo "<h3>Horário: ". date("H:i", strtotime($valor['horario'])) . "</h3>";
+                  echo "<hr>";
+                }
+              }
+              if ($cont == 0){
+                echo "<h1>Não haverá jogo hoje.</h1><br>";
+                echo "<p>Para mais informações acesse o calendário</p>";
+              }
+            }
+            ?>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 
@@ -394,5 +293,37 @@
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
+<script>
+  /*const inputFile = document.querySelector("#picture__input");
+  const pictureImage = document.querySelector(".picture__image");
+
+  const pictureImageTxt = "Choose an image";
+  pictureImage.innerHTML = pictureImageTxt;
+
+  inputFile.addEventListener("change", function(e) {
+    const inputTarget = e.target;
+    const file = inputTarget.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.addEventListener("load", function(e) {
+        const readerTarget = e.target;
+        var img = document.querySelector("#img");
+        //inputFile.style.background = 'white';
+
+        img.src = readerTarget.result;
+        img.classList.add("picture__img");
+
+        pictureImage.innerHTML = "";
+        pictureImage.appendChild(img);
+      });
+
+      reader.readAsDataURL(file);
+    } else {
+      pictureImage.innerHTML = pictureImageTxt;
+    }
+  });*/
+</script>
 
 </html>

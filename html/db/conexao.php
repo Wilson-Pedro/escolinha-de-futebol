@@ -14,5 +14,7 @@ try{
     echo "Falha ao se conectar comm o banco ".$erro->getMessage();
 }
 
+date_default_timezone_set ("America/Sao_Paulo");
+
 ?>
 <!-- $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); -->

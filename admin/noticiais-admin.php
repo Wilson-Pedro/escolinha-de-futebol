@@ -1,3 +1,13 @@
+<?php
+
+include('../html/db/conexao.php');
+
+$sql = $pdo->prepare("SELECT * FROM tblpartidas ORDER BY id LIMIT 0, 10000");
+$sql->execute();
+$dados = $sql->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,140 +23,10 @@
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/noticiais.css">
   <link rel="stylesheet" href="../css/imgFile.css">
+  <link rel="stylesheet" href="../css/news.css">
 
   <title>Notícias</title>
-  <style>
-    :root {
-      --cor-fundo: linear-gradient(55deg, rgb(250, 165, 6), black);
-      --cor-submenu: rgb(172, 114, 8);
-      --cor-hover: rgb(226, 190, 30);
-      --cor-primaria: rgb(231, 241, 236);
-    }
 
-    body {
-      background-color: white;
-    }
-
-    .dp-menu ul li a {
-      font-weight: bold;
-    }
-
-    header {
-      height: 25vh;
-    }
-
-    .dp-menu ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .dp-menu ul {
-      background-color: var(--cor-fundo);
-    }
-
-    .dp-menu ul ul.sub-menu {
-      background-color: var(--cor-submenu);
-      z-index: 1;
-    }
-
-    .dp-menu ul li {
-      display: inline;
-      position: relative;
-    }
-
-    .dp-menu ul li a {
-      color: var(--cor-primaria);
-      text-decoration: none;
-      display: inline-block;
-      padding: 10px;
-      transition-duration: 0.3s;
-    }
-
-    .dp-menu ul li a:hover {
-      background-color: var(--cor-hover);
-    }
-
-    /*sub menu*/
-    .dp-menu ul ul {
-      display: none;
-      left: 0;
-      position: absolute;
-    }
-
-    .dp-menu ul li:hover ul {
-      display: block;
-    }
-
-    .dp-menu ul ul {
-      width: 150px
-    }
-
-    .dp-menu ul ul li a {
-      display: block;
-    }
-
-    /*header>nav {
-      width: 100vw;
-
-    }*/
-
-    #marcado {
-      color: black;
-    }
-
-    a.nav-link {
-      color: white;
-      font-weight: bold;
-      font-size: 85%;
-    }
-
-    a.nav-link:hover {
-      color: rgb(0, 0, 0);
-    }
-
-    footer {
-      background-color: #343a40;
-      padding: 10px;
-    }
-
-    footer>p {
-      text-align: center;
-      color: white;
-      font-weight: bold;
-    }
-
-    div.placar {
-      text-align: center;
-    }
-
-    div#calendar > h1 > a {
-      text-decoration: none;
-      color: rgb(31, 30, 30);
-    }
-
-    div#calendar > h1 {
-      margin-top: 28vh;
-      cursor: pointer;
-    }
-
-    div#calendar > h1:hover {
-      text-decoration: underline;
-    }
-
-    #calendar >  h1 > a:hover {
-      color: rgb(8, 21, 83);  
-    }
-
-    /*a.navbar-brand,
-    a.nav-link {
-      color: white;
-    }
-
-    a.navbar-brand:hover,
-    a.nav-link:hover {
-      color: rgb(211, 208, 208);
-    }*/
-  </style>
 </head>
 
 <body>
@@ -222,7 +102,59 @@
 
     <div class="row mt-4 mb-4">
       <div class="col-lg-8">
-        <img src="../img/imagens/imagem1.jpg" alt="">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+
+          <!--BOTÕES DO CARROSSEL-->
+
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+
+          <!-- IMAGENS DO CARROSSEL -->
+
+          <div class="carousel-inner">
+
+            <!-- CARROSSEL 1 -->
+
+            <div class="carousel-item active">
+              <img src="../img/imgTime/imgTime03.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Informações sobre os jogos</h5>
+                <!--<p>Some representative placeholder content for the first slide.</p>-->
+              </div>
+            </div>
+
+            <!-- CARROSSEL 2 -->
+
+            <div class="carousel-item">
+              <img src="../img/imgTime/imgTime05.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Jogaddores</h5>
+
+              </div>
+            </div>
+
+            <!-- CARROSSEL 3 -->
+
+            <div class="carousel-item">
+              <img src="../img/imgTime/imgTime06.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Veja os Gols</h5>
+
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
 
       <!-- ACCORDION -->
@@ -269,14 +201,16 @@
       </div>
     </div>
 
-    <hr>
+    <div class="barra"></div>
 
     <!-- PLACAR -->
 
     <div class="row mt-4">
-      <div class="col-lg-4">
+      <div class="col-lg-4" class="div-img">
         <img src="../img/imagens/imagem12.png" class="mt-3" alt="...">
       </div>
+
+      <!-- NADA -->
 
       <div class="col-lg-4">
 
@@ -289,15 +223,15 @@
         </div>
       </div>
     </div>
-    
-    <!-- ??? -->
-    <hr>
-  
+
+    <!-- JOGO DE HOJE -->
+    <div class="barra"></div>
+
     <div class="row mt-4">
       <div class="col-lg-4">
-      <div class="placar">
+        <div class="placar">
           <h1>Craques da partida</h1>
-          
+
         </div>
       </div>
 
@@ -313,20 +247,43 @@
     </div>
 
     <!-- CALENÁRIO -->
-    <hr>
+    <div class="barra"></div>
 
     <div class="row mt-4">
-      <div class="col-lg-4">
-        <img src="../img/imagens/imagem19.png" class="mt-3" alt="...">
+      <div class="col-lg-4" id="calendar">
+        <img src="../img/imagens/imagem19.png" id="img-calendar" alt="...">
+        <a href="calendario-admin.php" class="btn btn-warning">Confira os futuros jogos.</a>
       </div>
 
       <div class="col-lg-4">
 
       </div>
 
-      <div class="col-lg-4 mt-4">
-        <div class="placar mt-4" id="calendar">
-          <h1><a href="calendario-admin.php">Confira os futuros jogos.</a></h1>
+      <div class="col-lg-4">
+        <div class="mt-4" id="jogosToday">
+            <?php
+            $cont = 0;
+            echo "<h1>Jogos: </h1>";
+            echo "<hr>";
+            $dataAtual = date("Y-m-d");
+            if (count($dados) > 0) {
+              foreach ($dados as $chaves => $valor) {
+                if ($valor['data_partida'] == $dataAtual) {
+                  $cont += 1;
+                  if ($cont == 1){
+                    echo "<h1>Hoje tem Jogo!</h1>";
+                  }
+                  echo "<h3> Lyon x ". $valor['timeb'] . "</h3>";
+                  echo "<h3>Horário: ". date("H:i", strtotime($valor['horario'])) . "</h3>";
+                  echo "<hr>";
+                }
+              }
+              if ($cont == 0){
+                echo "<h1>Não haverá jogo hoje.</h1><br>";
+                echo "<p>Para mais informações acesse o calendário</p>";
+              }
+            }
+            ?>
         </div>
       </div>
     </div>

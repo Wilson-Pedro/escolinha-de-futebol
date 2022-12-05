@@ -115,15 +115,15 @@ session_destroy();
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!--IMAGEM 1-->
-          <img class="d-block w-100" src="../img/imagens/imagem6.jpg" alt="calendario">
+          <img class="d-block w-100" src="../img/imgTime/imgTime01.png" alt="calendario">
         </div>
         <div class="carousel-item">
           <!--IMAGEM 2-->
-          <img class="d-block w-100" src="../img/imagens/imagem4.jpg" alt="galeria de fotos">
+          <img class="d-block w-100" src="../img/imgTime/imgTime02.png" alt="galeria de fotos">
         </div>
         <!--IMAGEM 3-->
         <div class="carousel-item">
-          <img class="d-block w-100" src="../img/imagens/imagem3.jpg" alt="historico de partidas">
+          <img class="d-block w-100" src="../img/imgTime/imgTime04.png" alt="historico de partidas">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -162,14 +162,14 @@ session_destroy();
         </div>
         <div class="col-sm-4">
           <div class="card border-success mt-4">
-            <img class="card-img-top" src="../img/imagens/imagem9.png">
+            <img class="card-img-top" src="../img/imagens/imagem21.jpg">
 
             <!-- CARD 2 -->
             <div class="card-body">
               <h5 class="card-title">CONFIRA O NOSSAS REDES SOCIAIS</h5>
               <p class="card-text">Fique por dentro nos bastidores do nosso time acompanhando nossas redes sociais.
               </p>
-              <a href="redes-sociais.php" class="btn btn-outline-success">Visitar</a>
+              <a href="https://www.instagram.com/lyon.slz/?igshid=N2ZiY2E3YmU%3D" target="_blank" class="btn btn-outline-success">Visitar</a>
             </div>
           </div>
         </div>
