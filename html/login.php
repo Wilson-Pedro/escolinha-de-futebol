@@ -19,7 +19,7 @@ require('db/conexao.php');
         <h1>Login</h1>
         <div id="aviso">
         </div>
-        <form method="post" action="../admin/login-congif.php">
+        <form method="post" action="../admin/index.php">
             <p class="logar">Nome:</p>
             <div>
                 <input type="text" name="nameLog" id="emailLog" class="email">

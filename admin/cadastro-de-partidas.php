@@ -128,16 +128,16 @@ if(isset($_POST['salvar'])){
     <!-- CABEÇALHO -->
     <div class="cabecalho">
         <div class="nomeTime">
-            <h1><a href="index.php">LYON SLZ</a></h1>
+            <h1><a href="home-admin.php">LYON SLZ</a></h1>
         </div>
         <div class="escudoTime">
-            <a href="index.php"><img src="../img/favicon/favicon.png" alt=""></a>
+            <a href="home-admin.php"><img src="../img/favicon/favicon.png" alt=""></a>
         </div>
         <header class="navbar mb-2">
             <nav class="dp-menu">
                 <ul class="nav">
                     <li class="nav-item ">
-                        <a class="nav-link" href="index-admin.php">HOME</a>
+                        <a class="nav-link" href="home-admin.php">HOME</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">JOGADORES</a>
@@ -171,7 +171,7 @@ if(isset($_POST['salvar'])){
                             <li>
                                 <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
                                 <a href="cadastro-de-partidas.php" id="marcado">Cadastrar partida</a>
-                                <a href="../html/index.php">Sair</a>
+                                <a href="../html/home.php">Sair</a>
                             </li>
                         </ul>
                     </li>

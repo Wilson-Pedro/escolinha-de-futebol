@@ -29,7 +29,7 @@ if (isset($_POST['nameLog']) && $_POST['senhaLog']) {
 
             if ($adm == 1) {
                 $_SESSION['adm'] = $nome;
-                echo "<script type='text/javascript'> window.location = 'index-admin.php' </script>";
+                echo "<script type='text/javascript'> window.location = 'home-admin.php' </script>";
             } else {
                 $_SESSION['nor'] = $nome;
                 echo "<script type='text/javascript'> window.location = '../html/login.php' </script>";

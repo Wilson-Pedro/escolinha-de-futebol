@@ -22,6 +22,13 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="../../css/update-e-delete.css">
   <title>Sub17</title>
   <style>
+    h1.categoria {
+      text-align: center;
+      font-weight: bold;
+      padding-top: 6vh;
+      padding-bottom: 4vh;
+    }
+
     header>nav>ul>li>a {
       font-size: 86%;
     }
@@ -56,16 +63,16 @@ $dados = $sql->fetchAll();
   <!-- CABEÇALHO -->
   <div class="cabecalho">
     <div class="nomeTime">
-      <h1><a href="../index.php">LYON SLZ</a></h1>
+      <h1><a href="../home.php">LYON SLZ</a></h1>
     </div>
     <div class="escudoTime">
-      <a href="../index.php"><img src="../../img/favicon/favicon.png" alt=""></a>
+      <a href="../home.php"><img src="../../img/favicon/favicon.png" alt=""></a>
     </div>
     <header class="navbar mb-2">
       <nav class="dp-menu">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="../index.php">HOME</a>
+            <a class="nav-link" href="../home.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="marcado" href="#">JOGADORES</a>
