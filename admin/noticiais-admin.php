@@ -28,6 +28,17 @@ $dados = $sql->fetchAll();
   <title>Notícias</title>
 
 </head>
+<style>
+  #btn-postar {
+    color: white;
+    font-weight: bold;
+  }
+
+  #btn-postar:hover {
+    background-color: rgb(230, 150, 3);
+  }
+
+</style>
 
 <body>
   <!-- CABEÇALHO -->
@@ -198,8 +209,14 @@ $dados = $sql->fetchAll();
             </div>
           </div>
         </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto mt-4">
+          <button class="btn btn-warning mt-2" id="btn-postar" type="button">Ver Fotos</button>
+        </div>
+
       </div>
     </div>
+
 
     <div class="barra"></div>
 
@@ -261,29 +278,29 @@ $dados = $sql->fetchAll();
 
       <div class="col-lg-4">
         <div class="mt-4" id="jogosToday">
-            <?php
-            $cont = 0;
-            echo "<h1>Jogos: </h1>";
-            echo "<hr>";
-            $dataAtual = date("Y-m-d");
-            if (count($dados) > 0) {
-              foreach ($dados as $chaves => $valor) {
-                if ($valor['data_partida'] == $dataAtual) {
-                  $cont += 1;
-                  if ($cont == 1){
-                    echo "<h1>Hoje tem Jogo!</h1>";
-                  }
-                  echo "<h3> Lyon x ". $valor['timeb'] . "</h3>";
-                  echo "<h3>Horário: ". date("H:i", strtotime($valor['horario'])) . "</h3>";
-                  echo "<hr>";
+          <?php
+          $cont = 0;
+          echo "<h1>Jogos: </h1>";
+          echo "<hr>";
+          $dataAtual = date("Y-m-d");
+          if (count($dados) > 0) {
+            foreach ($dados as $chaves => $valor) {
+              if ($valor['data_partida'] == $dataAtual) {
+                $cont += 1;
+                if ($cont == 1) {
+                  echo "<h1>Hoje tem Jogo!</h1>";
                 }
-              }
-              if ($cont == 0){
-                echo "<h1>Não haverá jogo hoje.</h1><br>";
-                echo "<p>Para mais informações acesse o calendário</p>";
+                echo "<h3> Lyon x " . $valor['timeb'] . "</h3>";
+                echo "<h3>Horário: " . date("H:i", strtotime($valor['horario'])) . "</h3>";
+                echo "<hr>";
               }
             }
-            ?>
+            if ($cont == 0) {
+              echo "<h1>Não haverá jogo hoje.</h1><br>";
+              echo "<p>Para mais informações acesse o calendário</p>";
+            }
+          }
+          ?>
         </div>
       </div>
     </div>
@@ -291,7 +308,7 @@ $dados = $sql->fetchAll();
   </div>
 
 
-  <footer>
+  <footer class="mt-4">
     <p class="mb-0">Desenvolvimento estacio</p>
   </footer>
   <!-- JavaScript Bundle with Popper -->
