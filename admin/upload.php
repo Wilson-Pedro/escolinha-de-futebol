@@ -1,3 +1,16 @@
+<?php
+require('../html/db/conexao.php');
+
+if(isset($_POST['deletar'])){
+
+    $sql = $pdo->prepare("DELETE FROM tblfotos");
+    $sql->execute();
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,6 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
     <title>Upload</title>
 </head>
 <style>
@@ -42,7 +56,10 @@
 
                 <form action="envia.php" method="POST" enctype="multipart/form-data">
                     <input type="file" name="arquivo">
-                    <input type="submit" value="Enviar">
+                    <button type="submit" value="Enviar" class="btn btn-primary">Postar foto</button>
+                </form>
+                <form action="" method="POST">
+                    <button type="submit" id="deletar" name="deletar" class="btn btn-danger">Deletar Imagens</button>
                 </form>
 
             </div>

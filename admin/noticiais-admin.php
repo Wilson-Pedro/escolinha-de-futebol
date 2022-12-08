@@ -211,7 +211,7 @@ $dados = $sql->fetchAll();
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto mt-4">
-          <button class="btn btn-warning mt-2" id="btn-postar" type="button">Ver Fotos</button>
+          <a href="upload.php" class="btn btn-warning mt-2" id="btn-postar" type="button">Ver Fotos</a>
         </div>
 
       </div>
