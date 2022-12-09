@@ -1,15 +1,25 @@
 <?php
 require('../html/db/conexao.php');
 
-if(isset($_POST['deletar'])){
+$pasta = "../img/imgArquivos/";
+$sql = $pdo->prepare("SELECT * FROM tblfotos");
+$sql->execute();
+$dados = $sql->fetchAll();
 
+if(isset($_POST['deletar'])){
     $sql = $pdo->prepare("DELETE FROM tblfotos");
     $sql->execute();
+    if (count($dados) > 0) {
+        foreach ($dados as $chaves => $valor) {
+            unlink("../img/imgArquivos/".$valor['arquivo']);
+        }
+    }
 
 }
 
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -55,7 +65,7 @@ if(isset($_POST['deletar'])){
             <div class="card-bordy">
 
                 <form action="envia.php" method="POST" enctype="multipart/form-data">
-                    <input type="file" name="arquivo">
+                    <input multiple="multiple" type="file" name="arquivo">
                     <button type="submit" value="Enviar" class="btn btn-primary">Postar foto</button>
                 </form>
                 <form action="" method="POST">

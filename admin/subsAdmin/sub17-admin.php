@@ -1,7 +1,7 @@
 <?php
 require('../../html/db/conexao.php');
 
-$sql = $pdo->prepare("SELECT * FROM tbljogadores ORDER BY id LIMIT 1,1000");
+$sql = $pdo->prepare("SELECT * FROM tbljogadores");
 $sql->execute();
 $dados = $sql->fetchAll();
 
