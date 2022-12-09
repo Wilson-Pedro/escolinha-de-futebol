@@ -20,7 +20,7 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/calendario.css">
-  <link rel="stylesheet" href="../css/timeAND escudo.css">
+  <link rel="stylesheet" href="../css/timeANDescudo.css">
   <link rel="stylesheet" href="../css/update-delete.css">
   <title>Calendario</title>
 </head>
