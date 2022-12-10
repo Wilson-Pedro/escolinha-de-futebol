@@ -19,7 +19,7 @@ $sql->execute();
 $dados = $sql->fetchAll();
 
 if (count($dados) > 0) {
-    foreach ($dados as $chaves => $valor) {
+    foreach ($dados as $chaves => $valor) { 
         echo "<img src='" . $pasta . $valor['arquivo'] . "' class='img-fluid img-thumbnail'><br>";
     }
 }

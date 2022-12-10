@@ -24,6 +24,7 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="../css/noticiais.css">
   <link rel="stylesheet" href="../css/imgFile.css">
   <link rel="stylesheet" href="../css/news.css">
+  <link rel="stylesheet" href="../css/navegacao.css">
 
   <title>Notícias</title>
 
@@ -211,7 +212,7 @@ $dados = $sql->fetchAll();
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto mt-4">
-          <a href="upload.php" class="btn btn-warning mt-2" id="btn-postar" type="button">Ver Fotos</a>
+          <a href="fotos-admin.php" class="btn btn-warning mt-2" id="btn-postar" type="button">Ver Fotos</a>
         </div>
 
       </div>

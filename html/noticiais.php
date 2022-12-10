@@ -22,7 +22,7 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/news.css">
-  <link rel="stylesheet" href="../css/news.css">
+  <link rel="stylesheet" href="../css/navegacao.css">
 
   <title>Notícias</title>
 
