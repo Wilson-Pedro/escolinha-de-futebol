@@ -315,37 +315,4 @@ $dados = $sql->fetchAll();
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
-<script>
-  /*const inputFile = document.querySelector("#picture__input");
-  const pictureImage = document.querySelector(".picture__image");
-
-  const pictureImageTxt = "Choose an image";
-  pictureImage.innerHTML = pictureImageTxt;
-
-  inputFile.addEventListener("change", function(e) {
-    const inputTarget = e.target;
-    const file = inputTarget.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-
-      reader.addEventListener("load", function(e) {
-        const readerTarget = e.target;
-        var img = document.querySelector("#img");
-        //inputFile.style.background = 'white';
-
-        img.src = readerTarget.result;
-        img.classList.add("picture__img");
-
-        pictureImage.innerHTML = "";
-        pictureImage.appendChild(img);
-      });
-
-      reader.readAsDataURL(file);
-    } else {
-      pictureImage.innerHTML = pictureImageTxt;
-    }
-  });*/
-</script>
-
 </html>

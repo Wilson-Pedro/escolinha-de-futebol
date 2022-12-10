@@ -7,13 +7,13 @@ $sql->execute();
 $dados = $sql->fetchAll();
 
 if (isset($_POST['deletar'])) {
-    $sql = $pdo->prepare("DELETE FROM tblfotos");
-    $sql->execute();
-    if (count($dados) > 0) {
-        foreach ($dados as $chaves => $valor) {
-            unlink("../img/imgArquivos/" . $valor['arquivo']);
-        }
+  $sql = $pdo->prepare("DELETE FROM tblfotos");
+  $sql->execute();
+  if (count($dados) > 0) {
+    foreach ($dados as $chaves => $valor) {
+      unlink("../img/imgArquivos/" . $valor['arquivo']);
     }
+  }
 }
 
 ?>
@@ -22,43 +22,70 @@ if (isset($_POST['deletar'])) {
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../css/timeANDescudo.css">
-    <link rel="stylesheet" href="lyon.jpg">
-    <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/noticiais.css">
-    <link rel="stylesheet" href="../css/imgFile.css">
-
-    <link rel="stylesheet" href="../css/navegacao.css">
-    <title>Fotos</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../css/timeANDescudo.css">
+  <link rel="stylesheet" href="lyon.jpg">
+  <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/imgFile.css">
+  <link rel="stylesheet" href="../css/navegacao.css">
+  <title>Fotos</title>
 </head>
 <style>
-    body {
-        margin: 0;
-    }
+  body{
+    max-width: 100%;
+  }
 
-    img {
-        margin: auto;
-        display: block;
-    }
+  h1 {
+    text-align: center;
+  }
 
-    h1,
-    h2,
-    p {
-        margin: 0px;
-        text-align: center;
-    }
+  .logo {
+    font-weight: bold;
+  }
 
-    .cointainer {
-        margin-top: 20px;
-        padding: 10px;
-        border: 1px solid #ccc;
-    }
+  main {
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+  }
+
+  form{
+    display: inline-block;
+  }
+
+  button{
+    color: white;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  footer {
+    background-color: #343a40;
+    padding: 10px;
+  }
+
+  footer>p {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
+
+  div#fotos > img{
+    display: block;
+    margin: auto;
+  }
+
+  div#botoes{
+    text-align: center;
+  }
 </style>
 
 <body>
@@ -101,7 +128,7 @@ if (isset($_POST['deletar'])) {
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais-admin.php" id="marcado">NOTÍCIAS</a>
+            <a class="nav-link" href="noticiais-admin.php">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">MAIS</a>
@@ -119,31 +146,46 @@ if (isset($_POST['deletar'])) {
       </nav>
     </header>
   </div>
-
+  <main>
+    <br>
+    <h1>
+      <i class="fa-solid fa-2x fa-camera"></i>
+      <span class="logo">FOTOS DO TIME</span>
+    </h1>
     <div class="container-fluid mt-3">
 
-        <img src="../img/favicon/favicon.png" width="200">
-
-        <h2>UPLOAD DE ARQUIVOS</h2>
-        <div class="card">
-            <div class="card-bordy">
-
-                <form action="envia.php" method="POST" enctype="multipart/form-data">
-                    <input type="file" name="arquivo[]" multiple="multiple">
-                    <button type="submit" value="Enviar" class="btn btn-primary">Postar foto</button>
-                </form>
-                <form action="" method="POST">
-                    <button type="submit" id="deletar" name="deletar" class="btn btn-danger">Deletar Imagens</button>
-                </form>
-
-            </div>
-        </div>
-
-        <h6 class="mt-3">ARQUIVOS ENVIADOS</h6>
+      <div id="botoes">
+        <form action="envia.php" method="POST" enctype="multipart/form-data">
+          <button type="button" class="btn btn-primary" onclick="escolher()">Escolher Foto</button>
+          <input class="hidden" type="file" id="arquivo" name="arquivo[]" multiple="multiple" value="">
+          <button type="submit" value="Enviar" id="postar" class="btn btn-primary" onclick="postar()" disabled>Postar foto</button>
+        </form>
+        <form action="" method="POST">
+          <button type="submit" id="deletar" name="deletar" class="btn btn-danger">Deletar Imagens</button>
+        </form>
+      </div>
+      <div id="fotos">
         <?php include('lista.php'); ?>
-        
+      </div>
+  </main>
+  </div>
+  <footer class="mt-4">
+    <p class="mb-0">Escolinha de Futebol LYON SLZ</p>
+  </footer>
+  <script>
+    var arquivo = document.getElementById('arquivo');
 
-    </div>
+    function escolher(){
+      arquivo.click()
+      document.getElementById('postar').disabled = false;
+    }
+
+    function postar(){
+      document.getElementById('postar').disabled = true;
+    }
+
+    
+  </script>
 </body>
 
 </html>
