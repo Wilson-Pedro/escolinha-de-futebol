@@ -30,12 +30,12 @@ $dados = $sql->fetchAll();
 
 </head>
 <style>
-  #btn-postar {
+  #btn-fotos {
     color: white;
     font-weight: bold;
   }
 
-  #btn-postar:hover {
+  #btn-fotos:hover {
     background-color: rgb(230, 150, 3);
   }
 
@@ -212,7 +212,7 @@ $dados = $sql->fetchAll();
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto mt-4">
-          <a href="fotos-admin.php" class="btn btn-warning mt-2" id="btn-postar" type="button">Ver Fotos</a>
+          <a href="fotos-admin.php" class="btn btn-warning mt-2" id="btn-fotos" type="button">Ver Fotos</a>
         </div>
 
       </div>

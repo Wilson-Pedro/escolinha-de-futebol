@@ -268,7 +268,7 @@ $dados = $sql->fetchAll();
     ?>
   </main>
   <footer>
-    <p class="mb-0">Desenvolvimento estacio</p>
+    <p class="mb-0">Escolinha de Futebol LYON SLZ</p>
   </footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

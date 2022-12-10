@@ -148,54 +148,8 @@ $dados = $sql->fetchAll();
     ?>
   </main>
   <footer>
-    <p class="mb-0">Desenvolvimento estacio</p>
+    <p class="mb-0">Escolinha de Futebol LYON SLZ</p>
   </footer>
 </body>
 
 </html>
-<!--table>
-      <thead>
-        <tr>
-          <th>LOCAL</th>
-          <th>JOGOS</th>
-          <th>DATA</th>
-          <th>HORARIO</th>
-        </tr>
-      </thead>
-      <tr>
-        <td>Local</td>
-        <td>Time A x Time B</td>
-        <td>22/10</td>
-        <td>15:00</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time C x Time D</td>
-        <td>25/10</td>
-        <td>16:45</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time E x Time F</td>
-        <td>30/10</td>
-        <td>20:00</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time G x Time H</td>
-        <td>02/11</td>
-        <td>14:30</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time N x Time M</td>
-        <td>06/11</td>
-        <td>17:15</td>
-      </tr>
-      <tr>
-        <td>Local</td>
-        <td>Time Z x Time X</td>
-        <td>10/11</td>
-        <td>21:00</td>
-      </tr>
-    </table>-->

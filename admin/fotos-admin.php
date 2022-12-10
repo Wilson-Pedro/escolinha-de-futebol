@@ -1,5 +1,5 @@
 <?php
-require('../html/db/conexao.php');
+include('../html/db/conexao.php');
 
 $pasta = "../img/imgArquivos/";
 $sql = $pdo->prepare("SELECT * FROM tblfotos");
@@ -37,8 +37,9 @@ if (isset($_POST['deletar'])) {
   <title>Fotos</title>
 </head>
 <style>
-  body{
+  #body{
     max-width: 100%;
+    background-color: rgb(214, 168, 100);
   }
 
   h1 {
@@ -53,6 +54,10 @@ if (isset($_POST['deletar'])) {
     margin: auto;
     background-color: rgb(255, 255, 255);
     min-height: 100vh;
+    display: block;
+    margin: auto;
+    width: 92vw;
+    box-shadow: 0px 2px 5px 0px black;
   }
 
   form{
@@ -88,7 +93,7 @@ if (isset($_POST['deletar'])) {
   }
 </style>
 
-<body>
+<body id="body">
 
   <!-- CABEÇALHO -->
   <div class="cabecalho">
@@ -169,7 +174,7 @@ if (isset($_POST['deletar'])) {
       </div>
   </main>
   </div>
-  <footer class="mt-4">
+  <footer>
     <p class="mb-0">Escolinha de Futebol LYON SLZ</p>
   </footer>
   <script>

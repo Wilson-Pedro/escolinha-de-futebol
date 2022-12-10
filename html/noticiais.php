@@ -23,11 +23,18 @@ $dados = $sql->fetchAll();
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/news.css">
   <link rel="stylesheet" href="../css/navegacao.css">
-
   <title>Notícias</title>
-
 </head>
+<style>
+  #btn-fotos {
+    color: white;
+    font-weight: bold;
+  }
 
+  #btn-fotos:hover {
+    background-color: rgb(230, 150, 3);
+  }
+</style>
 <body>
   <!-- CABEÇALHO -->
   <div class="cabecalho">
@@ -195,6 +202,11 @@ $dados = $sql->fetchAll();
             </div>
           </div>
         </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto mt-4">
+          <a href="fotos.php" class="btn btn-warning mt-2" id="btn-fotos" type="button">Ver Fotos</a>
+        </div>
+
       </div>
     </div>
 
@@ -289,42 +301,10 @@ $dados = $sql->fetchAll();
 
 
   <footer>
-    <p class="mb-0">Desenvolvimento estacio</p>
+    <p class="mb-0">Escolinha de Futebol LYON SLZ</p>
   </footer>
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
-<script>
-  /*const inputFile = document.querySelector("#picture__input");
-  const pictureImage = document.querySelector(".picture__image");
-
-  const pictureImageTxt = "Choose an image";
-  pictureImage.innerHTML = pictureImageTxt;
-
-  inputFile.addEventListener("change", function(e) {
-    const inputTarget = e.target;
-    const file = inputTarget.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-
-      reader.addEventListener("load", function(e) {
-        const readerTarget = e.target;
-        var img = document.querySelector("#img");
-        //inputFile.style.background = 'white';
-
-        img.src = readerTarget.result;
-        img.classList.add("picture__img");
-
-        pictureImage.innerHTML = "";
-        pictureImage.appendChild(img);
-      });
-
-      reader.readAsDataURL(file);
-    } else {
-      pictureImage.innerHTML = pictureImageTxt;
-    }
-  });*/
-</script>
 
 </html>

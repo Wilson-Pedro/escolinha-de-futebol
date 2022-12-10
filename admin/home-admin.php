@@ -188,7 +188,7 @@
     </div>
   </section>
   <footer>
-    <p class="mb-0">Desenvolvimento estacio</p>
+    <p class="mb-0">Escolinha de Futebol LYON SLZ</p>
   </footer>
 
 

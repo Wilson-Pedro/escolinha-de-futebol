@@ -20,7 +20,7 @@ $dados = $sql->fetchAll();
 
 if (count($dados) > 0) {
     foreach ($dados as $chaves => $valor) { 
-        echo "<img src='" . $pasta . $valor['arquivo'] . "' class='img-fluid img-thumbnail mt-4'><br>";
+        echo "<img src='" . $pasta . $valor['arquivo'] . "' class='img-fluid img-thumbnail mt-3'><br>";
     }
 }
 
