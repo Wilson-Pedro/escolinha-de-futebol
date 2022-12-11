@@ -64,6 +64,26 @@ if (isset($_POST['deletar'])) {
     display: inline-block;
   }
 
+  dialog{
+    height: 30vh;
+    min-width: 30vw;
+    border: 1px 1px 1px black;
+  }
+
+  dialog > h2{
+    text-align: center;
+    font-size: 20pt;
+    margin-top: 4vh;
+  }
+
+  dialog > form > button{
+    margin: 10px;
+  }
+
+  dialog::backdrop{
+    background-color: rgba(54, 54, 54, 0.699);
+  }
+
   button{
     color: white;
   }
@@ -165,9 +185,17 @@ if (isset($_POST['deletar'])) {
           <input class="hidden" type="file" id="arquivo" name="arquivo[]" multiple="multiple" value="">
           <button type="submit" value="Enviar" id="postar" class="btn btn-primary" onclick="postar()" disabled>Postar foto</button>
         </form>
-        <form action="" method="POST">
-          <button type="submit" id="deletar" name="deletar" class="btn btn-danger">Deletar Imagens</button>
-        </form>
+        <button onclick="DeleteALL()" class="btn btn-danger">Deletar Tudo</button>
+
+        <!-- DIALOG -->
+        <dialog>
+          <h2>Deletar todas as Imagens?</h2>
+            <form action="" method="POST">
+              <button id="nao" onclick="nao()" class="btn btn-danger mt-4">Não</button>
+              <button id="sim" type="submit" id="deletar" name="deletar" class="btn btn-danger mt-4">Sim</button>
+            </form>
+        </dialog>
+
       </div>
       <div id="fotos">
         <?php include('lista.php'); ?>
@@ -178,6 +206,7 @@ if (isset($_POST['deletar'])) {
     <p class="mb-0">Escolinha de Futebol LYON SLZ</p>
   </footer>
   <script>
+    var modal = document.querySelector('dialog')
     var arquivo = document.getElementById('arquivo');
 
     function escolher(){
@@ -189,6 +218,13 @@ if (isset($_POST['deletar'])) {
       document.getElementById('postar').disabled = true;
     }
 
+    function DeleteALL(){
+      modal.showModal();
+    }
+
+    function nao(){
+      modal.close();
+    }
     
   </script>
 </body>
