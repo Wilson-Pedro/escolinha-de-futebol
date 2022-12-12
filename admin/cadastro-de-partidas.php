@@ -6,9 +6,11 @@ if(isset($_POST['salvar'])){
     $timeB = $_POST['partidaTimeB'];
     $data = $_POST['data'];
     $horario = $_POST['horario'];
+    $gols_lyon = 0;
+    $gols_adv = 0;
 
-    $sql = $pdo->prepare("INSERT INTO tblpartidas VALUES (null,?,?,?,?)");
-    $sql->execute(array($local, $timeB, $data, $horario));
+    $sql = $pdo->prepare("INSERT INTO tblpartidas VALUES (null,?,?,?,?,?,?)");
+    $sql->execute(array($local, $timeB, $data, $horario, $gols_lyon, $gols_adv));
 
 }
 ?>
@@ -220,7 +222,7 @@ if(isset($_POST['salvar'])){
                 <div class="col-md-8">
                     <label for="text-center" class="form-label">Data</label>
                     <div class="input-group input-group-lg">
-                        <input type="date" class="form-control" name="data" id="partidaHorarioData" placeholder="14/10/2023 às 11:30">
+                        <input type="date" class="form-control" name="data" id="partidaHorarioData" placeholder="14/10/2023">
                     </div>
                 </div>
                 <button type="button" class="btn btn-warning col btn-lg" id="limpaData" onclick="limpaCampos3()">Limpar</button>

@@ -1,10 +1,9 @@
 <?php
 include('../html/db/conexao.php');
 
-$sql = $pdo->prepare("SELECT * FROM tblpartidas ORDER BY id LIMIT 0, 1000");
+$sql = $pdo->prepare("SELECT * FROM tblpartidas");
 $sql->execute();
 $dados = $sql->fetchAll();
-
 
 ?>
 
@@ -36,8 +35,7 @@ $dados = $sql->fetchAll();
   }
 
   table {
-    width: 80vw;
-    height: 56vh;
+    min-width: 80vw;
     border-collapse: collapse;
     background-color: rgb(243, 231, 231);
     color: black;
@@ -237,8 +235,9 @@ $dados = $sql->fetchAll();
     }
     ?>
     <?php
+    $data_Atual = date("Y-m-d");
     if (count($dados) > 0) {
-      echo "<table class=table table-striped>
+      echo "<table class='table table-striped'>
       <thead class=table-dark>
       <tr>
           <th>LOCAL</th>
@@ -250,6 +249,8 @@ $dados = $sql->fetchAll();
       </thead>";
 
       foreach ($dados as $chaves => $valor) {
+        $dataJogo = $valor['data_partida'];
+        if(strtotime($dataJogo) >= strtotime($data_Atual)){
         echo "<tr>
               <td>" . $valor['localidade'] . "</td>
               <td>" . "Lyon X " . $valor['timeb'] . "</td>
@@ -258,13 +259,13 @@ $dados = $sql->fetchAll();
               <td><a href='#' class='btn-atualizar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "'data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'data-horario='" . $valor['horario'] . "'>Atualizar</a> | <a href='#' class='btn-deletar' data-id='" . $valor['id'] . "' data-localidade='" . $valor['localidade'] . "' data-timeb='" . $valor['timeb'] . "'data-data_partida='" . $valor['data_partida'] . "'>Deletar</a></td>
 
         </tr>";
+        }
       }
 
       echo "</table>";
     } else {
-      echo "<p>Nenhum jogador cadastrado</p>";
+      echo "<p class='mt-4' style='text-align:center'>Nenhuma partida foi <a href='cadastro-de-partidas.php'>cadastrada</a></p>";
     }
-
     ?>
   </main>
   <footer>

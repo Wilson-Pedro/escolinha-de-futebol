@@ -2,7 +2,7 @@
 // CONFIGURAÇÕES GERAIS
 $servidor="localhost";
 $usuario="root";
-$senha="wamk23";
+$senha="";
 $banco="escolinhadefutebol";
 
 

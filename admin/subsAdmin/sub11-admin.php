@@ -206,7 +206,7 @@ $dados = $sql->fetchAll();
     ?>
     <?php
     if (count($dados) > 0) {
-      echo "<table class=table table-striped>
+      echo "<table class='table table-striped'>
         <thead class=table-dark>
         <tr>
             <th>Nome</th>
@@ -232,7 +232,7 @@ $dados = $sql->fetchAll();
 
       echo "</table>";
     } else {
-      echo "<p>Nenhum Jogador cadastrado</p>";
+      echo "<p class='mt-4' style='text-align:center'>Nenhuma jogador foi <a href='../cadastro-de-jogador.php'>cadastrado</a></p>";
     }
 
     ?>

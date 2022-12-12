@@ -39,6 +39,18 @@ $dados = $sql->fetchAll();
     background-color: rgb(230, 150, 3);
   }
 
+  div#jogosToday {
+    margin-left: 5vw;
+  }
+
+  div#placar{
+    margin-top: 15vh;
+  }
+
+  div#placar > h1{
+
+    text-align: center;
+  }
 </style>
 
 <body>
@@ -218,32 +230,63 @@ $dados = $sql->fetchAll();
       </div>
     </div>
 
-
+    <!-- CALENÁRIO -->
     <div class="barra"></div>
 
-    <!-- PLACAR -->
-
     <div class="row mt-4">
-      <div class="col-lg-4" class="div-img">
-        <img src="../img/imagens/imagem12.png" class="mt-3" alt="...">
-      </div>
-
-      <!-- NADA -->
-
-      <div class="col-lg-4">
-
+      <div class="col-lg-4" id="calendar">
+        <img src="../img/imagens/imagem19.png" id="img-calendar" alt="...">
+        <a href="calendario-admin.php" class="btn btn-warning">Confira os futuros jogos.</a>
       </div>
 
       <div class="col-lg-4">
-        <div class="placar">
-          <h1>Placar do jogo</h1>
-          <p class="fs-2 mt-3"> Lyon 2 x 0 Tiger </p>
+        <div class="mt-4" id="jogosToday">
+          <?php
+          $cont = 0;
+          echo "<h1>Jogos: </h1>";
+          echo "<hr>";
+          $dataAtual = date("Y-m-d");
+          if (count($dados) > 0) {
+            foreach ($dados as $chaves => $valor) {
+              if ($valor['data_partida'] == $dataAtual) {
+                $cont += 1;
+                if ($cont == 1) {
+                  echo "<h1>Hoje tem Jogo!</h1>";
+                }
+                echo "<h3> Lyon x " . $valor['timeb'] . "</h3>";
+                echo "<h3>Horário: " . date("H:i", strtotime($valor['horario'])) . "</h3>";
+              }
+            }
+            if ($cont == 0) {
+              echo "<h1>Não haverá jogo hoje.</h1><br>";
+              echo "<p>Para mais informações acesse o calendário</p>";
+            }
+          }
+          ?>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mt-0">
+        <div id="placar" class="mt-4">
+          <?php
+          if (count($dados) > 0) {
+            foreach ($dados as $chaves => $valor) {
+              if ($valor['data_partida'] == $dataAtual) {
+                echo "<h1>Resultado: </h1>";
+                echo "<hr>";
+                echo "<div class='placar'>
+                  <h1>Placar do jogo:</h1>
+                  <p class='fs-2 mt-3'> Lyon x " . $valor['timeb'] . " </p>
+                </div>";
+              }
+            }
+          }
+          ?>
         </div>
       </div>
     </div>
 
-    <!-- JOGO DE HOJE -->
-    <div class="barra"></div>
+    <div class="barra mt-4"></div>
 
     <div class="row mt-4">
       <div class="col-lg-4">
@@ -264,48 +307,6 @@ $dados = $sql->fetchAll();
       </div>
     </div>
 
-    <!-- CALENÁRIO -->
-    <div class="barra"></div>
-
-    <div class="row mt-4">
-      <div class="col-lg-4" id="calendar">
-        <img src="../img/imagens/imagem19.png" id="img-calendar" alt="...">
-        <a href="calendario-admin.php" class="btn btn-warning">Confira os futuros jogos.</a>
-      </div>
-
-      <div class="col-lg-4">
-
-      </div>
-
-      <div class="col-lg-4">
-        <div class="mt-4" id="jogosToday">
-          <?php
-          $cont = 0;
-          echo "<h1>Jogos: </h1>";
-          echo "<hr>";
-          $dataAtual = date("Y-m-d");
-          if (count($dados) > 0) {
-            foreach ($dados as $chaves => $valor) {
-              if ($valor['data_partida'] == $dataAtual) {
-                $cont += 1;
-                if ($cont == 1) {
-                  echo "<h1>Hoje tem Jogo!</h1>";
-                }
-                echo "<h3> Lyon x " . $valor['timeb'] . "</h3>";
-                echo "<h3>Horário: " . date("H:i", strtotime($valor['horario'])) . "</h3>";
-                echo "<hr>";
-              }
-            }
-            if ($cont == 0) {
-              echo "<h1>Não haverá jogo hoje.</h1><br>";
-              echo "<p>Para mais informações acesse o calendário</p>";
-            }
-          }
-          ?>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 
@@ -315,4 +316,5 @@ $dados = $sql->fetchAll();
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -120,7 +120,7 @@ $dados = $sql->fetchAll();
     <h1 id="calendarioDeJogos">CALENDÁRIO DE JOGOS</h1>
     <?php
     if (count($dados) > 0) {
-      echo "<table class=table table-striped>
+      echo "<table class='table table-striped'>
       <thead class=table-dark>
       <tr>
           <th>LOCAL</th>

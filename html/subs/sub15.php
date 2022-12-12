@@ -118,7 +118,7 @@ $dados = $sql->fetchAll();
   <br>
     <?php
     if (count($dados) > 0) {
-      echo "<table class=table table-striped>
+      echo "<table class='table table-striped'>
         <thead class=table-dark>
         <tr>
             <th>Nome</th>
