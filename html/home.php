@@ -81,6 +81,7 @@ session_destroy();
             <ul class="sub-menu">
               <li>
                 <a href="calendario.php">CALENDÁRIO DE JOGOS</a>
+                <a href="historicoPartidas.php">HISTÓRICO DE PARTIDAS</a>
               </li>
             </ul>
           </li>

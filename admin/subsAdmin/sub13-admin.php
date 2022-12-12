@@ -87,6 +87,7 @@ $dados = $sql->fetchAll();
             <ul class="sub-menu">
               <li>
                 <a href="../calendario-admin.php">CALENDÁRIO DE JOGOS</a>
+                <a href="../historicoPartidas-admin.php">HISTÓRICO DE PARTIDAS</a>
               </li>
             </ul>
           </li>

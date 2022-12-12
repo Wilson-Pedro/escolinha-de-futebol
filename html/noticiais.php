@@ -34,7 +34,21 @@ $dados = $sql->fetchAll();
   #btn-fotos:hover {
     background-color: rgb(230, 150, 3);
   }
+
+  div#jogosToday {
+    margin-left: 5vw;
+  }
+
+  div#placar {
+    margin-top: 15vh;
+  }
+
+  div#placar>h1 {
+
+    text-align: center;
+  }
 </style>
+
 <body>
   <!-- CABEÇALHO -->
   <div class="cabecalho">
@@ -70,6 +84,7 @@ $dados = $sql->fetchAll();
             <ul class="sub-menu">
               <li>
                 <a href="calendario.php">CALENDÁRIO DE JOGOS</a>
+                <a href="historicoPartidas.php">HISTÓRICO DE PARTIDAS</a>
               </li>
             </ul>
           </li>
@@ -210,50 +225,6 @@ $dados = $sql->fetchAll();
       </div>
     </div>
 
-    <div class="barra"></div>
-
-    <!-- PLACAR -->
-
-    <div class="row mt-4">
-      <div class="col-lg-4" class="div-img">
-        <img src="../img/imagens/imagem12.png" class="mt-3" alt="...">
-      </div>
-
-      <!-- NADA -->
-
-      <div class="col-lg-4">
-
-      </div>
-
-      <div class="col-lg-4">
-        <div class="placar">
-          <h1>Placar do jogo</h1>
-          <p class="fs-2 mt-3"> Lyon 2 x 0 Tiger </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- JOGO DE HOJE -->
-    <div class="barra"></div>
-
-    <div class="row mt-4">
-      <div class="col-lg-4">
-        <div class="placar">
-          <h1>Craques da partida</h1>
-
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-
-      </div>
-
-      <div class="col-lg-4">
-        <div class="placar">
-          <img src="../img/imagens/imagem10.png" alt="">
-        </div>
-      </div>
-    </div>
 
     <!-- CALENÁRIO -->
     <div class="barra"></div>
@@ -265,37 +236,98 @@ $dados = $sql->fetchAll();
       </div>
 
       <div class="col-lg-4">
-
+        <h1 style="text-align: center">Jogos de Hoje:</h1>
       </div>
 
       <div class="col-lg-4">
         <div class="mt-4" id="jogosToday">
-            <?php
-            $cont = 0;
-            echo "<h1>Jogos: </h1>";
-            echo "<hr>";
-            $dataAtual = date("Y-m-d");
-            if (count($dados) > 0) {
-              foreach ($dados as $chaves => $valor) {
-                if ($valor['data_partida'] == $dataAtual) {
-                  $cont += 1;
-                  if ($cont == 1){
-                    echo "<h1>Hoje tem Jogo!</h1>";
-                  }
-                  echo "<h3> Lyon x ". $valor['timeb'] . "</h3>";
-                  echo "<h3>Horário: ". date("H:i", strtotime($valor['horario'])) . "</h3>";
-                  echo "<hr>";
+          <?php
+          $cont = 0;
+          echo "<hr>";
+          $dataAtual = date("Y-m-d");
+          if (count($dados) > 0) {
+            foreach ($dados as $chaves => $valor) {
+              if ($valor['data_partida'] == $dataAtual) {
+                $cont += 1;
+                if ($cont == 1) {
+                  echo "<h1>Hoje tem Jogo!</h1>";
                 }
-              }
-              if ($cont == 0){
-                echo "<h1>Não haverá jogo hoje.</h1><br>";
-                echo "<p>Para mais informações acesse o calendário</p>";
+                echo "<hr>";
+                echo "<p class='fs-2 mt-3'> Lyon x " . $valor['timeb'] . "</p>";
+                echo "<p class='fs-2 mt-3'>Horário: " . date("H:i", strtotime($valor['horario'])) . "</p>";
               }
             }
-            ?>
+            if ($cont == 0) {
+              echo "<h2>Não haverá jogo hoje.</h2>";
+              echo "<br><p class='mt-4' style='text-align:center'>Para mais informações acesse o <a href='calendario.php'>calendário</a>.</p>";
+            }
+          }
+          ?>
+        </div>
+      </div>
+
+      <!-- PLACAR -->
+
+      <div class="col-lg-4 mt-0">
+        <div id="placar" class="mt-4">
+
+
         </div>
       </div>
     </div>
+
+    <div class="barra mt-4"></div>
+
+    <div class="row mt-4">
+      <div class="col-lg-4">
+        <div class="placar">
+          <?php
+          $count = 0;
+          $pla = 0;
+          echo "<br><br><br>";
+          echo "<h1 class='mt-4'>Resultado: </h1>";
+          if (count($dados) > 0) {
+            foreach ($dados as $chaves => $valor) {
+              if ($valor['data_partida'] == $dataAtual) {
+                $pla = 1;
+                $count = 1;
+
+                echo "<hr>";
+                echo "<div class='placar'>
+                  <p class='fs-2 mt-3'> Lyon " . $valor['gols_lyon'] . " x " . $valor['gols_adv'] . " " . $valor['timeb'] . " </p>
+                </div>";
+              }
+            }
+            if ($pla == 1) {
+              echo "<br>";
+              echo "<p style='text-align:center' class='mt-4'>Para mais informações acesse o <a href='historicoPartidas.php'>histórioco de partidas</a>.</p>";
+            }
+            if ($count == 0) {
+              echo "<hr>";
+              echo "<h2 style='text-align: center'>O placar não está disponível no momento.</h2><br>";
+              echo "<p style='text-align:center' class='mt-4'>Para mais informações acesse o <a href='historicoPartidas.php'>histórioco de partidas</a>.</p>";
+            }
+          }
+
+          ?>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <h1>Placar da Partida.</h1>
+
+      </div>
+
+      <div class="col-lg-4">
+        <div class="placar">
+          <img src="../img/imagens/imagem10.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="barra mt-4"></div>
 
   </div>
 

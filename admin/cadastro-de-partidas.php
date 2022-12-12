@@ -161,6 +161,7 @@ if(isset($_POST['salvar'])){
                         <ul class="sub-menu">
                             <li>
                                 <a href="calendario-admin.php">CALENDARIO DE JOGOS</a>
+                                <a href="historicoPartidas-admin.php">HISTÓRICO DE PARTIDAS</a>
                             </li>
                         </ul>
                     </li>

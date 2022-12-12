@@ -90,6 +90,10 @@ $dados = $sql->fetchAll();
   #cancelar:hover {
     background-color: rgb(158, 3, 3);
   }
+
+  main {
+    width: 100vw;
+  }
 </style>
 
 <body>
@@ -127,6 +131,7 @@ $dados = $sql->fetchAll();
             <ul class="sub-menu">
               <li>
                 <a href="calendario-admin.php" id="marcado">CALENDÁRIO DE JOGOS</a>
+                <a href="historicoPartidas-admin.php">HISTÓRICO DE PARTIDAS</a>
               </li>
             </ul>
           </li>

@@ -30,7 +30,6 @@ $dados = $sql->fetchAll();
 
   table {
     width: 80vw;
-    height: 56vh;
     border-collapse: collapse;
     background-color: rgb(243, 231, 231);
     color: black;
@@ -95,6 +94,7 @@ $dados = $sql->fetchAll();
             <ul class="sub-menu">
               <li>
                 <a href="calendario.php">CALENDÁRIO DE JOGOS</a>
+                <a href="historicoPartidas.php">HISTÓRICO DE PARTIDAS</a>
               </li>
             </ul>
           </li>
@@ -108,9 +108,9 @@ $dados = $sql->fetchAll();
               <li>
                 <a href="login.php">Logar</a>
               </li>
-              </li>
-            </ul>
           </li>
+        </ul>
+        </li>
         </ul>
       </nav>
     </header>
@@ -119,6 +119,7 @@ $dados = $sql->fetchAll();
   <main>
     <h1 id="calendarioDeJogos">CALENDÁRIO DE JOGOS</h1>
     <?php
+    $data_Atual = date("Y-m-d");
     if (count($dados) > 0) {
       echo "<table class='table table-striped'>
       <thead class=table-dark>
@@ -131,13 +132,16 @@ $dados = $sql->fetchAll();
       </thead>";
 
       foreach ($dados as $chaves => $valor) {
-        echo "<tr>
+        $dataJogo = $valor['data_partida'];
+        if (strtotime($dataJogo) >= strtotime($data_Atual)) {
+          echo "<tr>
               <td>" . $valor['localidade'] . "</td>
               <td>" . "Lyon X " . $valor['timeb'] . "</td>
-              <td>" . date("d/m/y", strtotime($valor['data_partida'])). "</td>
-              <td>" . date("H:i", strtotime($valor['horario'])). "</td>
+              <td>" . date("d/m/y", strtotime($valor['data_partida'])) . "</td>
+              <td>" . date("H:i", strtotime($valor['horario'])) . "</td>
         </tr>";
-        $valor['data']= null;
+          $valor['data'] = null;
+        }
       }
 
       echo "</table>";
