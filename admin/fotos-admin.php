@@ -26,8 +26,7 @@ if (isset($_POST['deletar'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="../css/timeANDescudo.css">
   <link rel="stylesheet" href="lyon.jpg">
@@ -37,7 +36,7 @@ if (isset($_POST['deletar'])) {
   <title>Fotos</title>
 </head>
 <style>
-  #body{
+  #body {
     max-width: 100%;
     background-color: rgb(214, 168, 100);
   }
@@ -60,32 +59,72 @@ if (isset($_POST['deletar'])) {
     box-shadow: 0px 2px 5px 0px black;
   }
 
-  form{
+  form {
     display: inline-block;
   }
 
-  dialog{
+  dialog {
     height: 30vh;
     min-width: 30vw;
     border: 1px 1px 1px black;
   }
 
-  dialog > h2{
+  dialog>h2 {
     text-align: center;
     font-size: 20pt;
     margin-top: 4vh;
   }
 
-  dialog > form > button{
+  dialog>form>button {
     margin: 10px;
   }
 
-  dialog::backdrop{
+  dialog::backdrop {
     background-color: rgba(54, 54, 54, 0.699);
   }
 
-  button{
+  button {
     color: white;
+  }
+
+  form#form_img_deleta{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    padding: 10px;
+    margin-top: 2vw;
+    margin-left: 20vw;
+  }
+
+  form#form_img_deleta > button {
+    background-color: rgb(206, 42, 42);
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin-left: 1vw;
+  }
+
+  form#form_img_deleta > button:hover {
+    background-color: rgb(179, 29, 29);
+  }
+
+  button > a.ancora {
+    color: white;
+    text-decoration: none;
+  }
+
+  button.btn-deletar {
+    display: block;
+    margin: auto;
+    background-color: rgb(206, 42, 42);
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+  }
+
+  button.btn-deletar:hover {
+    background-color: rgb(179, 29, 29);
   }
 
   .hidden {
@@ -103,13 +142,17 @@ if (isset($_POST['deletar'])) {
     font-weight: bold;
   }
 
-  div#fotos > img{
+  div#fotos>img {
     display: block;
     margin: auto;
   }
 
-  div#botoes{
+  div#botoes {
     text-align: center;
+  }
+
+  .oculto{
+    display: none;
   }
 </style>
 
@@ -191,42 +234,41 @@ if (isset($_POST['deletar'])) {
         <!-- DIALOG -->
         <dialog>
           <h2>Deletar todas as Imagens?</h2>
-            <form action="" method="POST">
-              <button id="nao" onclick="nao()" class="btn btn-danger mt-4">Não</button>
-              <button id="sim" type="submit" id="deletar" name="deletar" class="btn btn-danger mt-4">Sim</button>
-            </form>
+          <form action="" method="POST">
+            <button id="nao" onclick="nao()" class="btn btn-danger mt-4">Não</button>
+            <button id="sim" type="submit" id="deletar" name="deletar" class="btn btn-danger mt-4">Sim</button>
+          </form>
         </dialog>
 
       </div>
       <div id="fotos">
-        <?php include('lista.php'); ?>
+        <?php include('lista-admin.php'); ?>
       </div>
   </main>
   </div>
   <footer>
-    <p class="mb-0">Escolinha de Futebol LYON SLZ</p>
+    <p>Escolinha de Futebol LYON SLZ</p>
   </footer>
   <script>
     var modal = document.querySelector('dialog')
     var arquivo = document.getElementById('arquivo');
 
-    function escolher(){
+    function escolher() {
       arquivo.click()
       document.getElementById('postar').disabled = false;
     }
 
-    function postar(){
+    function postar() {
       document.getElementById('postar').disabled = true;
     }
 
-    function DeleteALL(){
+    function DeleteALL() {
       modal.showModal();
     }
 
-    function nao(){
+    function nao() {
       modal.close();
     }
-    
   </script>
 </body>
 

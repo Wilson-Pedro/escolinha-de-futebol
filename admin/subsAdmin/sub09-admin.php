@@ -138,6 +138,8 @@ $dados = $sql->fetchAll();
       </div>
     </form>
 
+    
+
     <!-- DELETAR -->
 
     <form class="oculto" id="form_deleta" method="post">
@@ -160,31 +162,6 @@ $dados = $sql->fetchAll();
       </div>
     </form>
     <br><br>
-    <?php
-    //PROCESSO DE ATUALIZAÇÃO
-    if (isset($_POST['atualizar']) && isset($_POST['id_editado']) && isset($_POST['nome_editado']) && isset($_POST['idade_editado']) && isset($_POST['posicao_editado']) && isset($_POST['gols_editado'])) {
-
-      $id = $_POST['id_editado'];
-      $nome = $_POST['nome_editado'];
-      $idade = $_POST['idade_editado'];
-      $posicao = $_POST['posicao_editado'];
-      $gols = $_POST['gols_editado'];
-
-
-      $sql = $pdo->prepare("UPDATE tbljogadores SET nome = :nome ,idade = :idade, posicao = :posicao, gols = :gols WHERE id= :id");
-      $sql->bindValue(':nome', $nome);
-      $sql->bindValue(':idade', $idade);
-      $sql->bindValue(':posicao', $posicao);
-      $sql->bindValue(':gols', $gols);
-      $sql->bindValue(':id', $id);
-      $sql->execute();
-      /*
-        $sql = $pdo->prepare("UPDATE tbljogadores SET nome=?,idade=?, posicao=?, gols=? WHERE id=?");
-        $sql->execute(array($nome, $idade, $posicao, $gols, $id));
-
-        echo "Atualizado " . $sql->rowCount() . "registros!";*/
-    }
-    ?>
 
     <?php
     //DELETAR DADOS
