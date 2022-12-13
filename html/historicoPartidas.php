@@ -26,6 +26,8 @@ $dados = $sql->fetchAll();
 <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
+        max-width: 100%;
+        background-color: rgb(214, 168, 100);
     }
 
     table {
@@ -56,6 +58,10 @@ $dados = $sql->fetchAll();
 
     .dp-menu ul li a {
         font-weight: bold;
+    }
+
+    main {
+        width: 95vw;
     }
 </style>
 
@@ -144,7 +150,7 @@ $dados = $sql->fetchAll();
 
             echo "</table>";
         } else {
-            echo "<p>Nenhum jogador cadastrado</p>";
+            echo "<br><p class='mt-4' style='text-align:center' >Nenhum jogador cadastrado</p>";
         }
 
         ?>

@@ -158,7 +158,7 @@ session_start();
             <div class="card-body">
               <h5 class="card-title">CALENDARIO DE PARTIDAS</h5>
               <p class="card-text">Confira os futuros jogos do seu time!</p>
-              <a href="calendario.php" class="btn btn-outline-success">Visitar</a>
+              <a href="calendario-admin.php" class="btn btn-outline-success">Visitar</a>
             </div>
           </div>
         </div>
@@ -183,7 +183,7 @@ session_start();
             <div class="card-body">
               <h5 class="card-title">ULTIMAS NOTICIAS</h5>
               <p class="card-text">Local destinado a informacoes extras sobre partidas e acontecimentos</p>
-              <a href="noticiais.php" class="btn btn-outline-success">Visitar</a>
+              <a href="noticiais-admin.php" class="btn btn-outline-success">Visitar</a>
             </div>
           </div>
         </div>

@@ -65,7 +65,7 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="home.php">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais.php">JOGADORES</a>
+            <a class="nav-link" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
                 <a href="subs/sub09.php">sub09</a>
@@ -80,7 +80,7 @@ $dados = $sql->fetchAll();
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais.php">PARTIDAS</a>
+            <a class="nav-link" href="#">PARTIDAS</a>
             <ul class="sub-menu">
               <li>
                 <a href="calendario.php">CALENDÁRIO DE JOGOS</a>
@@ -90,9 +90,14 @@ $dados = $sql->fetchAll();
           </li>
           <li class="nav-item">
             <a class="nav-link" href="noticiais.php" id="marcado">NOTÍCIAS</a>
+            <ul class="sub-menu" id="sobrepor">
+              <li>
+                <a href="fotos.php">FOTOS</a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais.php">MAIS</a>
+            <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
               <li>
@@ -201,18 +206,6 @@ $dados = $sql->fetchAll();
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Últimas noticias.
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
               </div>
             </div>
           </div>

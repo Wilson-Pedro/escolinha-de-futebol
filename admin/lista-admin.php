@@ -54,6 +54,8 @@ if (count($dados) > 0) {
         echo "<button class='btn-deletar' data-id='" . $valor['id'] . "' data-arquivo='" . $valor['arquivo'] . "'><a href='#form_img_deleta' class='ancora'>Deletar Foto</a></button>";
         echo "<br>";
     }
+} else {
+    echo "<br><br><br><p class='mt-4' style='text-align:center'>Nenhuma foto foi postada.</p>";
 }
 
 ?>

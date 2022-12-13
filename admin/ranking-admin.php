@@ -163,7 +163,7 @@ $dados = $sql->fetchAll();
 
       echo "</table>";
     } else {
-      echo "<p>Nenhum Jogador cadastrado</p>";
+      echo "<p style='text-align:center'>Nenhuma jogador foi <a href='cadastro-de-jogador.php'>cadastrado</a></p>";
     }
 
     ?>

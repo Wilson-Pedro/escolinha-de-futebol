@@ -38,7 +38,8 @@ $dados = $sql->fetchAll();
     }
 
     body {
-      font-family: 'Arial';
+      max-width: 100%;
+      background-color: rgb(214, 168, 100);
     }
 
     table {
@@ -94,6 +95,7 @@ $dados = $sql->fetchAll();
             <ul class="sub-menu">
               <li>
                 <a href="../calendario.php">CALENDÁRIO DE JOGOS</a>
+                <a href="../historicoPartidas.php">HISTÓRICO DE PARTIDAS</a>
               </li>
             </ul>
           </li>
@@ -116,6 +118,7 @@ $dados = $sql->fetchAll();
 
   <main>
     <h1 class="categoria">Categoria Sub-11</h1>
+    <hr>
     <br>
     <?php
     if (count($dados) > 0) {
@@ -143,7 +146,7 @@ $dados = $sql->fetchAll();
 
       echo "</table>";
     } else {
-      echo "<p>Nenhum Jogador cadastrado</p>";
+      echo "<br><p class='mt-4' style='text-align:center'>Nenhuma jogador foi cadastrado</p>";
     }
 
     ?>

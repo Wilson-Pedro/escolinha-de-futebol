@@ -3,7 +3,7 @@
 $servidor="localhost";
 $usuario="root";
 $senha="";
-$banco="escolinhadefutebol";
+$banco="escolinha_de_futebol";
 
 
 // CONEXÃO

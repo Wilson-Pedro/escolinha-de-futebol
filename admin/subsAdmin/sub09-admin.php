@@ -32,7 +32,8 @@ $dados = $sql->fetchAll();
     }
 
     body {
-      font-family: 'Arial';
+      max-width: 100%;
+      background-color: rgb(214, 168, 100);
     }
 
     table {
@@ -52,6 +53,8 @@ $dados = $sql->fetchAll();
     }
   </style>
 </head>
+<style>
+</style>
 
 <body>
   <!-- CABEÇALHO -->
@@ -112,6 +115,7 @@ $dados = $sql->fetchAll();
 
   <main>
     <h1 class="categoria">Categoria Sub-09</h1>
+    <hr>
     <!-- ATUALIZAR -->
 
     <form class="oculto" id="form_atualiza" method="post">
@@ -138,25 +142,25 @@ $dados = $sql->fetchAll();
       </div>
     </form>
 
-    
+
 
     <!-- DELETAR -->
 
     <form class="oculto" id="form_deleta" method="post">
       <div id="div-delete" class="oculto">
         <input type="hidden " id="id_deleta" name="id_deleta" placeholder="ID" required> <br><br>
-        
+
         <input type="hidden" id="nome_deleta" name="nome_deleta" placeholder="Editar nome" required> <br><br>
-        
+
         <input type="hidden" id="idade_deleta" name="idade_deleta" placeholder="Editar idade" required><br><br>
-        
+
         <input type="hidden" id="posicao_deleta" name="posicao_deleta" placeholder="Editar posicao" required><br><br>
-        
+
         <input type="hidden" id="gols_deleta" name="gols_deleta" placeholder="Editar gols" required>
         <b>Tem certeza que quer deletar Jogador <span id="cliente"></span></b> <br>
-        
+
         <button type="submit" id="btn-deletar" name="deletar">Confirmar</button>
-        
+
         <button type="button" id="cancelar_delete" name="cancelar_delete">Cancelar</button>
         <hr>
       </div>
@@ -208,7 +212,7 @@ $dados = $sql->fetchAll();
 
       echo "</table>";
     } else {
-      echo "<p style='text-align:center'>Nenhuma jogador foi <a href='../cadastro-de-jogador.php'>cadastrad0</a></p>";
+      echo "<p style='text-align:center'>Nenhuma jogador foi <a href='../cadastro-de-jogador.php'>cadastrado</a></p>";
     }
     ?>
   </main>

@@ -26,6 +26,8 @@ $dados = $sql->fetchAll();
 <style>
   body {
     font-family: Arial, Helvetica, sans-serif;
+    max-width: 100%;
+    background-color: rgb(214, 168, 100);
   }
 
   table {
@@ -56,6 +58,10 @@ $dados = $sql->fetchAll();
 
   .dp-menu ul li a {
     font-weight: bold;
+  }
+
+  main {
+    width: 95vw;
   }
 </style>
 
@@ -100,6 +106,12 @@ $dados = $sql->fetchAll();
           </li>
           <li class="nav-item">
             <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
+            <ul class="sub-menu" id="sobrepor">
+            <ul class="sub-menu" id="sobrepor">
+              <li>
+                <a href="fotos.php">FOTOS</a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="noticiais.php">MAIS</a>
@@ -146,7 +158,7 @@ $dados = $sql->fetchAll();
 
       echo "</table>";
     } else {
-      echo "<p>Nenhum jogador cadastrado</p>";
+      echo "<br><p class='mt-4' style='text-align:center' >Nenhum jogador cadastrado</p>";
     }
 
     ?>

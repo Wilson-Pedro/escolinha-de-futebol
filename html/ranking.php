@@ -104,9 +104,9 @@ $dados = $sql->fetchAll();
               <li>
                 <a href="login.php">Logar</a>
               </li>
-              </li>
-            </ul>
           </li>
+        </ul>
+        </li>
         </ul>
       </nav>
     </header>
@@ -162,7 +162,7 @@ $dados = $sql->fetchAll();
 
       echo "</table>";
     } else {
-      echo "<p>Nenhum Jogador cadastrado</p>";
+      echo "<br><br><p class='mt-4' style='text-align:center' >Nenhum Jogador cadastrado</p>";
     }
 
     ?>

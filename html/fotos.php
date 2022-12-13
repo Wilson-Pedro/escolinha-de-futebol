@@ -66,6 +66,10 @@
     div#botoes {
         text-align: center;
     }
+
+    a.nav-link:hover {
+    color: black;
+  }
 </style>
 
 <body id="body">
@@ -108,7 +112,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
+            <a class="nav-link" href="noticiais.php" id="marcado">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="noticiais.php">MAIS</a>

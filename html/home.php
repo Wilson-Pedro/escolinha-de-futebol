@@ -23,7 +23,7 @@ session_destroy();
 
   <title>Escolinha de futebol</title>
   <style>
-    div#icons{
+    div#icons {
       display: inline-block;
     }
 
@@ -42,7 +42,6 @@ session_destroy();
     img.d-block {
       z-index: 0;
     }
-    
   </style>
 </head>
 

@@ -157,6 +157,7 @@ $dados = $sql->fetchAll();
 
   <main>
     <h1 id="calendarioDeJogos">CALENDÁRIO DE JOGOS</h1>
+    <hr>
     <!-- ATUALIZAR -->
 
     <form class="oculto" id="form_atualiza" method="post">

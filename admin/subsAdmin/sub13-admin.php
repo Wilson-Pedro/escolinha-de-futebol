@@ -31,7 +31,8 @@ $dados = $sql->fetchAll();
     }
 
     body {
-      font-family: 'Arial';
+      max-width: 100%;
+      background-color: rgb(214, 168, 100);
     }
 
     table {
@@ -112,7 +113,8 @@ $dados = $sql->fetchAll();
 
   <main>
     <h1 class="categoria">Categoria Sub-13</h1>
-    
+    <hr>
+
     <!-- ATUALIZAR -->
 
     <form class="oculto" id="form_atualiza" method="post">

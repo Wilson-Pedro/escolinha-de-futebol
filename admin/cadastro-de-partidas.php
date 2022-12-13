@@ -1,7 +1,7 @@
 <?php
 require('../html/db/conexao.php');
 
-if(isset($_POST['salvar'])){
+if (isset($_POST['salvar'])) {
     $local = $_POST['partidaLocal'];
     $timeB = $_POST['partidaTimeB'];
     $data = $_POST['data'];
@@ -11,12 +11,12 @@ if(isset($_POST['salvar'])){
 
     $sql = $pdo->prepare("INSERT INTO tblpartidas VALUES (null,?,?,?,?,?,?)");
     $sql->execute(array($local, $timeB, $data, $horario, $gols_lyon, $gols_adv));
-
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,11 +33,11 @@ if(isset($_POST['salvar'])){
     <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
     <title>Cadastro de partidas</title>
     <style>
-        body{
+        body {
             background-color: white;
         }
 
-        h1.display-5{
+        h1.display-5 {
             font-weight: normal;
         }
 
@@ -126,6 +126,7 @@ if(isset($_POST['salvar'])){
         }
     </style>
 </head>
+
 <body>
     <!-- CABEÇALHO -->
     <div class="cabecalho">

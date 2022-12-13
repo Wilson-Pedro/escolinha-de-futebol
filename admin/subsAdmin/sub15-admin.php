@@ -25,13 +25,14 @@ $dados = $sql->fetchAll();
     header>nav>ul>li>a {
       font-size: 86%;
     }
-    
+
     .dp-menu ul li a {
       font-weight: bold;
     }
 
     body {
-      font-family: 'Arial';
+      max-width: 100%;
+      background-color: rgb(214, 168, 100);
     }
 
     table {
@@ -111,7 +112,8 @@ $dados = $sql->fetchAll();
 
   <main>
     <h1 class="categoria">Categoria Sub-15</h1>
-    
+    <hr>
+
     <!-- ATUALIZAR -->
 
     <form class="oculto" id="form_atualiza" method="post">

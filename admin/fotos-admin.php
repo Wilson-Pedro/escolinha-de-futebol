@@ -87,7 +87,7 @@ if (isset($_POST['deletar'])) {
     color: white;
   }
 
-  form#form_img_deleta{
+  form#form_img_deleta {
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -97,7 +97,7 @@ if (isset($_POST['deletar'])) {
     margin-left: 20vw;
   }
 
-  form#form_img_deleta > button {
+  form#form_img_deleta>button {
     background-color: rgb(206, 42, 42);
     padding: 10px;
     border-radius: 6px;
@@ -105,11 +105,11 @@ if (isset($_POST['deletar'])) {
     margin-left: 1vw;
   }
 
-  form#form_img_deleta > button:hover {
+  form#form_img_deleta>button:hover {
     background-color: rgb(179, 29, 29);
   }
 
-  button > a.ancora {
+  button>a.ancora {
     color: white;
     text-decoration: none;
   }
@@ -151,9 +151,14 @@ if (isset($_POST['deletar'])) {
     text-align: center;
   }
 
-  .oculto{
+  .oculto {
     display: none;
   }
+
+  a.nav-link:hover {
+    color: rgb(0, 0, 0);
+  }
+
 </style>
 
 <body id="body">
@@ -197,7 +202,7 @@ if (isset($_POST['deletar'])) {
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais-admin.php">NOTÍCIAS</a>
+            <a class="nav-link" href="noticiais-admin.php" id="marcado">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">MAIS</a>

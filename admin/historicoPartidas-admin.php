@@ -34,7 +34,6 @@ $dados = $sql->fetchAll();
     }
 
     table {
-        min-width: 80vw;
         border-collapse: collapse;
         background-color: rgb(243, 231, 231);
         color: black;
@@ -89,6 +88,11 @@ $dados = $sql->fetchAll();
 
     #cancelar:hover {
         background-color: rgb(158, 3, 3);
+    }
+
+    main {
+        width: 98.6vw;
+
     }
 </style>
 
@@ -153,6 +157,7 @@ $dados = $sql->fetchAll();
 
     <main>
         <h1 id="calendarioDeJogos">HISTÓRICO DE PARTIDAS</h1>
+        <hr>
         <!-- ATUALIZAR -->
 
         <form class="oculto" id="form_atualiza" method="post">
