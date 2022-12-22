@@ -100,29 +100,29 @@ $dados = $sql->fetchAll();
   <!-- CABEÇALHO -->
   <div class="cabecalho">
     <div class="nomeTime">
-      <h1><a href="home-admin.php">LYON SLZ</a></h1>
+      <h1><a href="homeAdmin.php">LYON SLZ</a></h1>
     </div>
     <div class="escudoTime">
-      <a href="home-admin.php"><img src="../img/favicon/favicon.png" alt=""></a>
+      <a href="homeAdmin.php"><img src="../img/favicon/favicon.png" alt=""></a>
     </div>
     <header class="navbar mb-2">
       <nav class="dp-menu">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="home-admin.php">HOME</a>
+            <a class="nav-link" href="homeAdmin.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="subsAdmin/sub09-admin.php">sub09</a>
-                <a href="subsAdmin/sub11-admin.php">sub11</a>
-                <a href="subsAdmin/sub13-admin.php">sub13</a>
-                <a href="subsAdmin/sub15-admin.php">sub15</a>
-                <a href="subsAdmin/sub17-admin.php">sub17</a>
+                <a href="subsAdmin/sub09Admin.php">sub09</a>
+                <a href="subsAdmin/sub11Admin.php">sub11</a>
+                <a href="subsAdmin/sub13Admin.php">sub13</a>
+                <a href="subsAdmin/sub15Admin.php">sub15</a>
+                <a href="subsAdmin/sub17Admin.php">sub17</a>
               </li>
               <li>
-                <a href="ranking-admin.php">RANKING</a>
+                <a href="rankingAdmin.php">RANKING</a>
               </li>
             </ul>
           </li>
@@ -130,21 +130,21 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="#" id="marcado">PARTIDAS</a>
             <ul class="sub-menu">
               <li>
-                <a href="calendario-admin.php" id="marcado">CALENDÁRIO DE JOGOS</a>
-                <a href="historicoPartidas-admin.php">HISTÓRICO DE PARTIDAS</a>
+                <a href="calendarioAdmin.php" id="marcado">CALENDÁRIO DE JOGOS</a>
+                <a href="historicoPartidasAdmin.php">HISTÓRICO DE PARTIDAS</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais-admin.php">NOTÍCIAS</a>
+            <a class="nav-link" href="noticiaisAdmin.php">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
               <li>
-                <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
-                <a href="cadastro-de-partidas.php">Cadastrar partida</a>
+                <a href="cadastroDeJogador.php">Cadastrar Jogador</a>
+                <a href="cadastroDePartidas.php">Cadastrar partida</a>
                 <a href="../html/home.php">Sair</a>
               </li>
           </li>
@@ -270,7 +270,7 @@ $dados = $sql->fetchAll();
 
       echo "</table>";
     } else {
-      echo "<p class='mt-4' style='text-align:center'>Nenhuma partida foi <a href='cadastro-de-partidas.php'>cadastrada</a></p>";
+      echo "<p class='mt-4' style='text-align:center'>Nenhuma partida foi <a href='cadastroDePartidas.php'>cadastrada</a></p>";
     }
     ?>
   </main>

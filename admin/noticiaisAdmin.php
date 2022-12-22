@@ -51,35 +51,45 @@ $dados = $sql->fetchAll();
 
     text-align: center;
   }
+
+  #img-calendar{
+    display: block;
+    margin: auto;
+  }
+
+  #calendar > #btn-jogos{
+    display: block;
+    margin: auto;
+  }
 </style>
 
 <body>
   <!-- CABEÇALHO -->
   <div class="cabecalho">
     <div class="nomeTime">
-      <h1><a href="home-admin.php">LYON SLZ</a></h1>
+      <h1><a href="homeAdmin.php">LYON SLZ</a></h1>
     </div>
     <div class="escudoTime">
-      <a href="home-admin.php"><img src="../img/favicon/favicon.png" alt=""></a>
+      <a href="homeAdmin.php"><img src="../img/favicon/favicon.png" alt=""></a>
     </div>
     <header class="navbar mb-2">
       <nav class="dp-menu">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="home-admin.php">HOME</a>
+            <a class="nav-link" href="homeAdmin.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="subsAdmin/sub09-admin.php">sub09</a>
-                <a href="subsAdmin/sub11-admin.php">sub11</a>
-                <a href="subsAdmin/sub13-admin.php">sub13</a>
-                <a href="subsAdmin/sub15-admin.php">sub15</a>
-                <a href="subsAdmin/sub17-admin.php">sub17</a>
+                <a href="subsAdmin/sub09Admin.php">sub09</a>
+                <a href="subsAdmin/sub11Admin.php">sub11</a>
+                <a href="subsAdmin/sub13Admin.php">sub13</a>
+                <a href="subsAdmin/sub15Admin.php">sub15</a>
+                <a href="subsAdmin/sub17Admin.php">sub17</a>
               </li>
               <li>
-                <a href="ranking-admin.php">RANKING</a>
+                <a href="rankingAdmin.php">RANKING</a>
               </li>
             </ul>
           </li>
@@ -87,21 +97,21 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="#">PARTIDAS</a>
             <ul class="sub-menu">
               <li>
-                <a href="calendario-admin.php">CALENDÁRIO DE JOGOS</a>
-                <a href="historicoPartidas-admin.php">HISTÓRICO DE PARTIDAS</a>
+                <a href="calendarioAdmin.php">CALENDÁRIO DE JOGOS</a>
+                <a href="historicoPartidasAdmin.php">HISTÓRICO DE PARTIDAS</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais-admin.php" id="marcado">NOTÍCIAS</a>
+            <a class="nav-link" href="noticiaisAdmin.php" id="marcado">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
               <li>
-                <a href="cadastro-de-jogador.php">Cadastrar Jogador</a>
-                <a href="cadastro-de-partidas.php">Cadastrar partida</a>
+                <a href="cadastroDeJogador.php">Cadastrar Jogador</a>
+                <a href="cadastroDePartidas.php">Cadastrar partida</a>
                 <a href="../html/home.php">Sair</a>
               </li>
           </li>
@@ -213,7 +223,7 @@ $dados = $sql->fetchAll();
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto mt-4">
-          <a href="fotos-admin.php" class="btn btn-warning mt-2" id="btn-fotos" type="button">Ver Fotos</a>
+          <a href="fotosAdmin.php" class="btn btn-warning mt-2" id="btn-fotos" type="button">Ver Fotos</a>
         </div>
 
       </div>
@@ -222,14 +232,17 @@ $dados = $sql->fetchAll();
     <!-- CALENÁRIO -->
     <div class="barra"></div>
 
-    <div class="row mt-4">
+    <h1 style='text-align: center;' class='barra mt-4'>Jogos de Hoje:</h1>
+
+    <div class="row">
       <div class="col-lg-4" id="calendar">
         <img src="../img/imagens/imagem19.png" id="img-calendar" alt="...">
-        <a href="calendario-admin.php" class="btn btn-warning">Confira os futuros jogos.</a>
+        <a href="calendarioAdmin.php" id="btn-jogos" class="btn btn-warning mt-4">Confira os futuros jogos.</a>
       </div>
 
       <div class="col-lg-4">
-        <h1 style="text-align: center">Jogos de Hoje:</h1>
+
+
       </div>
 
       <div class="col-lg-4">
@@ -250,10 +263,10 @@ $dados = $sql->fetchAll();
                 echo "<p class='fs-2 mt-3'>Horário: " . date("H:i", strtotime($valor['horario'])) . "</p>";
               }
             }
-            if ($cont == 0) {
-              echo "<h2>Não haverá jogo hoje.</h2><br><br>";
-              echo "<p>Para mais informações acesse o <a href='calendario-admin.php'>calendário</a>.</p>";
-            }
+          }
+          if ($cont == 0) {
+            echo "<h2>Não haverá jogo hoje.</h2><br><br>";
+            echo "<p>Para mais informações acesse o <a href='calendarioAdmin.php'>calendário</a>.</p>";
           }
           ?>
         </div>
@@ -271,7 +284,9 @@ $dados = $sql->fetchAll();
 
     <div class="barra mt-4"></div>
 
-    <div class="row mt-4">
+    <h1 style='text-align: center;' class='barra mt-4'>Placar da Partida.</h1>
+
+    <div class="row">
       <div class="col-lg-4">
         <div class="placar">
           <?php
@@ -291,15 +306,15 @@ $dados = $sql->fetchAll();
                 </div>";
               }
             }
-            if ($pla == 1) {
-              echo "<br>";
-              echo "<p style='text-align:center' >Atualize o placar no <a href='historicoPartidas-admin.php'>histórioco de partidas</a>.</p>";
-            }
-            if ($count == 0) {
-              echo "<hr>";
-              echo "<h2 style='text-align: center'>O placar não está disponível no momento.</h2><br>";
-              echo "<p style='text-align:center' class='mt-4'>Para mais informações acesse o <a href='historicoPartidas-admin.php'>histórioco de partidas</a>.</p>";
-            }
+          }
+          if ($pla == 1) {
+            echo "<br>";
+            echo "<p style='text-align:center' >Atualize o placar no <a href='historicoPartidasAdmin.php'>histórioco de partidas</a>.</p>";
+          }
+          if ($count == 0) {
+            echo "<hr>";
+            echo "<h2 style='text-align: center'>O placar não está disponível no momento.</h2><br>";
+            echo "<p style='text-align:center' class='mt-4'>Para mais informações acesse o <a href='historicoPartidasAdmin.php'>histórioco de partidas</a>.</p>";
           }
           ?>
 
@@ -307,7 +322,6 @@ $dados = $sql->fetchAll();
       </div>
 
       <div class="col-lg-4">
-        <h1>Placar da Partida.</h1>
 
       </div>
 

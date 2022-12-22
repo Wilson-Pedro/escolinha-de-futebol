@@ -3,7 +3,6 @@
 div.cabecalho {
     background: linear-gradient(55deg, rgb(250, 165, 6), black);
     background-position: right;
-    height: 43vh;
 }
 
 div.cabecalho>header.navbar>nav.dp-menu {
@@ -17,7 +16,7 @@ div.cabecalho>div.nomeTime>h1 {
     text-align: center;
 }
 
-div.cabecalho>div.nomeTime>h1>a {
+div.cabecalho>div.timeEscudo>div.nomeTime>h1>a {
     text-decoration: none;
     color: white;
 }

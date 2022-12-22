@@ -1,25 +1,26 @@
 <?php
-require('db/conexao.php');
+ require('db/conexao.php');
 
-$sql = $pdo->prepare("SELECT * FROM tbllogin");
-$sql->execute();
-$dados = $sql->fetchAll();
+ $sql = $pdo->prepare("SELECT * FROM tbllogin");
+ $sql->execute();
+ $dados = $sql->fetchAll();
 
-if (isset($_POST['nameLog']) && $_POST['senhaLog']) {
-    $nome = $_POST['nameLog'];
-    $senha = $_POST['senhaLog'];
-    $adm = 1;
-    foreach ($dados as $chaves => $valor) {
-        if(password_verify($senha, $valor['senha'])){
-            echo "<script type='text/javascript'> window.location = '../admin/home-admin.php' </script>";
-        }
-    }
-}
+ if (isset($_POST['nameLog']) && $_POST['senhaLog']) {
+     $nome = $_POST['nameLog'];
+     $senha = $_POST['senhaLog'];
+     $adm = 1;
+     foreach ($dados as $chaves => $valor) {
+         if(password_verify($senha, $valor['senha'])){
+             echo "<script type='text/javascript'> window.location = '../admin/homeAdmin.php' </script>";
+         }
+     }
+ }
 
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -30,6 +31,11 @@ if (isset($_POST['nameLog']) && $_POST['senhaLog']) {
     <link rel="stylesheet" href="../css/login.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 </head>
+<style>
+    .hidden{
+        display: none;
+    }
+</style>
 <body>
     <div class="login">
         <h1>Login</h1>
@@ -52,20 +58,79 @@ if (isset($_POST['nameLog']) && $_POST['senhaLog']) {
                 </span>
             </div>
             <br>
-            
-            
             <div>
-                <button type="submit" name="entrar" class="btn-entrar" onclick="validaCampos()">Entrar</button>
-                <input type="button" value="Limpar" class="btn-entrar" onclick="limpaCampos()">
+                <button id='submeter' class='hidden' type="submit" name="entrar"></button>
             </div><br>
             <a href="../admin/index.php"></a>
         </form>
-
-
-        <div>
+        <button class="btn-entrar" onclick="validaCampos()">Entrar</button>
+        <input type="button" value="Limpar" class="btn-entrar" onclick="limpaCampos()">
+        
+        <!-- <div>
             <a href="cadastro.php"><input type="button" value="Cadastrar uma conta" class="btn-cadastrar"></a>
-        </div>
+        </div> -->
     </div>
-    <script src="../js/login.js"></script>
 </body>
+
 </html>
+<script>
+    var emailLog = document.getElementById('emailLog');
+    var senhaLog = document.getElementById('senhaLog');
+    var alerta = document.querySelector('div#aviso');
+
+    function validaCampos() {
+        if (emailLog.value == "" && senhaLog.value == "") {
+            alerta.innerHTML = "<p class='msg'>Preencha todos os campos corretamente!</p>";
+            emailLog.style.borderColor = "red";
+            senhaLog.style.borderColor = "red";
+        } else if (emailLog.value == "") {
+            alerta.innerHTML = "<p class='msg'>Preencha todos os campos corretamente!</p>";
+            emailLog.style.borderColor = "red";
+        } else if (senhaLog.value == "") {
+            alerta.innerHTML = "<p class='msg'>Preencha todos os campos corretamente!</p>";
+            senhaLog.style.borderColor = "red";
+        } else {
+            alerta.innerHTML = "";
+            emailLog.style.borderColor = "black";
+            senhaLog.style.borderColor = "black";
+            document.getElementById('submeter').click();
+        }
+
+        return;
+    }
+
+    function limpaCampos() {
+        emailLog.value = "";
+        senhaLog.value = "";
+        alerta.innerHTML = "";
+        emailLog.style.borderColor = "grey";
+        senhaLog.style.borderColor = "grey";
+    }
+    var senha = $('#senhaLog');
+    var olho = $("#olho");
+
+    olho.mousedown(function() {
+        senha.attr("type", "text");
+    });
+
+    olho.mouseup(function() {
+        senha.attr("type", "password");
+    });
+
+    // $("#olho").mouseout(function () {
+    //     $("#senhaLog").attr("type", "password");
+    // });
+    const eye = document.getElementById('olho');
+    eye.addEventListener("touchstart", function() {
+        senha.attr("type", "text")
+    });
+
+    eye.addEventListener("touchend", function() {
+        senha.attr("type", "password")
+    });
+
+    // function eye(){
+    //     $("#olho").addEventListener("touchleave", eye());
+    //     $("#senhaLog").attr("type", "password");
+    // };
+</script>

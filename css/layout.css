@@ -10,11 +10,7 @@
 body {
     background-color: rgb(228, 228, 228);
 }
-
-header {
-    height: 25vh;
-}
-
+/*
 .dp-menu ul {
     list-style-type: none;
     padding: 0;
@@ -46,7 +42,7 @@ header {
     background-color: var(--cor-hover);
 }
 
-/*sub menu*/
+//sub menu
 .dp-menu ul ul {
     display: none;
     left: 0;
@@ -64,7 +60,7 @@ header {
 .dp-menu ul ul li a {
     display: block;
 }
-
+*/
 .bg-gradient {
     background: linear-gradient(55deg, rgb(250, 165, 6), black);
 }
@@ -78,7 +74,6 @@ header {
 header>nav>ul>li>a {
     color: white;
     font-weight: bold;
-    font-size: 88%;
 }
 
 header>nav>ul>li>a:hover {

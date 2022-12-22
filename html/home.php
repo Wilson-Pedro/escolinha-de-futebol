@@ -14,15 +14,42 @@ session_destroy();
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/timeANDescudo.css">
   <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
-
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/navegacao.css">
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
 
   <title>Escolinha de futebol</title>
   <style>
+    body {
+      width: 100%;
+    }
+
+    div.cabecalho {
+      width: 100%;
+      height: 40vh;
+    }
+
+    header {
+      width: 100%;
+    }
+
+    header>nav>ul {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+    }
+
+    header>nav>ul>li>a {
+      font-size: 0.8em;
+    }
+
+    a.nav-link {
+      font-size: 0.9em;
+    }
+
     div#icons {
       display: inline-block;
     }
@@ -48,14 +75,15 @@ session_destroy();
 <body>
   <!-- CABEÇALHO -->
   <div class="cabecalho">
-    <div class="nomeTime">
-      <h1><a href="home.php">LYON SLZ</a></h1>
-    </div>
-    <div class="escudoTime">
-      <a href="home.php"><img src="../img/favicon/favicon.png" alt=""></a>
-    </div>
-    <header class="navbar mb-2">
-      <nav class="dp-menu">
+    <picture>
+      <source media="(max-width: 261px)" srcset='../img/imgLogo/lyonSlzEscudo5.png'>
+      <source media="(max-width: 269px)" srcset='../img/imgLogo/lyonSlzEscudo4.png'>
+      <source media="(max-width: 311px)" srcset='../img/imgLogo/lyonSlzEscudo3.png'>
+      <source media="(max-width: 375px)" srcset='../img/imgLogo/lyonSlzEscudo2.png'>
+      <img src="../img/imgLogo/lyonSlzEscudo.png" alt="Escudo do time LYYON SLZ">
+    </picture>
+    <header class="navbar ">
+      <nav class="dp-menu mt-4">
         <ul class="nav">
           <li class="nav-item ">
             <a class="nav-link" id="marcado" href="home.php">HOME</a>

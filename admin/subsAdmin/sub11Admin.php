@@ -21,7 +21,7 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="../../css/ranking.css">
   <link rel="stylesheet" href="../../css/update-delete.css">
 
-  <title>Sub09</title>
+  <title>Sub11</title>
   <style>
     header>nav>ul>li>a {
       font-size: 86%;
@@ -53,36 +53,34 @@ $dados = $sql->fetchAll();
     }
   </style>
 </head>
-<style>
-</style>
 
 <body>
-  <!-- CABEÇALHO -->
-  <div class="cabecalho">
+    <!-- CABEÇALHO -->
+    <div class="cabecalho">
     <div class="nomeTime">
-      <h1><a href="../home-admin.php">LYON SLZ</a></h1>
+      <h1><a href="../homeAdmin.php">LYON SLZ</a></h1>
     </div>
     <div class="escudoTime">
-      <a href="../home-admin.php"><img src="../../img/favicon/favicon.png" alt=""></a>
+      <a href="../homeAdmin.php"><img src="../../img/favicon/favicon.png" alt=""></a>
     </div>
     <header class="navbar mb-2">
       <nav class="dp-menu">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="../home-admin.php">HOME</a>
+            <a class="nav-link" href="../homeAdmin.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="marcado" href="#">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="sub09-admin.php" id="marcado">sub09</a>
-                <a href="sub11-admin.php">sub11</a>
-                <a href="sub13-admin.php">sub13</a>
-                <a href="sub15-admin.php">sub15</a>
-                <a href="sub17-admin.php">sub17</a>
+                <a href="sub09Admin.php">sub09</a>
+                <a href="sub11Admin.php" id="marcado">sub11</a>
+                <a href="sub13Admin.php">sub13</a>
+                <a href="sub15Admin.php">sub15</a>
+                <a href="sub17Admin.php">sub17</a>
               </li>
               <li>
-                <a href="../ranking-admin.php">RANKING</a>
+                <a href="../rankingAdmin.php">RANKING</a>
               </li>
             </ul>
           </li>
@@ -90,20 +88,20 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="#">PARTIDAS</a>
             <ul class="sub-menu">
               <li>
-                <a href="../calendario-admin.php">CALENDÁRIO DE JOGOS</a>
-                <a href="../historicoPartidas-admin.php">HISTÓRICO DE PARTIDAS</a>
+                <a href="../calendarioAdmin.php">CALENDÁRIO DE JOGOS</a>
+                <a href="../historicoPartidasAdmin.php">HISTÓRICO DE PARTIDAS</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../noticiais-admin.php">NOTÍCIAS</a>
+            <a class="nav-link" href="../noticiaisAdmin.php">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-                <a href="../cadastro-de-jogador.php">Cadastrar Jogador</a>
-                <a href="../cadastro-de-partidas.php">Cadastrar partida</a>
+                <a href="../cadastroDeJogador.php">Cadastrar Jogador</a>
+                <a href="../cadastroDePartidas.php">Cadastrar partida</a>
                 <a href="../../html/home.php">Sair</a>
               </li>
             </ul>
@@ -113,9 +111,12 @@ $dados = $sql->fetchAll();
     </header>
   </div>
 
+
+
   <main>
-    <h1 class="categoria">Categoria Sub-09</h1>
+    <h1 class="categoria">Categoria Sub-11</h1>
     <hr>
+
     <!-- ATUALIZAR -->
 
     <form class="oculto" id="form_atualiza" method="post">
@@ -142,8 +143,6 @@ $dados = $sql->fetchAll();
       </div>
     </form>
 
-
-
     <!-- DELETAR -->
 
     <form class="oculto" id="form_deleta" method="post">
@@ -157,7 +156,7 @@ $dados = $sql->fetchAll();
         <input type="hidden" id="posicao_deleta" name="posicao_deleta" placeholder="Editar posicao" required><br><br>
 
         <input type="hidden" id="gols_deleta" name="gols_deleta" placeholder="Editar gols" required>
-        <b>Tem certeza que quer deletar Jogador <span id="cliente"></span></b> <br>
+        <b>Tem certeza que quer deletar Jogador <span id="cliente"></span></b>
 
         <button type="submit" id="btn-deletar" name="deletar">Confirmar</button>
 
@@ -166,6 +165,31 @@ $dados = $sql->fetchAll();
       </div>
     </form>
     <br><br>
+    <?php
+    //PROCESSO DE ATUALIZAÇÃO
+    if (isset($_POST['atualizar']) && isset($_POST['id_editado']) && isset($_POST['nome_editado']) && isset($_POST['idade_editado']) && isset($_POST['posicao_editado']) && isset($_POST['gols_editado'])) {
+
+      $id = $_POST['id_editado'];
+      $nome = $_POST['nome_editado'];
+      $idade = $_POST['idade_editado'];
+      $posicao = $_POST['posicao_editado'];
+      $gols = $_POST['gols_editado'];
+
+
+      $sql = $pdo->prepare("UPDATE tbljogadores SET nome = :nome ,idade = :idade, posicao = :posicao, gols = :gols WHERE id= :id");
+      $sql->bindValue(':nome', $nome);
+      $sql->bindValue(':idade', $idade);
+      $sql->bindValue(':posicao', $posicao);
+      $sql->bindValue(':gols', $gols);
+      $sql->bindValue(':id', $id);
+      $sql->execute();
+      /*
+        $sql = $pdo->prepare("UPDATE tbljogadores SET nome=?,idade=?, posicao=?, gols=? WHERE id=?");
+        $sql->execute(array($nome, $idade, $posicao, $gols, $id));
+
+        echo "Atualizado " . $sql->rowCount() . "registros!";*/
+    }
+    ?>
 
     <?php
     //DELETAR DADOS
@@ -198,7 +222,7 @@ $dados = $sql->fetchAll();
         </thead>";
 
       foreach ($dados as $chaves => $valor) {
-        if ($valor['idade'] > 7 && $valor['idade'] <= 9) {
+        if ($valor['idade'] > 9 && $valor['idade'] <= 11) {
           echo "<tr>
                         <td>" . $valor['nome'] . "</td>
                         <td>" . $valor['idade'] . "</td>
@@ -212,8 +236,9 @@ $dados = $sql->fetchAll();
 
       echo "</table>";
     } else {
-      echo "<p style='text-align:center'>Nenhuma jogador foi <a href='../cadastro-de-jogador.php'>cadastrado</a></p>";
+      echo "<p class='mt-4' style='text-align:center'>Nenhuma jogador foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
     }
+
     ?>
   </main>
   <footer>

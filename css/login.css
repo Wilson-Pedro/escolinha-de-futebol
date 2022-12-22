@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body{
+    width: 100%;
+}
+
 .login{
     padding: 5vh;
     /* padding-bottom: 60vh; */

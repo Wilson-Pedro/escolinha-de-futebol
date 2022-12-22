@@ -2,7 +2,7 @@
 // CONFIGURAÇÕES GERAIS
 $servidor="localhost";
 $usuario="root";
-$senha="";
+$senha="ti1234";
 $banco="escolinha_de_futebol";
 
 
