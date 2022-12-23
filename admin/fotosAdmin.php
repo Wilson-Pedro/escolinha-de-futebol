@@ -31,8 +31,8 @@ if (isset($_POST['deletar'])) {
   <link rel="stylesheet" href="../css/timeANDescudo.css">
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="../css/imgFile.css">
   <link rel="stylesheet" href="../css/navegacao.css">
+  <link rel="stylesheet" href="../css/navResponsivo.css">
   <title>Fotos</title>
 </head>
 <style>
@@ -165,14 +165,15 @@ if (isset($_POST['deletar'])) {
 
   <!-- CABEÇALHO -->
   <div class="cabecalho">
-    <div class="nomeTime">
-      <h1><a href="homeAdmin.php">LYON SLZ</a></h1>
-    </div>
-    <div class="escudoTime">
-      <a href="homeAdmin.php"><img src="../img/favicon/favicon.png" alt=""></a>
-    </div>
-    <header class="navbar mb-2">
-      <nav class="dp-menu">
+    <picture>
+      <source media="(max-width: 261px)" srcset='../img/imgLogo/lyonSlzEscudo5.png'>
+      <source media="(max-width: 269px)" srcset='../img/imgLogo/lyonSlzEscudo4.png'>
+      <source media="(max-width: 311px)" srcset='../img/imgLogo/lyonSlzEscudo3.png'>
+      <source media="(max-width: 375px)" srcset='../img/imgLogo/lyonSlzEscudo2.png'>
+      <img src="../img/imgLogo/lyonSlzEscudo.png" alt="Escudo do time LYYON SLZ">
+    </picture>
+    <header class="navbar ">
+      <nav class="dp-menu mt-4">
         <ul class="nav">
           <li class="nav-item ">
             <a class="nav-link" href="homeAdmin.php">HOME</a>
@@ -208,14 +209,12 @@ if (isset($_POST['deletar'])) {
             <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
-              <li>
                 <a href="cadastroDeJogador.php">Cadastrar Jogador</a>
                 <a href="cadastroDePartidas.php">Cadastrar partida</a>
                 <a href="../html/home.php">Sair</a>
               </li>
+            </ul>
           </li>
-        </ul>
-        </li>
         </ul>
       </nav>
     </header>

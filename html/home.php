@@ -25,29 +25,35 @@ session_destroy();
   <style>
     body {
       width: 100%;
+      min-height: 100%;
     }
 
     div.cabecalho {
       width: 100%;
-      height: 40vh;
     }
 
     header {
+      width: 100%;
+      height: 10%;
+    }
+
+    header > nav {
+      background: linear-gradient(55deg, rgba(250, 165, 6, 0.288), rgba(0, 0, 0, 0.089));
       width: 100%;
     }
 
     header>nav>ul {
       display: flex;
-      align-items: left;
-      justify-content: left;
+      align-items: center;
+      justify-content: center;
     }
 
     header>nav>ul>li>a {
-      font-size: 0.8em;
+      font-size: 0.9em;
     }
 
     a.nav-link {
-      font-size: 0.9em;
+      font-size: 1em;
     }
 
     div#icons {

@@ -21,10 +21,9 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="../css/timeANDescudo.css">
   <link rel="stylesheet" href="lyon.jpg">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="../css/noticiais.css">
-  <link rel="stylesheet" href="../css/imgFile.css">
   <link rel="stylesheet" href="../css/news.css">
   <link rel="stylesheet" href="../css/navegacao.css">
+  <link rel="stylesheet" href="../css/navResponsivo.css">
 
   <title>Notícias</title>
 
@@ -66,61 +65,60 @@ $dados = $sql->fetchAll();
 <body>
   <!-- CABEÇALHO -->
   <div class="cabecalho">
-    <div class="nomeTime">
-      <h1><a href="homeAdmin.php">LYON SLZ</a></h1>
+        <picture>
+            <source media="(max-width: 261px)" srcset='../img/imgLogo/lyonSlzEscudo5.png'>
+            <source media="(max-width: 269px)" srcset='../img/imgLogo/lyonSlzEscudo4.png'>
+            <source media="(max-width: 311px)" srcset='../img/imgLogo/lyonSlzEscudo3.png'>
+            <source media="(max-width: 375px)" srcset='../img/imgLogo/lyonSlzEscudo2.png'>
+            <img src="../img/imgLogo/lyonSlzEscudo.png" alt="Escudo do time LYYON SLZ">
+        </picture>
+        <header class="navbar ">
+            <nav class="dp-menu mt-4">
+                <ul class="nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="homeAdmin.php">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">JOGADORES</a>
+                        <ul class="sub-menu" id="sobrepor">
+                            <li>
+                                <a href="subsAdmin/sub09Admin.php">sub09</a>
+                                <a href="subsAdmin/sub11Admin.php">sub11</a>
+                                <a href="subsAdmin/sub13Admin.php">sub13</a>
+                                <a href="subsAdmin/sub15Admin.php">sub15</a>
+                                <a href="subsAdmin/sub17Admin.php">sub17</a>
+                            </li>
+                            <li>
+                                <a href="rankingAdmin.php">RANKING</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">PARTIDAS</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="calendarioAdmin.php">CALENDÁRIO DE JOGOS</a>
+                                <a href="historicoPartidasAdmin.php" id="marcado">HISTÓRICO DE PARTIDAS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="noticiaisAdmin.php" id="marcado">NOTÍCIAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">MAIS</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="cadastroDeJogador.php">Cadastrar Jogador</a>
+                                <a href="cadastroDePartidas.php">Cadastrar partida</a>
+                                <a href="../html/home.php">Sair</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
     </div>
-    <div class="escudoTime">
-      <a href="homeAdmin.php"><img src="../img/favicon/favicon.png" alt=""></a>
-    </div>
-    <header class="navbar mb-2">
-      <nav class="dp-menu">
-        <ul class="nav">
-          <li class="nav-item ">
-            <a class="nav-link" href="homeAdmin.php">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">JOGADORES</a>
-            <ul class="sub-menu" id="sobrepor">
-              <li>
-                <a href="subsAdmin/sub09Admin.php">sub09</a>
-                <a href="subsAdmin/sub11Admin.php">sub11</a>
-                <a href="subsAdmin/sub13Admin.php">sub13</a>
-                <a href="subsAdmin/sub15Admin.php">sub15</a>
-                <a href="subsAdmin/sub17Admin.php">sub17</a>
-              </li>
-              <li>
-                <a href="rankingAdmin.php">RANKING</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">PARTIDAS</a>
-            <ul class="sub-menu">
-              <li>
-                <a href="calendarioAdmin.php">CALENDÁRIO DE JOGOS</a>
-                <a href="historicoPartidasAdmin.php">HISTÓRICO DE PARTIDAS</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="noticiaisAdmin.php" id="marcado">NOTÍCIAS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">MAIS</a>
-            <ul class="sub-menu" id="sobrepor">
-              <li>
-              <li>
-                <a href="cadastroDeJogador.php">Cadastrar Jogador</a>
-                <a href="cadastroDePartidas.php">Cadastrar partida</a>
-                <a href="../html/home.php">Sair</a>
-              </li>
-          </li>
-        </ul>
-        </li>
-        </ul>
-      </nav>
-    </header>
-  </div>
 
   <div class="container">
     <div class="row mt-4">

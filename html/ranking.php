@@ -18,15 +18,12 @@ $dados = $sql->fetchAll();
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/timeANDescudo.css">
   <link rel="shortcut icon" href="../img/favicon/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="../css/ranking.css">
+  <link rel="stylesheet" href="../css/navResponsivo.css">
+  <link rel="stylesheet" href="../css/navegacao.css">
   <title>Ranking</title>
   <style>
     body {
       font-family: 'Arial';
-    }
-
-    header>nav>ul>li>a {
-      font-size: 86%;
     }
 
     .dp-menu ul li a {
@@ -58,20 +55,21 @@ $dados = $sql->fetchAll();
 <body>
   <!-- CABEÇALHO -->
   <div class="cabecalho">
-    <div class="nomeTime">
-      <h1><a href="home.php">LYON SLZ</a></h1>
-    </div>
-    <div class="escudoTime">
-      <a href="home.php"><img src="../img/favicon/favicon.png" alt=""></a>
-    </div>
-    <header class="navbar mb-2">
-      <nav class="dp-menu">
+    <picture>
+      <source media="(max-width: 261px)" srcset='../img/imgLogo/lyonSlzEscudo5.png'>
+      <source media="(max-width: 269px)" srcset='../img/imgLogo/lyonSlzEscudo4.png'>
+      <source media="(max-width: 311px)" srcset='../img/imgLogo/lyonSlzEscudo3.png'>
+      <source media="(max-width: 375px)" srcset='../img/imgLogo/lyonSlzEscudo2.png'>
+      <img src="../img/imgLogo/lyonSlzEscudo.png" alt="Escudo do time LYYON SLZ">
+    </picture>
+    <header class="navbar ">
+      <nav class="dp-menu mt-4">
         <ul class="nav">
           <li class="nav-item ">
             <a class="nav-link" href="home.php">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="marcado" href="#">JOGADORES</a>
+            <a class="nav-link" href="#" id="marcado">JOGADORES</a>
             <ul class="sub-menu" id="sobrepor">
               <li>
                 <a href="subs/sub09.php">sub09</a>
@@ -81,7 +79,7 @@ $dados = $sql->fetchAll();
                 <a href="subs/sub17.php">sub17</a>
               </li>
               <li>
-                <a href="ranking.php">RANKING</a>
+                <a href="ranking.php" id="marcado">RANKING</a>
               </li>
             </ul>
           </li>
@@ -98,19 +96,18 @@ $dados = $sql->fetchAll();
             <a class="nav-link" href="noticiais.php">NOTÍCIAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="noticiais.php">MAIS</a>
+            <a class="nav-link" href="#">MAIS</a>
             <ul class="sub-menu" id="sobrepor">
-              <li>
               <li>
                 <a href="login.php">Logar</a>
               </li>
+            </ul>
           </li>
-        </ul>
-        </li>
         </ul>
       </nav>
     </header>
   </div>
+
   <main>
     <br><br><br>
     <?php

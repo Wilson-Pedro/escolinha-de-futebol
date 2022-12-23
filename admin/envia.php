@@ -12,12 +12,12 @@ for ($cont = 0; $cont < count($arquivo['name']); $cont++) {
     $nome_arquivo = $arquivo['name'][$cont];
     $destino = "../img/imgArquivos/" . $arquivo['name'][$cont];
     if (move_uploaded_file($arquivo['tmp_name'][$cont], $destino)) {
-        header('Location: fotos-admin.php');
+        header('Location: fotosAdmin.php');
         $sql = $pdo->prepare("INSERT INTO tblfotos VALUES (null,?)");
         $nome_arquivo = $arquivo['name'][$cont];
         $sql->execute(array($nome_arquivo));
     } else {
-        header('Location: fotos-admin.php');
+        header('Location: fotosAdmin.php');
     }
 }
 
