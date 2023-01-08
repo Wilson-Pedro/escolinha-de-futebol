@@ -140,8 +140,6 @@ $dados = $sql->fetchAll();
       </div>
     </form>
 
-
-
     <!-- DELETAR -->
 
     <form class="oculto" id="form_deleta" method="post">
@@ -166,6 +164,32 @@ $dados = $sql->fetchAll();
     <br><br>
 
     <?php
+    //PROCESSO DE ATUALIZAÇÃO
+    if (isset($_POST['atualizar']) && isset($_POST['id_editado']) && isset($_POST['nome_editado']) && isset($_POST['idade_editado']) && isset($_POST['posicao_editado']) && isset($_POST['gols_editado'])) {
+
+      $id = $_POST['id_editado'];
+      $nome = $_POST['nome_editado'];
+      $idade = $_POST['idade_editado'];
+      $posicao = $_POST['posicao_editado'];
+      $gols = $_POST['gols_editado'];
+
+
+      $sql = $pdo->prepare("UPDATE tbljogadores SET nome = :nome ,idade = :idade, posicao = :posicao, gols = :gols WHERE id= :id");
+      $sql->bindValue(':nome', $nome);
+      $sql->bindValue(':idade', $idade);
+      $sql->bindValue(':posicao', $posicao);
+      $sql->bindValue(':gols', $gols);
+      $sql->bindValue(':id', $id);
+      $sql->execute();
+      /*
+        $sql = $pdo->prepare("UPDATE tbljogadores SET nome=?,idade=?, posicao=?, gols=? WHERE id=?");
+        $sql->execute(array($nome, $idade, $posicao, $gols, $id));
+
+        echo "Atualizado " . $sql->rowCount() . "registros!";*/
+    }
+    ?>
+
+    <?php
     //DELETAR DADOS
     if (isset($_POST['deletar']) && isset($_POST['id_deleta']) && isset($_POST['nome_deleta']) && isset($_POST['idade_deleta']) && isset($_POST['posicao_deleta']) && isset($_POST['gols_deleta'])) {
 
@@ -183,8 +207,16 @@ $dados = $sql->fetchAll();
     }
     ?>
     <?php
+    $sub9 = 0;
     if (count($dados) > 0) {
-      echo "<table class='table table-striped'>
+      foreach ($dados as $chaves => $valor) {
+        if ($valor['idade'] > 7 && $valor['idade'] <= 9) {
+          $sub9++;
+        }
+      } if($sub9 == 0){
+        echo "<p style='text-align:center'>Nenhuma jogador desta foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
+      } else  {
+        echo "<table class='table table-striped'>
         <thead class=table-dark>
         <tr>
             <th>Nome</th>
@@ -209,8 +241,9 @@ $dados = $sql->fetchAll();
 
 
       echo "</table>";
+      }
     } else {
-      echo "<p style='text-align:center'>Nenhuma jogador foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
+      echo "<p style='text-align:center'>Nenhuma jogador desta foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
     }
     ?>
   </main>

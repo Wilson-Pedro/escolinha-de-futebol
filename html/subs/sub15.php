@@ -118,8 +118,17 @@ $dados = $sql->fetchAll();
     <hr>
     <br>
     <?php
+    $sub15 = 0;
     if (count($dados) > 0) {
-      echo "<table class='table table-striped'>
+      foreach ($dados as $chaves => $valor) {
+        if ($valor['idade'] > 13 && $valor['idade'] <= 15) {
+          $sub15++;
+        }
+      }
+      if ($sub15 == 0) {
+        echo "<br><p class='mt-4' style='text-align:center'>Nenhuma jogador desta foi cadastrado</p>";
+      } else {
+        echo "<table class='table table-striped'>
         <thead class=table-dark>
         <tr>
             <th>Nome</th>
@@ -129,21 +138,21 @@ $dados = $sql->fetchAll();
         </tr>
         </thead>";
 
-      foreach ($dados as $chaves => $valor) {
-        if ($valor['idade'] >= 14 && $valor['idade'] <= 15) {
-          echo "<tr>
+        foreach ($dados as $chaves => $valor) {
+          if ($valor['idade'] > 13 && $valor['idade'] <= 15) {
+            echo "<tr>
                         <td>" . $valor['nome'] . "</td>
                         <td>" . $valor['idade'] . "</td>
                         <td>" . $valor['posicao'] . "</td>
                         <td>" . $valor['gols'] . "</td>
                     </tr>";
+          }
         }
       }
 
-
       echo "</table>";
     } else {
-      echo "<br><p class='mt-4' style='text-align:center'>Nenhuma jogador foi cadastrado</p>";
+      echo "<br><p class='mt-4' style='text-align:center'>Nenhuma jogador desta foi cadastrado</p>";
     }
 
     ?>

@@ -29,6 +29,10 @@ $dados = $sql->fetchAll();
 
 </head>
 <style>
+  body {
+    width: 100%;
+  }
+
   #btn-fotos {
     color: white;
     font-weight: bold;
@@ -51,12 +55,12 @@ $dados = $sql->fetchAll();
     text-align: center;
   }
 
-  #img-calendar{
+  #img-calendar {
     display: block;
     margin: auto;
   }
 
-  #calendar > #btn-jogos{
+  #calendar>#btn-jogos {
     display: block;
     margin: auto;
   }
@@ -65,60 +69,60 @@ $dados = $sql->fetchAll();
 <body>
   <!-- CABEÇALHO -->
   <div class="cabecalho">
-        <picture>
-            <source media="(max-width: 261px)" srcset='../img/imgLogo/lyonSlzEscudo5.png'>
-            <source media="(max-width: 269px)" srcset='../img/imgLogo/lyonSlzEscudo4.png'>
-            <source media="(max-width: 311px)" srcset='../img/imgLogo/lyonSlzEscudo3.png'>
-            <source media="(max-width: 375px)" srcset='../img/imgLogo/lyonSlzEscudo2.png'>
-            <img src="../img/imgLogo/lyonSlzEscudo.png" alt="Escudo do time LYYON SLZ">
-        </picture>
-        <header class="navbar ">
-            <nav class="dp-menu mt-4">
-                <ul class="nav">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="homeAdmin.php">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">JOGADORES</a>
-                        <ul class="sub-menu" id="sobrepor">
-                            <li>
-                                <a href="subsAdmin/sub09Admin.php">sub09</a>
-                                <a href="subsAdmin/sub11Admin.php">sub11</a>
-                                <a href="subsAdmin/sub13Admin.php">sub13</a>
-                                <a href="subsAdmin/sub15Admin.php">sub15</a>
-                                <a href="subsAdmin/sub17Admin.php">sub17</a>
-                            </li>
-                            <li>
-                                <a href="rankingAdmin.php">RANKING</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PARTIDAS</a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="calendarioAdmin.php">CALENDÁRIO DE JOGOS</a>
-                                <a href="historicoPartidasAdmin.php" id="marcado">HISTÓRICO DE PARTIDAS</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="noticiaisAdmin.php" id="marcado">NOTÍCIAS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">MAIS</a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="cadastroDeJogador.php">Cadastrar Jogador</a>
-                                <a href="cadastroDePartidas.php">Cadastrar partida</a>
-                                <a href="../html/home.php">Sair</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-    </div>
+    <picture>
+      <source media="(max-width: 261px)" srcset='../img/imgLogo/lyonSlzEscudo5.png'>
+      <source media="(max-width: 269px)" srcset='../img/imgLogo/lyonSlzEscudo4.png'>
+      <source media="(max-width: 311px)" srcset='../img/imgLogo/lyonSlzEscudo3.png'>
+      <source media="(max-width: 375px)" srcset='../img/imgLogo/lyonSlzEscudo2.png'>
+      <img src="../img/imgLogo/lyonSlzEscudo.png" alt="Escudo do time LYYON SLZ">
+    </picture>
+    <header class="navbar ">
+      <nav class="dp-menu mt-4">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="homeAdmin.php">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">JOGADORES</a>
+            <ul class="sub-menu" id="sobrepor">
+              <li>
+                <a href="subsAdmin/sub09Admin.php">sub09</a>
+                <a href="subsAdmin/sub11Admin.php">sub11</a>
+                <a href="subsAdmin/sub13Admin.php">sub13</a>
+                <a href="subsAdmin/sub15Admin.php">sub15</a>
+                <a href="subsAdmin/sub17Admin.php">sub17</a>
+              </li>
+              <li>
+                <a href="rankingAdmin.php">RANKING</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">PARTIDAS</a>
+            <ul class="sub-menu">
+              <li>
+                <a href="calendarioAdmin.php">CALENDÁRIO DE JOGOS</a>
+                <a href="historicoPartidasAdmin.php">HISTÓRICO DE PARTIDAS</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="noticiaisAdmin.php" id="marcado">NOTÍCIAS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">MAIS</a>
+            <ul class="sub-menu">
+              <li>
+                <a href="cadastroDeJogador.php">Cadastrar Jogador</a>
+                <a href="cadastroDePartidas.php">Cadastrar partida</a>
+                <a href="../html/home.php">Sair</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </div>
 
   <div class="container">
     <div class="row mt-4">
@@ -234,7 +238,7 @@ $dados = $sql->fetchAll();
 
     <div class="row">
       <div class="col-lg-4" id="calendar">
-        <img src="../img/imagens/imagem19.png" id="img-calendar" alt="...">
+        <img src="../img/imagens/matchCalendar.PNG" id="img-calendar" class="img-thumbnail img-fluid" alt="imafem de um calendário">
         <a href="calendarioAdmin.php" id="btn-jogos" class="btn btn-warning mt-4">Confira os futuros jogos.</a>
       </div>
 
@@ -325,7 +329,7 @@ $dados = $sql->fetchAll();
 
       <div class="col-lg-4">
         <div class="placar">
-          <img src="../img/imagens/imagem10.png" alt="">
+          <img src="../img/imagens/imagem10.png" class="img-fluid" alt="">
         </div>
       </div>
     </div>

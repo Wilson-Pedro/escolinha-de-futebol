@@ -217,14 +217,17 @@ $dados = $sql->fetchAll();
     <!-- CALENÁRIO -->
     <div class="barra"></div>
 
-    <div class="row mt-4">
+    <h1 style='text-align: center;' class='barra mt-4'>Jogos de Hoje:</h1>
+
+    <div class="row">
       <div class="col-lg-4" id="calendar">
-        <img src="../img/imagens/imagem19.png" id="img-calendar" alt="...">
-        <a href="calendario-admin.php" class="btn btn-warning">Confira os futuros jogos.</a>
+        <img src="../img/imagens/matchCalendar.PNG" id="img-calendar" class="img-thumbnail img-fluid" alt="imafem de um calendário">
+        <a href="calendarioAdmin.php" id="btn-jogos" class="btn btn-warning mt-4">Confira os futuros jogos.</a>
       </div>
 
       <div class="col-lg-4">
-        <h1 style="text-align: center">Jogos de Hoje:</h1>
+
+
       </div>
 
       <div class="col-lg-4">
@@ -245,10 +248,10 @@ $dados = $sql->fetchAll();
                 echo "<p class='fs-2 mt-3'>Horário: " . date("H:i", strtotime($valor['horario'])) . "</p>";
               }
             }
-            if ($cont == 0) {
-              echo "<h2>Não haverá jogo hoje.</h2>";
-              echo "<br><p class='mt-4' style='text-align:center'>Para mais informações acesse o <a href='calendario.php'>calendário</a>.</p>";
-            }
+          }
+          if ($cont == 0) {
+            echo "<h2>Não haverá jogo hoje.</h2><br><br>";
+            echo "<p>Para mais informações acesse o <a href='calendario.php'>calendário</a>.</p>";
           }
           ?>
         </div>
@@ -266,7 +269,9 @@ $dados = $sql->fetchAll();
 
     <div class="barra mt-4"></div>
 
-    <div class="row mt-4">
+    <h1 style='text-align: center;' class='barra mt-4'>Placar da Partida.</h1>
+
+    <div class="row">
       <div class="col-lg-4">
         <div class="placar">
           <?php
@@ -277,7 +282,6 @@ $dados = $sql->fetchAll();
           if (count($dados) > 0) {
             foreach ($dados as $chaves => $valor) {
               if ($valor['data_partida'] == $dataAtual) {
-                $pla = 1;
                 $count = 1;
 
                 echo "<hr>";
@@ -286,36 +290,27 @@ $dados = $sql->fetchAll();
                 </div>";
               }
             }
-            if ($pla == 1) {
-              echo "<br>";
-              echo "<p style='text-align:center' class='mt-4'>Para mais informações acesse o <a href='historicoPartidas.php'>histórioco de partidas</a>.</p>";
-            }
-            if ($count == 0) {
-              echo "<hr>";
-              echo "<h2 style='text-align: center'>O placar não está disponível no momento.</h2><br>";
-              echo "<p style='text-align:center' class='mt-4'>Para mais informações acesse o <a href='historicoPartidas.php'>histórioco de partidas</a>.</p>";
-            }
           }
-
+          if ($count == 0) {
+            echo "<hr>";
+            echo "<h2 style='text-align: center'>O placar não está disponível no momento.</h2><br>";
+            echo "<p style='text-align:center' class='mt-4'>Para mais informações acesse o <a href='historicoPartidas.php'>histórioco de partidas</a>.</p>";
+          }
           ?>
 
         </div>
       </div>
 
       <div class="col-lg-4">
-        <h1>Placar da Partida.</h1>
 
       </div>
 
       <div class="col-lg-4">
         <div class="placar">
-          <img src="../img/imagens/imagem10.png" alt="">
+          <img src="../img/imagens/imagem10.png" class="img-fluid" alt="">
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="barra mt-4"></div>
 
   </div>
 

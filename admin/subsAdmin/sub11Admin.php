@@ -207,8 +207,16 @@ $dados = $sql->fetchAll();
     }
     ?>
     <?php
+    $sub11 = 0;
     if (count($dados) > 0) {
-      echo "<table class='table table-striped'>
+      foreach ($dados as $chaves => $valor) {
+        if ($valor['idade'] > 9 && $valor['idade'] <= 11) {
+          $sub11++;
+        }
+      } if($sub11 == 0){
+        echo "<p style='text-align:center'>Nenhuma jogador desta foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
+      } else  {
+        echo "<table class='table table-striped'>
         <thead class=table-dark>
         <tr>
             <th>Nome</th>
@@ -233,10 +241,10 @@ $dados = $sql->fetchAll();
 
 
       echo "</table>";
+      }
     } else {
-      echo "<p class='mt-4' style='text-align:center'>Nenhuma jogador foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
+      echo "<p style='text-align:center'>Nenhuma jogador desta foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
     }
-
     ?>
   </main>
   <footer>

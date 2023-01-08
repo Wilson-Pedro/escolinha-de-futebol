@@ -71,7 +71,7 @@ $dados = $sql->fetchAll();
             <ul class="sub-menu" id="sobrepor">
               <li>
                 <a href="sub09Admin.php">sub09</a>
-                <a href="sub11Admin.php">sub11</a>
+                <a href="sub17Admin.php">sub17</a>
                 <a href="sub13Admin.php">sub13</a>
                 <a href="sub15Admin.php">sub15</a>
                 <a href="sub17Admin.php" id="marcado">sub17</a>
@@ -207,8 +207,16 @@ $dados = $sql->fetchAll();
     }
     ?>
     <?php
+    $sub17 = 0;
     if (count($dados) > 0) {
-      echo "<table class='table table-striped'>
+      foreach ($dados as $chaves => $valor) {
+        if ($valor['idade'] > 15 && $valor['idade'] <= 17) {
+          $sub17++;
+        }
+      } if($sub17 == 0){
+        echo "<p style='text-align:center'>Nenhuma jogador desta foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
+      } else  {
+        echo "<table class='table table-striped'>
         <thead class=table-dark>
         <tr>
             <th>Nome</th>
@@ -233,10 +241,10 @@ $dados = $sql->fetchAll();
 
 
       echo "</table>";
+      }
     } else {
-      echo "<p class='mt-4' style='text-align:center'>Nenhuma jogador foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
+      echo "<p style='text-align:center'>Nenhuma jogador desta foi <a href='../cadastroDeJogador.php'>cadastrado</a></p>";
     }
-
     ?>
   </main>
   <footer>
